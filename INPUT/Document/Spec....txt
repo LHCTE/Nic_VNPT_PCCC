@@ -4,3 +4,4 @@
 4. Thêm pin, sạc pin, báo pin , switch nguồn lựa chọn PIN và Adapter --- chạy được khoảng 10h. McU phải detect được trạng thái đang dùng nguồn hay dùng pin
 5. Đảm bảo lại module 4G 2 sim ( thiết kế kiểu 1 module = 2 sim , hay 2 module riêng biệt )
 6. Kiểm tra lại RTC ( chưa có Pin BAT )
+7.Check lai vo hop
