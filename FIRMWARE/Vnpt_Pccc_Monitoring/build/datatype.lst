@@ -1,0 +1,535 @@
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"datatype.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata.TextToHexStr.str1.4,"aMS",%progbits,1
+  18              		.align	2
+  19              	.LC0:
+  20 0000 25303258 		.ascii	"%02X\000"
+  20      00
+  21              		.section	.text.TextToHexStr,"ax",%progbits
+  22              		.align	1
+  23              		.global	TextToHexStr
+  24              		.syntax unified
+  25              		.code	16
+  26              		.thumb_func
+  28              	TextToHexStr:
+  29              	.LVL0:
+  30              	.LFB313:
+  31              		.file 1 "Src/datatype.c"
+   1:Src/datatype.c **** #include "datatype.h"
+   2:Src/datatype.c **** #include <stdio.h> 
+   3:Src/datatype.c **** #include <string.h>
+   4:Src/datatype.c **** 
+   5:Src/datatype.c **** void TextToHexStr(uint8_t *input, uint8_t *output)
+   6:Src/datatype.c **** {
+  32              		.loc 1 6 1 view -0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 0, uses_anonymous_args = 0
+  36              		.loc 1 6 1 is_stmt 0 view .LVU1
+  37 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  38              	.LCFI0:
+  39              		.cfi_def_cfa_offset 24
+  40              		.cfi_offset 3, -24
+  41              		.cfi_offset 4, -20
+  42              		.cfi_offset 5, -16
+  43              		.cfi_offset 6, -12
+  44              		.cfi_offset 7, -8
+  45              		.cfi_offset 14, -4
+  46 0002 0700     		movs	r7, r0
+  47 0004 0E00     		movs	r6, r1
+   7:Src/datatype.c **** 	uint16_t i = 0;
+  48              		.loc 1 7 2 is_stmt 1 view .LVU2
+  49              	.LVL1:
+   8:Src/datatype.c **** 	uint16_t loop = 0;
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s 			page 2
+
+
+  50              		.loc 1 8 2 view .LVU3
+   9:Src/datatype.c **** 	
+  10:Src/datatype.c **** 	while(input[loop] != '\0')
+  51              		.loc 1 10 2 view .LVU4
+   8:Src/datatype.c **** 	uint16_t loop = 0;
+  52              		.loc 1 8 11 is_stmt 0 view .LVU5
+  53 0006 0025     		movs	r5, #0
+   7:Src/datatype.c **** 	uint16_t loop = 0;
+  54              		.loc 1 7 11 view .LVU6
+  55 0008 0024     		movs	r4, #0
+  56              		.loc 1 10 7 view .LVU7
+  57 000a 07E0     		b	.L2
+  58              	.LVL2:
+  59              	.L3:
+  11:Src/datatype.c **** 	{
+  12:Src/datatype.c **** 		sprintf((char*)(output + i),"%02X", input[loop]);
+  60              		.loc 1 12 3 is_stmt 1 view .LVU8
+  61              		.loc 1 12 26 is_stmt 0 view .LVU9
+  62 000c 3019     		adds	r0, r6, r4
+  63              		.loc 1 12 3 view .LVU10
+  64 000e 0749     		ldr	r1, .L4
+  65 0010 FFF7FEFF 		bl	sprintf
+  66              	.LVL3:
+  13:Src/datatype.c **** 		loop += 1;
+  67              		.loc 1 13 3 is_stmt 1 view .LVU11
+  68              		.loc 1 13 8 is_stmt 0 view .LVU12
+  69 0014 0135     		adds	r5, r5, #1
+  70              	.LVL4:
+  71              		.loc 1 13 8 view .LVU13
+  72 0016 ADB2     		uxth	r5, r5
+  73              	.LVL5:
+  14:Src/datatype.c **** 		i += 2;
+  74              		.loc 1 14 3 is_stmt 1 view .LVU14
+  75              		.loc 1 14 5 is_stmt 0 view .LVU15
+  76 0018 0234     		adds	r4, r4, #2
+  77              	.LVL6:
+  78              		.loc 1 14 5 view .LVU16
+  79 001a A4B2     		uxth	r4, r4
+  80              	.LVL7:
+  81              	.L2:
+  10:Src/datatype.c **** 	{
+  82              		.loc 1 10 7 is_stmt 1 view .LVU17
+  10:Src/datatype.c **** 	{
+  83              		.loc 1 10 13 is_stmt 0 view .LVU18
+  84 001c 7A5D     		ldrb	r2, [r7, r5]
+  10:Src/datatype.c **** 	{
+  85              		.loc 1 10 7 view .LVU19
+  86 001e 002A     		cmp	r2, #0
+  87 0020 F4D1     		bne	.L3
+  15:Src/datatype.c **** 	}
+  16:Src/datatype.c **** 	
+  17:Src/datatype.c **** 	//insert NULL at the end of the output string
+  18:Src/datatype.c **** 	output[i++] = '\0';
+  88              		.loc 1 18 2 is_stmt 1 view .LVU20
+  89              	.LVL8:
+  90              		.loc 1 18 8 is_stmt 0 view .LVU21
+  91 0022 3419     		adds	r4, r6, r4
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s 			page 3
+
+
+  92              	.LVL9:
+  93              		.loc 1 18 14 view .LVU22
+  94 0024 0023     		movs	r3, #0
+  95 0026 2370     		strb	r3, [r4]
+  19:Src/datatype.c **** }
+  96              		.loc 1 19 1 view .LVU23
+  97              		@ sp needed
+  98              	.LVL10:
+  99              	.LVL11:
+ 100              	.LVL12:
+ 101              		.loc 1 19 1 view .LVU24
+ 102 0028 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 103              	.L5:
+ 104 002a C046     		.align	2
+ 105              	.L4:
+ 106 002c 00000000 		.word	.LC0
+ 107              		.cfi_endproc
+ 108              	.LFE313:
+ 110              		.section	.text.HexStrToHexChar,"ax",%progbits
+ 111              		.align	1
+ 112              		.global	HexStrToHexChar
+ 113              		.syntax unified
+ 114              		.code	16
+ 115              		.thumb_func
+ 117              	HexStrToHexChar:
+ 118              	.LVL13:
+ 119              	.LFB314:
+  20:Src/datatype.c **** 
+  21:Src/datatype.c **** void HexStrToHexChar(uint8_t *input, uint8_t *output)
+  22:Src/datatype.c **** {
+ 120              		.loc 1 22 1 is_stmt 1 view -0
+ 121              		.cfi_startproc
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 0, uses_anonymous_args = 0
+ 124              		.loc 1 22 1 is_stmt 0 view .LVU26
+ 125 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 126              	.LCFI1:
+ 127              		.cfi_def_cfa_offset 24
+ 128              		.cfi_offset 3, -24
+ 129              		.cfi_offset 4, -20
+ 130              		.cfi_offset 5, -16
+ 131              		.cfi_offset 6, -12
+ 132              		.cfi_offset 7, -8
+ 133              		.cfi_offset 14, -4
+ 134 0002 0600     		movs	r6, r0
+ 135 0004 0F00     		movs	r7, r1
+  23:Src/datatype.c **** 	for(uint8_t i = 0; i < strlen((char*)input) / 2; i++) 
+ 136              		.loc 1 23 2 is_stmt 1 view .LVU27
+ 137              	.LBB2:
+ 138              		.loc 1 23 6 view .LVU28
+ 139              	.LVL14:
+ 140              		.loc 1 23 14 is_stmt 0 view .LVU29
+ 141 0006 0024     		movs	r4, #0
+ 142              		.loc 1 23 2 view .LVU30
+ 143 0008 1FE0     		b	.L7
+ 144              	.LVL15:
+ 145              	.L8:
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s 			page 4
+
+
+  24:Src/datatype.c **** 	{ 
+  25:Src/datatype.c **** 		if(input[i * 2] >= 48 && input[i * 2] <= 57) output[i] = (input[i * 2] - 48) << 4; //...Number HE
+  26:Src/datatype.c **** 		else if(input[i * 2] >= 97 && input[i * 2] <= 102) output[i] = (input[i * 2] - 32) << 4; //...Low
+ 146              		.loc 1 26 8 is_stmt 1 view .LVU31
+ 147              		.loc 1 26 30 is_stmt 0 view .LVU32
+ 148 000a 1300     		movs	r3, r2
+ 149 000c 613B     		subs	r3, r3, #97
+ 150 000e DBB2     		uxtb	r3, r3
+ 151              		.loc 1 26 10 view .LVU33
+ 152 0010 052B     		cmp	r3, #5
+ 153 0012 04D8     		bhi	.L10
+ 154              		.loc 1 26 54 is_stmt 1 discriminator 1 view .LVU34
+ 155              		.loc 1 26 80 is_stmt 0 discriminator 1 view .LVU35
+ 156 0014 203A     		subs	r2, r2, #32
+ 157 0016 D2B2     		uxtb	r2, r2
+ 158              		.loc 1 26 86 discriminator 1 view .LVU36
+ 159 0018 1201     		lsls	r2, r2, #4
+ 160              		.loc 1 26 64 discriminator 1 view .LVU37
+ 161 001a 7A55     		strb	r2, [r7, r5]
+ 162 001c 25E0     		b	.L9
+ 163              	.L10:
+  27:Src/datatype.c **** 		else if(input[i * 2] >= 65 && input[i * 2] <= 70) output[i] = (input[i * 2] - 55) << 4; //...Uppe
+ 164              		.loc 1 27 8 is_stmt 1 view .LVU38
+ 165              		.loc 1 27 30 is_stmt 0 view .LVU39
+ 166 001e 1300     		movs	r3, r2
+ 167 0020 413B     		subs	r3, r3, #65
+ 168 0022 DBB2     		uxtb	r3, r3
+ 169              		.loc 1 27 10 view .LVU40
+ 170 0024 052B     		cmp	r3, #5
+ 171 0026 20D8     		bhi	.L9
+ 172              		.loc 1 27 53 is_stmt 1 discriminator 1 view .LVU41
+ 173              		.loc 1 27 79 is_stmt 0 discriminator 1 view .LVU42
+ 174 0028 373A     		subs	r2, r2, #55
+ 175 002a D2B2     		uxtb	r2, r2
+ 176              		.loc 1 27 85 discriminator 1 view .LVU43
+ 177 002c 1201     		lsls	r2, r2, #4
+ 178              		.loc 1 27 63 discriminator 1 view .LVU44
+ 179 002e 7A55     		strb	r2, [r7, r5]
+ 180 0030 1BE0     		b	.L9
+ 181              	.L11:
+  28:Src/datatype.c **** 			
+  29:Src/datatype.c **** 			
+  30:Src/datatype.c **** 		if(input[i * 2 + 1] >= 48 && input[i * 2 + 1] <= 57) output[i] |= input[i * 2 + 1] - 48; //...Num
+  31:Src/datatype.c **** 		else if(input[i * 2 + 1] >= 97 && input[i * 2 + 1] <= 102) output[i] |= input[i * 2 + 1] - 32; //
+ 182              		.loc 1 31 8 is_stmt 1 view .LVU45
+ 183              		.loc 1 31 34 is_stmt 0 view .LVU46
+ 184 0032 1300     		movs	r3, r2
+ 185 0034 613B     		subs	r3, r3, #97
+ 186 0036 DBB2     		uxtb	r3, r3
+ 187              		.loc 1 31 10 view .LVU47
+ 188 0038 052B     		cmp	r3, #5
+ 189 003a 22D8     		bhi	.L13
+ 190              		.loc 1 31 62 is_stmt 1 discriminator 1 view .LVU48
+ 191              		.loc 1 31 92 is_stmt 0 discriminator 1 view .LVU49
+ 192 003c 203A     		subs	r2, r2, #32
+ 193 003e 52B2     		sxtb	r2, r2
+ 194              		.loc 1 31 72 discriminator 1 view .LVU50
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s 			page 5
+
+
+ 195 0040 7B5D     		ldrb	r3, [r7, r5]
+ 196 0042 1A43     		orrs	r2, r3
+ 197 0044 7A55     		strb	r2, [r7, r5]
+ 198              	.L12:
+  23:Src/datatype.c **** 	{ 
+ 199              		.loc 1 23 51 is_stmt 1 discriminator 2 view .LVU51
+  23:Src/datatype.c **** 	{ 
+ 200              		.loc 1 23 52 is_stmt 0 discriminator 2 view .LVU52
+ 201 0046 0134     		adds	r4, r4, #1
+ 202              	.LVL16:
+  23:Src/datatype.c **** 	{ 
+ 203              		.loc 1 23 52 discriminator 2 view .LVU53
+ 204 0048 E4B2     		uxtb	r4, r4
+ 205              	.LVL17:
+ 206              	.L7:
+  23:Src/datatype.c **** 	{ 
+ 207              		.loc 1 23 21 is_stmt 1 discriminator 1 view .LVU54
+  23:Src/datatype.c **** 	{ 
+ 208              		.loc 1 23 23 is_stmt 0 discriminator 1 view .LVU55
+ 209 004a 2500     		movs	r5, r4
+  23:Src/datatype.c **** 	{ 
+ 210              		.loc 1 23 25 discriminator 1 view .LVU56
+ 211 004c 3000     		movs	r0, r6
+ 212 004e FFF7FEFF 		bl	strlen
+ 213              	.LVL18:
+  23:Src/datatype.c **** 	{ 
+ 214              		.loc 1 23 46 discriminator 1 view .LVU57
+ 215 0052 4008     		lsrs	r0, r0, #1
+  23:Src/datatype.c **** 	{ 
+ 216              		.loc 1 23 2 discriminator 1 view .LVU58
+ 217 0054 8442     		cmp	r4, r0
+ 218 0056 1FD2     		bcs	.L15
+  25:Src/datatype.c **** 		else if(input[i * 2] >= 97 && input[i * 2] <= 102) output[i] = (input[i * 2] - 32) << 4; //...Low
+ 219              		.loc 1 25 3 is_stmt 1 view .LVU59
+  25:Src/datatype.c **** 		else if(input[i * 2] >= 97 && input[i * 2] <= 102) output[i] = (input[i * 2] - 32) << 4; //...Low
+ 220              		.loc 1 25 14 is_stmt 0 view .LVU60
+ 221 0058 6100     		lsls	r1, r4, #1
+  25:Src/datatype.c **** 		else if(input[i * 2] >= 97 && input[i * 2] <= 102) output[i] = (input[i * 2] - 32) << 4; //...Low
+ 222              		.loc 1 25 11 view .LVU61
+ 223 005a 725C     		ldrb	r2, [r6, r1]
+  25:Src/datatype.c **** 		else if(input[i * 2] >= 97 && input[i * 2] <= 102) output[i] = (input[i * 2] - 32) << 4; //...Low
+ 224              		.loc 1 25 25 view .LVU62
+ 225 005c 1300     		movs	r3, r2
+ 226 005e 303B     		subs	r3, r3, #48
+ 227 0060 DBB2     		uxtb	r3, r3
+  25:Src/datatype.c **** 		else if(input[i * 2] >= 97 && input[i * 2] <= 102) output[i] = (input[i * 2] - 32) << 4; //...Low
+ 228              		.loc 1 25 5 view .LVU63
+ 229 0062 092B     		cmp	r3, #9
+ 230 0064 D1D8     		bhi	.L8
+  25:Src/datatype.c **** 		else if(input[i * 2] >= 97 && input[i * 2] <= 102) output[i] = (input[i * 2] - 32) << 4; //...Low
+ 231              		.loc 1 25 48 is_stmt 1 discriminator 1 view .LVU64
+  25:Src/datatype.c **** 		else if(input[i * 2] >= 97 && input[i * 2] <= 102) output[i] = (input[i * 2] - 32) << 4; //...Low
+ 232              		.loc 1 25 80 is_stmt 0 discriminator 1 view .LVU65
+ 233 0066 1B01     		lsls	r3, r3, #4
+  25:Src/datatype.c **** 		else if(input[i * 2] >= 97 && input[i * 2] <= 102) output[i] = (input[i * 2] - 32) << 4; //...Low
+ 234              		.loc 1 25 58 discriminator 1 view .LVU66
+ 235 0068 7B55     		strb	r3, [r7, r5]
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s 			page 6
+
+
+ 236              	.L9:
+  30:Src/datatype.c **** 		else if(input[i * 2 + 1] >= 97 && input[i * 2 + 1] <= 102) output[i] |= input[i * 2 + 1] - 32; //
+ 237              		.loc 1 30 3 is_stmt 1 view .LVU67
+  30:Src/datatype.c **** 		else if(input[i * 2 + 1] >= 97 && input[i * 2 + 1] <= 102) output[i] |= input[i * 2 + 1] - 32; //
+ 238              		.loc 1 30 11 is_stmt 0 view .LVU68
+ 239 006a 7118     		adds	r1, r6, r1
+ 240 006c 4A78     		ldrb	r2, [r1, #1]
+  30:Src/datatype.c **** 		else if(input[i * 2 + 1] >= 97 && input[i * 2 + 1] <= 102) output[i] |= input[i * 2 + 1] - 32; //
+ 241              		.loc 1 30 29 view .LVU69
+ 242 006e 1300     		movs	r3, r2
+ 243 0070 303B     		subs	r3, r3, #48
+ 244 0072 DBB2     		uxtb	r3, r3
+  30:Src/datatype.c **** 		else if(input[i * 2 + 1] >= 97 && input[i * 2 + 1] <= 102) output[i] |= input[i * 2 + 1] - 32; //
+ 245              		.loc 1 30 5 view .LVU70
+ 246 0074 092B     		cmp	r3, #9
+ 247 0076 DCD8     		bhi	.L11
+  30:Src/datatype.c **** 		else if(input[i * 2 + 1] >= 97 && input[i * 2 + 1] <= 102) output[i] |= input[i * 2 + 1] - 32; //
+ 248              		.loc 1 30 56 is_stmt 1 discriminator 1 view .LVU71
+  30:Src/datatype.c **** 		else if(input[i * 2 + 1] >= 97 && input[i * 2 + 1] <= 102) output[i] |= input[i * 2 + 1] - 32; //
+ 249              		.loc 1 30 86 is_stmt 0 discriminator 1 view .LVU72
+ 250 0078 5BB2     		sxtb	r3, r3
+  30:Src/datatype.c **** 		else if(input[i * 2 + 1] >= 97 && input[i * 2 + 1] <= 102) output[i] |= input[i * 2 + 1] - 32; //
+ 251              		.loc 1 30 66 discriminator 1 view .LVU73
+ 252 007a 7A5D     		ldrb	r2, [r7, r5]
+ 253 007c 1343     		orrs	r3, r2
+ 254 007e 7B55     		strb	r3, [r7, r5]
+ 255 0080 E1E7     		b	.L12
+ 256              	.L13:
+  32:Src/datatype.c **** 		else if(input[i * 2 + 1] >= 65 && input[i * 2 + 1] <= 70) output[i] |= input[i * 2 + 1] - 55; //.
+ 257              		.loc 1 32 8 is_stmt 1 view .LVU74
+ 258              		.loc 1 32 34 is_stmt 0 view .LVU75
+ 259 0082 1300     		movs	r3, r2
+ 260 0084 413B     		subs	r3, r3, #65
+ 261 0086 DBB2     		uxtb	r3, r3
+ 262              		.loc 1 32 10 view .LVU76
+ 263 0088 052B     		cmp	r3, #5
+ 264 008a DCD8     		bhi	.L12
+ 265              		.loc 1 32 61 is_stmt 1 discriminator 1 view .LVU77
+ 266              		.loc 1 32 91 is_stmt 0 discriminator 1 view .LVU78
+ 267 008c 373A     		subs	r2, r2, #55
+ 268 008e 52B2     		sxtb	r2, r2
+ 269              		.loc 1 32 71 discriminator 1 view .LVU79
+ 270 0090 7B5D     		ldrb	r3, [r7, r5]
+ 271 0092 1A43     		orrs	r2, r3
+ 272 0094 7A55     		strb	r2, [r7, r5]
+ 273 0096 D6E7     		b	.L12
+ 274              	.L15:
+ 275              		.loc 1 32 71 discriminator 1 view .LVU80
+ 276              	.LBE2:
+  33:Src/datatype.c ****   	}
+  34:Src/datatype.c **** }
+ 277              		.loc 1 34 1 view .LVU81
+ 278              		@ sp needed
+ 279              	.LVL19:
+ 280              	.LVL20:
+ 281              	.LVL21:
+ 282              		.loc 1 34 1 view .LVU82
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s 			page 7
+
+
+ 283 0098 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 284              		.cfi_endproc
+ 285              	.LFE314:
+ 287              		.section	.text.HexCharToHexStr,"ax",%progbits
+ 288              		.align	1
+ 289              		.global	HexCharToHexStr
+ 290              		.syntax unified
+ 291              		.code	16
+ 292              		.thumb_func
+ 294              	HexCharToHexStr:
+ 295              	.LVL22:
+ 296              	.LFB315:
+  35:Src/datatype.c **** 
+  36:Src/datatype.c **** void HexCharToHexStr(uint8_t *input, uint16_t size, uint8_t *output)
+  37:Src/datatype.c **** {
+ 297              		.loc 1 37 1 is_stmt 1 view -0
+ 298              		.cfi_startproc
+ 299              		@ args = 0, pretend = 0, frame = 0
+ 300              		@ frame_needed = 0, uses_anonymous_args = 0
+ 301              		.loc 1 37 1 is_stmt 0 view .LVU84
+ 302 0000 70B5     		push	{r4, r5, r6, lr}
+ 303              	.LCFI2:
+ 304              		.cfi_def_cfa_offset 16
+ 305              		.cfi_offset 4, -16
+ 306              		.cfi_offset 5, -12
+ 307              		.cfi_offset 6, -8
+ 308              		.cfi_offset 14, -4
+  38:Src/datatype.c **** 	for(uint16_t i = 0; i < size; i++) 
+ 309              		.loc 1 38 2 is_stmt 1 view .LVU85
+ 310              	.LBB3:
+ 311              		.loc 1 38 6 view .LVU86
+ 312              	.LVL23:
+ 313              		.loc 1 38 15 is_stmt 0 view .LVU87
+ 314 0002 0023     		movs	r3, #0
+ 315              		.loc 1 38 2 view .LVU88
+ 316 0004 09E0     		b	.L17
+ 317              	.LVL24:
+ 318              	.L18:
+  39:Src/datatype.c **** 	{
+  40:Src/datatype.c **** 		if ((input[i] & 0x0F) < 10) output[(i * 2) + 1] = (input[i] & 0x0F) + 48;
+  41:Src/datatype.c **** 		else output[(i * 2) + 1] = (input[i] & 0x0F) + 55;
+ 319              		.loc 1 41 8 is_stmt 1 view .LVU89
+ 320              		.loc 1 41 18 is_stmt 0 view .LVU90
+ 321 0006 5E00     		lsls	r6, r3, #1
+ 322              		.loc 1 41 14 view .LVU91
+ 323 0008 0136     		adds	r6, r6, #1
+ 324              		.loc 1 41 48 view .LVU92
+ 325 000a 3734     		adds	r4, r4, #55
+ 326              		.loc 1 41 28 view .LVU93
+ 327 000c 9455     		strb	r4, [r2, r6]
+ 328 000e 10E0     		b	.L19
+ 329              	.L20:
+  42:Src/datatype.c **** 		
+  43:Src/datatype.c **** 		if ((input[i] >> 4) < 10) output[i * 2] = (input[i] >> 4) + 48;
+  44:Src/datatype.c **** 		else output[i * 2] = (input[i] >> 4) + 55;
+ 330              		.loc 1 44 8 is_stmt 1 view .LVU94
+ 331              		.loc 1 44 17 is_stmt 0 view .LVU95
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s 			page 8
+
+
+ 332 0010 5D00     		lsls	r5, r3, #1
+ 333              		.loc 1 44 40 view .LVU96
+ 334 0012 3734     		adds	r4, r4, #55
+ 335              		.loc 1 44 22 view .LVU97
+ 336 0014 5455     		strb	r4, [r2, r5]
+ 337              	.L21:
+  38:Src/datatype.c **** 	{
+ 338              		.loc 1 38 32 is_stmt 1 discriminator 2 view .LVU98
+  38:Src/datatype.c **** 	{
+ 339              		.loc 1 38 33 is_stmt 0 discriminator 2 view .LVU99
+ 340 0016 0133     		adds	r3, r3, #1
+ 341              	.LVL25:
+  38:Src/datatype.c **** 	{
+ 342              		.loc 1 38 33 discriminator 2 view .LVU100
+ 343 0018 9BB2     		uxth	r3, r3
+ 344              	.LVL26:
+ 345              	.L17:
+  38:Src/datatype.c **** 	{
+ 346              		.loc 1 38 22 is_stmt 1 discriminator 1 view .LVU101
+  38:Src/datatype.c **** 	{
+ 347              		.loc 1 38 2 is_stmt 0 discriminator 1 view .LVU102
+ 348 001a 8B42     		cmp	r3, r1
+ 349 001c 11D2     		bcs	.L23
+  40:Src/datatype.c **** 		else output[(i * 2) + 1] = (input[i] & 0x0F) + 55;
+ 350              		.loc 1 40 3 is_stmt 1 view .LVU103
+  40:Src/datatype.c **** 		else output[(i * 2) + 1] = (input[i] & 0x0F) + 55;
+ 351              		.loc 1 40 13 is_stmt 0 view .LVU104
+ 352 001e C518     		adds	r5, r0, r3
+ 353 0020 C65C     		ldrb	r6, [r0, r3]
+ 354 0022 0F24     		movs	r4, #15
+ 355 0024 3440     		ands	r4, r6
+  40:Src/datatype.c **** 		else output[(i * 2) + 1] = (input[i] & 0x0F) + 55;
+ 356              		.loc 1 40 6 view .LVU105
+ 357 0026 092C     		cmp	r4, #9
+ 358 0028 EDD8     		bhi	.L18
+  40:Src/datatype.c **** 		else output[(i * 2) + 1] = (input[i] & 0x0F) + 55;
+ 359              		.loc 1 40 31 is_stmt 1 discriminator 1 view .LVU106
+  40:Src/datatype.c **** 		else output[(i * 2) + 1] = (input[i] & 0x0F) + 55;
+ 360              		.loc 1 40 41 is_stmt 0 discriminator 1 view .LVU107
+ 361 002a 5E00     		lsls	r6, r3, #1
+  40:Src/datatype.c **** 		else output[(i * 2) + 1] = (input[i] & 0x0F) + 55;
+ 362              		.loc 1 40 37 discriminator 1 view .LVU108
+ 363 002c 0136     		adds	r6, r6, #1
+  40:Src/datatype.c **** 		else output[(i * 2) + 1] = (input[i] & 0x0F) + 55;
+ 364              		.loc 1 40 71 discriminator 1 view .LVU109
+ 365 002e 3034     		adds	r4, r4, #48
+  40:Src/datatype.c **** 		else output[(i * 2) + 1] = (input[i] & 0x0F) + 55;
+ 366              		.loc 1 40 51 discriminator 1 view .LVU110
+ 367 0030 9455     		strb	r4, [r2, r6]
+ 368              	.L19:
+  43:Src/datatype.c **** 		else output[i * 2] = (input[i] >> 4) + 55;
+ 369              		.loc 1 43 3 is_stmt 1 view .LVU111
+  43:Src/datatype.c **** 		else output[i * 2] = (input[i] >> 4) + 55;
+ 370              		.loc 1 43 13 is_stmt 0 view .LVU112
+ 371 0032 2D78     		ldrb	r5, [r5]
+  43:Src/datatype.c **** 		else output[i * 2] = (input[i] >> 4) + 55;
+ 372              		.loc 1 43 23 view .LVU113
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s 			page 9
+
+
+ 373 0034 2C09     		lsrs	r4, r5, #4
+  43:Src/datatype.c **** 		else output[i * 2] = (input[i] >> 4) + 55;
+ 374              		.loc 1 43 6 view .LVU114
+ 375 0036 9F2D     		cmp	r5, #159
+ 376 0038 EAD8     		bhi	.L20
+  43:Src/datatype.c **** 		else output[i * 2] = (input[i] >> 4) + 55;
+ 377              		.loc 1 43 29 is_stmt 1 discriminator 1 view .LVU115
+  43:Src/datatype.c **** 		else output[i * 2] = (input[i] >> 4) + 55;
+ 378              		.loc 1 43 38 is_stmt 0 discriminator 1 view .LVU116
+ 379 003a 5D00     		lsls	r5, r3, #1
+  43:Src/datatype.c **** 		else output[i * 2] = (input[i] >> 4) + 55;
+ 380              		.loc 1 43 61 discriminator 1 view .LVU117
+ 381 003c 3034     		adds	r4, r4, #48
+  43:Src/datatype.c **** 		else output[i * 2] = (input[i] >> 4) + 55;
+ 382              		.loc 1 43 43 discriminator 1 view .LVU118
+ 383 003e 5455     		strb	r4, [r2, r5]
+ 384 0040 E9E7     		b	.L21
+ 385              	.L23:
+  43:Src/datatype.c **** 		else output[i * 2] = (input[i] >> 4) + 55;
+ 386              		.loc 1 43 43 discriminator 1 view .LVU119
+ 387              	.LBE3:
+  45:Src/datatype.c **** 	}
+  46:Src/datatype.c **** }
+ 388              		.loc 1 46 1 view .LVU120
+ 389              		@ sp needed
+ 390 0042 70BD     		pop	{r4, r5, r6, pc}
+ 391              		.cfi_endproc
+ 392              	.LFE315:
+ 394              		.text
+ 395              	.Letext0:
+ 396              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 397              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 398              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 399              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 400              		.file 6 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 datatype.c
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s:18     .rodata.TextToHexStr.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s:22     .text.TextToHexStr:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s:28     .text.TextToHexStr:00000000 TextToHexStr
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s:106    .text.TextToHexStr:0000002c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s:111    .text.HexStrToHexChar:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s:117    .text.HexStrToHexChar:00000000 HexStrToHexChar
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s:288    .text.HexCharToHexStr:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc4gQKy7.s:294    .text.HexCharToHexStr:00000000 HexCharToHexStr
+
+UNDEFINED SYMBOLS
+sprintf
+strlen

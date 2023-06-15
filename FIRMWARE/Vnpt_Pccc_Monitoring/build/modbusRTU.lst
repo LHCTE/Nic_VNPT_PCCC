@@ -1,0 +1,409 @@
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccstwKOA.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"modbusRTU.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.ModbusRTU_Calc_CRC16,"ax",%progbits
+  18              		.align	1
+  19              		.global	ModbusRTU_Calc_CRC16
+  20              		.syntax unified
+  21              		.code	16
+  22              		.thumb_func
+  24              	ModbusRTU_Calc_CRC16:
+  25              	.LVL0:
+  26              	.LFB310:
+  27              		.file 1 "Src/modbusRTU.c"
+   1:Src/modbusRTU.c **** #include "modbusRTU.h"
+   2:Src/modbusRTU.c **** #include <string.h>
+   3:Src/modbusRTU.c **** 
+   4:Src/modbusRTU.c **** uint16_t ModbusRTU_Calc_CRC16(uint8_t *input, uint8_t size)
+   5:Src/modbusRTU.c **** {
+  28              		.loc 1 5 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 5 1 is_stmt 0 view .LVU1
+  33 0000 70B5     		push	{r4, r5, r6, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 16
+  36              		.cfi_offset 4, -16
+  37              		.cfi_offset 5, -12
+  38              		.cfi_offset 6, -8
+  39              		.cfi_offset 14, -4
+  40 0002 0500     		movs	r5, r0
+  41 0004 0C00     		movs	r4, r1
+   6:Src/modbusRTU.c **** 	//Initialization of crc 16-bit register to 0xFFFF for CCITT 
+   7:Src/modbusRTU.c **** 	uint16_t reg_crc = 0xFFFF; 
+  42              		.loc 1 7 2 is_stmt 1 view .LVU2
+  43              	.LVL1:
+   8:Src/modbusRTU.c **** 	uint8_t crc_high = 0x00, crc_low = 0x00; 
+  44              		.loc 1 8 2 view .LVU3
+   9:Src/modbusRTU.c **** 	
+  10:Src/modbusRTU.c **** 	for(uint8_t pos = 0; pos < size - 2; pos++) //-2: Remove 2 last byte 
+  45              		.loc 1 10 2 view .LVU4
+  46              	.LBB2:
+  47              		.loc 1 10 6 view .LVU5
+  48              		.loc 1 10 14 is_stmt 0 view .LVU6
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccstwKOA.s 			page 2
+
+
+  49 0006 0020     		movs	r0, #0
+  50              	.LVL2:
+  51              		.loc 1 10 14 view .LVU7
+  52              	.LBE2:
+   8:Src/modbusRTU.c **** 	uint8_t crc_high = 0x00, crc_low = 0x00; 
+  53              		.loc 1 8 27 view .LVU8
+  54 0008 0021     		movs	r1, #0
+  55              	.LVL3:
+   8:Src/modbusRTU.c **** 	uint8_t crc_high = 0x00, crc_low = 0x00; 
+  56              		.loc 1 8 10 view .LVU9
+  57 000a 0026     		movs	r6, #0
+   7:Src/modbusRTU.c **** 	uint8_t crc_high = 0x00, crc_low = 0x00; 
+  58              		.loc 1 7 11 view .LVU10
+  59 000c 144A     		ldr	r2, .L14
+  60              	.LBB5:
+  61              		.loc 1 10 2 view .LVU11
+  62 000e 0FE0     		b	.L2
+  63              	.LVL4:
+  64              	.L4:
+  65              	.LBB3:
+  11:Src/modbusRTU.c **** 	{
+  12:Src/modbusRTU.c **** 		reg_crc ^= input[pos]; //XOR byte into least sig. byte of crc
+  13:Src/modbusRTU.c **** 		
+  14:Src/modbusRTU.c **** 		//Loop over each bit
+  15:Src/modbusRTU.c **** 		for(uint8_t j = 0; j < 8; j++) 
+  16:Src/modbusRTU.c **** 		{
+  17:Src/modbusRTU.c **** 			//If the LSB is set
+  18:Src/modbusRTU.c **** 			if((reg_crc & 0x01) == 1) reg_crc = (reg_crc >> 1) ^ 0xA001; //Shift right and XOR 0xA001
+  19:Src/modbusRTU.c **** 			else reg_crc = (reg_crc >> 1) ^ 0x0000; //Just shift right
+  66              		.loc 1 19 9 is_stmt 1 view .LVU12
+  67              		.loc 1 19 17 is_stmt 0 view .LVU13
+  68 0010 5208     		lsrs	r2, r2, #1
+  69              	.LVL5:
+  70              	.L5:
+  15:Src/modbusRTU.c **** 		{
+  71              		.loc 1 15 29 is_stmt 1 discriminator 2 view .LVU14
+  15:Src/modbusRTU.c **** 		{
+  72              		.loc 1 15 30 is_stmt 0 discriminator 2 view .LVU15
+  73 0012 0133     		adds	r3, r3, #1
+  74              	.LVL6:
+  15:Src/modbusRTU.c **** 		{
+  75              		.loc 1 15 30 discriminator 2 view .LVU16
+  76 0014 DBB2     		uxtb	r3, r3
+  77              	.LVL7:
+  78              	.L3:
+  15:Src/modbusRTU.c **** 		{
+  79              		.loc 1 15 22 is_stmt 1 discriminator 1 view .LVU17
+  15:Src/modbusRTU.c **** 		{
+  80              		.loc 1 15 3 is_stmt 0 discriminator 1 view .LVU18
+  81 0016 072B     		cmp	r3, #7
+  82 0018 06D8     		bhi	.L11
+  18:Src/modbusRTU.c **** 			else reg_crc = (reg_crc >> 1) ^ 0x0000; //Just shift right
+  83              		.loc 1 18 4 is_stmt 1 view .LVU19
+  18:Src/modbusRTU.c **** 			else reg_crc = (reg_crc >> 1) ^ 0x0000; //Just shift right
+  84              		.loc 1 18 6 is_stmt 0 view .LVU20
+  85 001a D107     		lsls	r1, r2, #31
+  86 001c F8D5     		bpl	.L4
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccstwKOA.s 			page 3
+
+
+  18:Src/modbusRTU.c **** 			else reg_crc = (reg_crc >> 1) ^ 0x0000; //Just shift right
+  87              		.loc 1 18 30 is_stmt 1 discriminator 1 view .LVU21
+  18:Src/modbusRTU.c **** 			else reg_crc = (reg_crc >> 1) ^ 0x0000; //Just shift right
+  88              		.loc 1 18 38 is_stmt 0 discriminator 1 view .LVU22
+  89 001e 5208     		lsrs	r2, r2, #1
+  90              	.LVL8:
+  18:Src/modbusRTU.c **** 			else reg_crc = (reg_crc >> 1) ^ 0x0000; //Just shift right
+  91              		.loc 1 18 38 discriminator 1 view .LVU23
+  92 0020 1049     		ldr	r1, .L14+4
+  93 0022 4A40     		eors	r2, r1
+  94 0024 92B2     		uxth	r2, r2
+  95              	.LVL9:
+  18:Src/modbusRTU.c **** 			else reg_crc = (reg_crc >> 1) ^ 0x0000; //Just shift right
+  96              		.loc 1 18 38 discriminator 1 view .LVU24
+  97 0026 F4E7     		b	.L5
+  98              	.L11:
+  18:Src/modbusRTU.c **** 			else reg_crc = (reg_crc >> 1) ^ 0x0000; //Just shift right
+  99              		.loc 1 18 38 discriminator 1 view .LVU25
+ 100              	.LBE3:
+  20:Src/modbusRTU.c **** 		}
+  21:Src/modbusRTU.c **** 		
+  22:Src/modbusRTU.c **** 		crc_high = (reg_crc >> 8) & 0xFF; 
+ 101              		.loc 1 22 3 is_stmt 1 discriminator 2 view .LVU26
+ 102              		.loc 1 22 12 is_stmt 0 discriminator 2 view .LVU27
+ 103 0028 160A     		lsrs	r6, r2, #8
+ 104              	.LVL10:
+  23:Src/modbusRTU.c **** 		crc_low = reg_crc & 0xFF; 		 
+ 105              		.loc 1 23 3 is_stmt 1 discriminator 2 view .LVU28
+ 106              		.loc 1 23 11 is_stmt 0 discriminator 2 view .LVU29
+ 107 002a D1B2     		uxtb	r1, r2
+ 108              	.LVL11:
+  10:Src/modbusRTU.c **** 	{
+ 109              		.loc 1 10 39 is_stmt 1 discriminator 2 view .LVU30
+  10:Src/modbusRTU.c **** 	{
+ 110              		.loc 1 10 42 is_stmt 0 discriminator 2 view .LVU31
+ 111 002c 0130     		adds	r0, r0, #1
+ 112              	.LVL12:
+  10:Src/modbusRTU.c **** 	{
+ 113              		.loc 1 10 42 discriminator 2 view .LVU32
+ 114 002e C0B2     		uxtb	r0, r0
+ 115              	.LVL13:
+ 116              	.L2:
+  10:Src/modbusRTU.c **** 	{
+ 117              		.loc 1 10 23 is_stmt 1 discriminator 1 view .LVU33
+  10:Src/modbusRTU.c **** 	{
+ 118              		.loc 1 10 34 is_stmt 0 discriminator 1 view .LVU34
+ 119 0030 A31E     		subs	r3, r4, #2
+  10:Src/modbusRTU.c **** 	{
+ 120              		.loc 1 10 2 discriminator 1 view .LVU35
+ 121 0032 9842     		cmp	r0, r3
+ 122 0034 03DA     		bge	.L12
+  12:Src/modbusRTU.c **** 		
+ 123              		.loc 1 12 3 is_stmt 1 view .LVU36
+  12:Src/modbusRTU.c **** 		
+ 124              		.loc 1 12 19 is_stmt 0 view .LVU37
+ 125 0036 2B5C     		ldrb	r3, [r5, r0]
+  12:Src/modbusRTU.c **** 		
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccstwKOA.s 			page 4
+
+
+ 126              		.loc 1 12 11 view .LVU38
+ 127 0038 5A40     		eors	r2, r3
+ 128              	.LVL14:
+  15:Src/modbusRTU.c **** 		{
+ 129              		.loc 1 15 3 is_stmt 1 view .LVU39
+ 130              	.LBB4:
+  15:Src/modbusRTU.c **** 		{
+ 131              		.loc 1 15 7 view .LVU40
+  15:Src/modbusRTU.c **** 		{
+ 132              		.loc 1 15 15 is_stmt 0 view .LVU41
+ 133 003a 0023     		movs	r3, #0
+  15:Src/modbusRTU.c **** 		{
+ 134              		.loc 1 15 3 view .LVU42
+ 135 003c EBE7     		b	.L3
+ 136              	.LVL15:
+ 137              	.L12:
+  15:Src/modbusRTU.c **** 		{
+ 138              		.loc 1 15 3 view .LVU43
+ 139              	.LBE4:
+ 140              	.LBE5:
+  24:Src/modbusRTU.c **** 	}    
+  25:Src/modbusRTU.c **** 	if(input[size - 2] == crc_low && input[size - 1] == crc_high) return size; 
+ 141              		.loc 1 25 2 is_stmt 1 view .LVU44
+ 142              		.loc 1 25 10 is_stmt 0 view .LVU45
+ 143 003e 2B19     		adds	r3, r5, r4
+ 144 0040 023B     		subs	r3, r3, #2
+ 145 0042 1B78     		ldrb	r3, [r3]
+ 146              		.loc 1 25 4 view .LVU46
+ 147 0044 8B42     		cmp	r3, r1
+ 148 0046 08D1     		bne	.L9
+ 149              		.loc 1 25 40 discriminator 1 view .LVU47
+ 150 0048 2D19     		adds	r5, r5, r4
+ 151              	.LVL16:
+ 152              		.loc 1 25 40 discriminator 1 view .LVU48
+ 153 004a 013D     		subs	r5, r5, #1
+ 154 004c 2B78     		ldrb	r3, [r5]
+ 155              		.loc 1 25 32 discriminator 1 view .LVU49
+ 156 004e B342     		cmp	r3, r6
+ 157 0050 01D0     		beq	.L13
+  26:Src/modbusRTU.c **** 	else return 0;
+ 158              		.loc 1 26 14 view .LVU50
+ 159 0052 0020     		movs	r0, #0
+ 160              	.LVL17:
+ 161              		.loc 1 26 14 view .LVU51
+ 162 0054 02E0     		b	.L8
+ 163              	.LVL18:
+ 164              	.L13:
+  25:Src/modbusRTU.c **** 	else return 0;
+ 165              		.loc 1 25 64 is_stmt 1 discriminator 2 view .LVU52
+  25:Src/modbusRTU.c **** 	else return 0;
+ 166              		.loc 1 25 71 is_stmt 0 discriminator 2 view .LVU53
+ 167 0056 A0B2     		uxth	r0, r4
+ 168              	.LVL19:
+  25:Src/modbusRTU.c **** 	else return 0;
+ 169              		.loc 1 25 71 discriminator 2 view .LVU54
+ 170 0058 00E0     		b	.L8
+ 171              	.LVL20:
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccstwKOA.s 			page 5
+
+
+ 172              	.L9:
+ 173              		.loc 1 26 14 view .LVU55
+ 174 005a 0020     		movs	r0, #0
+ 175              	.LVL21:
+ 176              	.L8:
+  27:Src/modbusRTU.c **** }
+ 177              		.loc 1 27 1 view .LVU56
+ 178              		@ sp needed
+ 179              	.LVL22:
+ 180              		.loc 1 27 1 view .LVU57
+ 181 005c 70BD     		pop	{r4, r5, r6, pc}
+ 182              	.L15:
+ 183 005e C046     		.align	2
+ 184              	.L14:
+ 185 0060 FFFF0000 		.word	65535
+ 186 0064 01A0FFFF 		.word	-24575
+ 187              		.cfi_endproc
+ 188              	.LFE310:
+ 190              		.section	.text.ModbusRTU_Check_RecvData,"ax",%progbits
+ 191              		.align	1
+ 192              		.global	ModbusRTU_Check_RecvData
+ 193              		.syntax unified
+ 194              		.code	16
+ 195              		.thumb_func
+ 197              	ModbusRTU_Check_RecvData:
+ 198              	.LVL23:
+ 199              	.LFB311:
+  28:Src/modbusRTU.c **** 
+  29:Src/modbusRTU.c **** uint16_t ModbusRTU_Check_RecvData(uint8_t *input, uint16_t size, uint16_t timeout)
+  30:Src/modbusRTU.c **** {
+ 200              		.loc 1 30 1 is_stmt 1 view -0
+ 201              		.cfi_startproc
+ 202              		@ args = 0, pretend = 0, frame = 0
+ 203              		@ frame_needed = 0, uses_anonymous_args = 0
+ 204              		.loc 1 30 1 is_stmt 0 view .LVU59
+ 205 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 206              	.LCFI1:
+ 207              		.cfi_def_cfa_offset 24
+ 208              		.cfi_offset 3, -24
+ 209              		.cfi_offset 4, -20
+ 210              		.cfi_offset 5, -16
+ 211              		.cfi_offset 6, -12
+ 212              		.cfi_offset 7, -8
+ 213              		.cfi_offset 14, -4
+ 214 0002 0600     		movs	r6, r0
+ 215 0004 0D00     		movs	r5, r1
+ 216 0006 1700     		movs	r7, r2
+  31:Src/modbusRTU.c **** 	uint16_t total = 0;
+ 217              		.loc 1 31 2 is_stmt 1 view .LVU60
+ 218              	.LVL24:
+ 219              		.loc 1 31 11 is_stmt 0 view .LVU61
+ 220 0008 0024     		movs	r4, #0
+ 221 000a 0FE0     		b	.L20
+ 222              	.LVL25:
+ 223              	.L18:
+ 224              	.LBB6:
+  32:Src/modbusRTU.c **** 	while(1) 
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccstwKOA.s 			page 6
+
+
+  33:Src/modbusRTU.c **** 	{
+  34:Src/modbusRTU.c **** 		for(uint16_t i = 0; i < size; i++) total += input[i]; //...Sum Hex 
+ 225              		.loc 1 34 38 is_stmt 1 discriminator 3 view .LVU62
+ 226              		.loc 1 34 52 is_stmt 0 discriminator 3 view .LVU63
+ 227 000c F25C     		ldrb	r2, [r6, r3]
+ 228              		.loc 1 34 44 discriminator 3 view .LVU64
+ 229 000e 1419     		adds	r4, r2, r4
+ 230              	.LVL26:
+ 231              		.loc 1 34 44 discriminator 3 view .LVU65
+ 232 0010 A4B2     		uxth	r4, r4
+ 233              	.LVL27:
+ 234              		.loc 1 34 33 is_stmt 1 discriminator 3 view .LVU66
+ 235              		.loc 1 34 34 is_stmt 0 discriminator 3 view .LVU67
+ 236 0012 0133     		adds	r3, r3, #1
+ 237              	.LVL28:
+ 238              		.loc 1 34 34 discriminator 3 view .LVU68
+ 239 0014 9BB2     		uxth	r3, r3
+ 240              	.LVL29:
+ 241              	.L17:
+ 242              		.loc 1 34 23 is_stmt 1 discriminator 1 view .LVU69
+ 243              		.loc 1 34 3 is_stmt 0 discriminator 1 view .LVU70
+ 244 0016 AB42     		cmp	r3, r5
+ 245 0018 F8D3     		bcc	.L18
+ 246              		.loc 1 34 3 discriminator 1 view .LVU71
+ 247              	.LBE6:
+  35:Src/modbusRTU.c **** 		if(total > 0) return total; //If have valued
+ 248              		.loc 1 35 3 is_stmt 1 view .LVU72
+ 249              		.loc 1 35 5 is_stmt 0 view .LVU73
+ 250 001a 002C     		cmp	r4, #0
+ 251 001c 09D1     		bne	.L19
+  36:Src/modbusRTU.c **** 		
+  37:Src/modbusRTU.c **** 		HAL_Delay(1); 
+ 252              		.loc 1 37 3 is_stmt 1 view .LVU74
+ 253 001e 0120     		movs	r0, #1
+ 254 0020 FFF7FEFF 		bl	HAL_Delay
+ 255              	.LVL30:
+  38:Src/modbusRTU.c **** 		timeout--; //...Timer
+ 256              		.loc 1 38 3 view .LVU75
+ 257              		.loc 1 38 10 is_stmt 0 view .LVU76
+ 258 0024 013F     		subs	r7, r7, #1
+ 259              	.LVL31:
+ 260              		.loc 1 38 10 view .LVU77
+ 261 0026 BFB2     		uxth	r7, r7
+ 262              	.LVL32:
+  39:Src/modbusRTU.c **** 		if(timeout == 0) return 0; //End of time
+ 263              		.loc 1 39 3 is_stmt 1 view .LVU78
+ 264              		.loc 1 39 5 is_stmt 0 view .LVU79
+ 265 0028 002F     		cmp	r7, #0
+ 266 002a 01D0     		beq	.L21
+ 267              	.LVL33:
+ 268              	.L20:
+  32:Src/modbusRTU.c **** 	{
+ 269              		.loc 1 32 2 is_stmt 1 view .LVU80
+  34:Src/modbusRTU.c **** 		if(total > 0) return total; //If have valued
+ 270              		.loc 1 34 3 view .LVU81
+ 271              	.LBB7:
+  34:Src/modbusRTU.c **** 		if(total > 0) return total; //If have valued
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccstwKOA.s 			page 7
+
+
+ 272              		.loc 1 34 7 view .LVU82
+  34:Src/modbusRTU.c **** 		if(total > 0) return total; //If have valued
+ 273              		.loc 1 34 16 is_stmt 0 view .LVU83
+ 274 002c 0023     		movs	r3, #0
+  34:Src/modbusRTU.c **** 		if(total > 0) return total; //If have valued
+ 275              		.loc 1 34 3 view .LVU84
+ 276 002e F2E7     		b	.L17
+ 277              	.LVL34:
+ 278              	.L21:
+  34:Src/modbusRTU.c **** 		if(total > 0) return total; //If have valued
+ 279              		.loc 1 34 3 view .LVU85
+ 280              	.LBE7:
+ 281              		.loc 1 39 27 view .LVU86
+ 282 0030 3C00     		movs	r4, r7
+ 283              	.LVL35:
+ 284              	.L19:
+  40:Src/modbusRTU.c **** 	}
+  41:Src/modbusRTU.c **** }
+ 285              		.loc 1 41 1 view .LVU87
+ 286 0032 2000     		movs	r0, r4
+ 287              		@ sp needed
+ 288              	.LVL36:
+ 289              	.LVL37:
+ 290              		.loc 1 41 1 view .LVU88
+ 291 0034 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 292              		.cfi_endproc
+ 293              	.LFE311:
+ 295              		.text
+ 296              	.Letext0:
+ 297              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 298              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 299              		.file 4 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
+ 300              		.file 5 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h"
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccstwKOA.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 modbusRTU.c
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccstwKOA.s:18     .text.ModbusRTU_Calc_CRC16:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccstwKOA.s:24     .text.ModbusRTU_Calc_CRC16:00000000 ModbusRTU_Calc_CRC16
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccstwKOA.s:185    .text.ModbusRTU_Calc_CRC16:00000060 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccstwKOA.s:191    .text.ModbusRTU_Check_RecvData:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccstwKOA.s:197    .text.ModbusRTU_Check_RecvData:00000000 ModbusRTU_Check_RecvData
+
+UNDEFINED SYMBOLS
+HAL_Delay

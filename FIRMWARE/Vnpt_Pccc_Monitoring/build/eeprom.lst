@@ -1,0 +1,944 @@
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 1
+
+
+   1              		.cpu cortex-m0plus
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"eeprom.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.Eeprom_Read_Data,"ax",%progbits
+  18              		.align	1
+  19              		.global	Eeprom_Read_Data
+  20              		.syntax unified
+  21              		.code	16
+  22              		.thumb_func
+  24              	Eeprom_Read_Data:
+  25              	.LVL0:
+  26              	.LFB313:
+  27              		.file 1 "Src/eeprom.c"
+   1:Src/eeprom.c  **** #include "eeprom.h"
+   2:Src/eeprom.c  **** #include <stdio.h> 
+   3:Src/eeprom.c  **** #include <string.h>
+   4:Src/eeprom.c  **** 
+   5:Src/eeprom.c  **** uint32_t Eeprom_Read_Data(uint32_t addr, Position_FlashTypeDef pos)
+   6:Src/eeprom.c  **** {
+  28              		.loc 1 6 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+   7:Src/eeprom.c  **** 	uint32_t data = *(__IO uint32_t *)(addr + pos);
+  33              		.loc 1 7 2 view .LVU1
+  34              		.loc 1 7 42 is_stmt 0 view .LVU2
+  35 0000 0918     		adds	r1, r1, r0
+  36              	.LVL1:
+  37              		.loc 1 7 11 view .LVU3
+  38 0002 0868     		ldr	r0, [r1]
+  39              	.LVL2:
+   8:Src/eeprom.c  **** 	return data;
+  40              		.loc 1 8 2 is_stmt 1 view .LVU4
+   9:Src/eeprom.c  **** }
+  41              		.loc 1 9 1 is_stmt 0 view .LVU5
+  42              		@ sp needed
+  43 0004 7047     		bx	lr
+  44              		.cfi_endproc
+  45              	.LFE313:
+  47              		.section	.text.Eeprom_ReadModbus_Rtu,"ax",%progbits
+  48              		.align	1
+  49              		.global	Eeprom_ReadModbus_Rtu
+  50              		.syntax unified
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 2
+
+
+  51              		.code	16
+  52              		.thumb_func
+  54              	Eeprom_ReadModbus_Rtu:
+  55              	.LVL3:
+  56              	.LFB314:
+  10:Src/eeprom.c  **** 
+  11:Src/eeprom.c  **** uint32_t Eeprom_ReadModbus_Rtu(uint32_t addr)
+  12:Src/eeprom.c  **** {
+  57              		.loc 1 12 1 is_stmt 1 view -0
+  58              		.cfi_startproc
+  59              		@ args = 0, pretend = 0, frame = 0
+  60              		@ frame_needed = 0, uses_anonymous_args = 0
+  61              		@ link register save eliminated.
+  13:Src/eeprom.c  **** 	uint32_t data = *(__IO uint32_t *)(addr);
+  62              		.loc 1 13 2 view .LVU7
+  63              		.loc 1 13 11 is_stmt 0 view .LVU8
+  64 0000 0068     		ldr	r0, [r0]
+  65              	.LVL4:
+  14:Src/eeprom.c  **** 	return data;
+  66              		.loc 1 14 2 is_stmt 1 view .LVU9
+  15:Src/eeprom.c  **** }
+  67              		.loc 1 15 1 is_stmt 0 view .LVU10
+  68              		@ sp needed
+  69 0002 7047     		bx	lr
+  70              		.cfi_endproc
+  71              	.LFE314:
+  73              		.section	.text.Eeprom_WriteStr_Hexadecimal,"ax",%progbits
+  74              		.align	1
+  75              		.global	Eeprom_WriteStr_Hexadecimal
+  76              		.syntax unified
+  77              		.code	16
+  78              		.thumb_func
+  80              	Eeprom_WriteStr_Hexadecimal:
+  81              	.LVL5:
+  82              	.LFB315:
+  16:Src/eeprom.c  **** 
+  17:Src/eeprom.c  **** Status_FlashTypeDef Eeprom_WriteStr_Hexadecimal(uint32_t addr, uint64_t *buf, uint16_t timeout)
+  18:Src/eeprom.c  **** {
+  83              		.loc 1 18 1 is_stmt 1 view -0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		.loc 1 18 1 is_stmt 0 view .LVU12
+  88 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  89              	.LCFI0:
+  90              		.cfi_def_cfa_offset 20
+  91              		.cfi_offset 4, -20
+  92              		.cfi_offset 5, -16
+  93              		.cfi_offset 6, -12
+  94              		.cfi_offset 7, -8
+  95              		.cfi_offset 14, -4
+  96 0002 D646     		mov	lr, r10
+  97 0004 4F46     		mov	r7, r9
+  98 0006 4646     		mov	r6, r8
+  99 0008 C0B5     		push	{r6, r7, lr}
+ 100              	.LCFI1:
+ 101              		.cfi_def_cfa_offset 32
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 3
+
+
+ 102              		.cfi_offset 8, -32
+ 103              		.cfi_offset 9, -28
+ 104              		.cfi_offset 10, -24
+ 105 000a 8246     		mov	r10, r0
+ 106 000c 8946     		mov	r9, r1
+ 107 000e 1500     		movs	r5, r2
+  19:Src/eeprom.c  **** 	uint16_t arr_pos = 0, addr_next = 0; 
+ 108              		.loc 1 19 2 is_stmt 1 view .LVU13
+ 109              	.LVL6:
+  20:Src/eeprom.c  **** 
+  21:Src/eeprom.c  **** 	HAL_FLASH_Unlock();
+ 110              		.loc 1 21 2 view .LVU14
+ 111 0010 FFF7FEFF 		bl	HAL_FLASH_Unlock
+ 112              	.LVL7:
+  22:Src/eeprom.c  **** 
+  23:Src/eeprom.c  **** 	while(buf[arr_pos * 2] != '\0')
+ 113              		.loc 1 23 2 view .LVU15
+  19:Src/eeprom.c  **** 
+ 114              		.loc 1 19 24 is_stmt 0 view .LVU16
+ 115 0014 0023     		movs	r3, #0
+ 116 0016 9846     		mov	r8, r3
+  19:Src/eeprom.c  **** 
+ 117              		.loc 1 19 11 view .LVU17
+ 118 0018 0027     		movs	r7, #0
+ 119              		.loc 1 23 7 view .LVU18
+ 120 001a 06E0     		b	.L4
+ 121              	.LVL8:
+ 122              	.L5:
+  24:Src/eeprom.c  **** 	{
+  25:Src/eeprom.c  **** 		if(HAL_FLASH_Program(TYPEPROGRAM_DOUBLEWORD, Position_1 + addr + addr_next, buf[arr_pos * 2]) == 
+  26:Src/eeprom.c  **** 		{
+  27:Src/eeprom.c  **** 			addr_next += 16; 
+  28:Src/eeprom.c  **** 			arr_pos += 1; 
+  29:Src/eeprom.c  **** 		}
+  30:Src/eeprom.c  **** 		else 	
+  31:Src/eeprom.c  **** 		{
+  32:Src/eeprom.c  **** 			HAL_Delay(1); 
+ 123              		.loc 1 32 4 is_stmt 1 view .LVU19
+ 124 001c 0120     		movs	r0, #1
+ 125 001e FFF7FEFF 		bl	HAL_Delay
+ 126              	.LVL9:
+  33:Src/eeprom.c  **** 			timeout--; 
+ 127              		.loc 1 33 4 view .LVU20
+ 128              		.loc 1 33 11 is_stmt 0 view .LVU21
+ 129 0022 013D     		subs	r5, r5, #1
+ 130              	.LVL10:
+ 131              		.loc 1 33 11 view .LVU22
+ 132 0024 ADB2     		uxth	r5, r5
+ 133              	.LVL11:
+  34:Src/eeprom.c  **** 
+  35:Src/eeprom.c  **** 			if(timeout == 0) 
+ 134              		.loc 1 35 4 is_stmt 1 view .LVU23
+ 135              		.loc 1 35 6 is_stmt 0 view .LVU24
+ 136 0026 002D     		cmp	r5, #0
+ 137 0028 21D0     		beq	.L9
+ 138              	.LVL12:
+ 139              	.L4:
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 4
+
+
+  23:Src/eeprom.c  **** 	{
+ 140              		.loc 1 23 7 is_stmt 1 view .LVU25
+  23:Src/eeprom.c  **** 	{
+ 141              		.loc 1 23 11 is_stmt 0 view .LVU26
+ 142 002a 3C01     		lsls	r4, r7, #4
+ 143 002c 4B46     		mov	r3, r9
+ 144 002e 1B19     		adds	r3, r3, r4
+ 145 0030 1A68     		ldr	r2, [r3]
+ 146 0032 5B68     		ldr	r3, [r3, #4]
+  23:Src/eeprom.c  **** 	{
+ 147              		.loc 1 23 7 view .LVU27
+ 148 0034 1100     		movs	r1, r2
+ 149 0036 1943     		orrs	r1, r3
+ 150 0038 1DD0     		beq	.L10
+  25:Src/eeprom.c  **** 		{
+ 151              		.loc 1 25 3 is_stmt 1 view .LVU28
+  25:Src/eeprom.c  **** 		{
+ 152              		.loc 1 25 6 is_stmt 0 view .LVU29
+ 153 003a 4646     		mov	r6, r8
+ 154 003c 5644     		add	r6, r6, r10
+ 155 003e 3100     		movs	r1, r6
+ 156 0040 0120     		movs	r0, #1
+ 157 0042 FFF7FEFF 		bl	HAL_FLASH_Program
+ 158              	.LVL13:
+  25:Src/eeprom.c  **** 		{
+ 159              		.loc 1 25 5 view .LVU30
+ 160 0046 0028     		cmp	r0, #0
+ 161 0048 E8D1     		bne	.L5
+  25:Src/eeprom.c  **** 		{
+ 162              		.loc 1 25 186 discriminator 1 view .LVU31
+ 163 004a 0834     		adds	r4, r4, #8
+ 164 004c 4C44     		add	r4, r4, r9
+  25:Src/eeprom.c  **** 		{
+ 165              		.loc 1 25 110 discriminator 1 view .LVU32
+ 166 004e 2268     		ldr	r2, [r4]
+ 167 0050 6368     		ldr	r3, [r4, #4]
+ 168 0052 3100     		movs	r1, r6
+ 169 0054 0831     		adds	r1, r1, #8
+ 170 0056 0130     		adds	r0, r0, #1
+ 171 0058 FFF7FEFF 		bl	HAL_FLASH_Program
+ 172              	.LVL14:
+  25:Src/eeprom.c  **** 		{
+ 173              		.loc 1 25 107 discriminator 1 view .LVU33
+ 174 005c 0028     		cmp	r0, #0
+ 175 005e DDD1     		bne	.L5
+  27:Src/eeprom.c  **** 			arr_pos += 1; 
+ 176              		.loc 1 27 4 is_stmt 1 view .LVU34
+  27:Src/eeprom.c  **** 			arr_pos += 1; 
+ 177              		.loc 1 27 14 is_stmt 0 view .LVU35
+ 178 0060 4346     		mov	r3, r8
+ 179 0062 1033     		adds	r3, r3, #16
+ 180 0064 9BB2     		uxth	r3, r3
+ 181 0066 9846     		mov	r8, r3
+ 182              	.LVL15:
+  28:Src/eeprom.c  **** 		}
+ 183              		.loc 1 28 4 is_stmt 1 view .LVU36
+  28:Src/eeprom.c  **** 		}
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 5
+
+
+ 184              		.loc 1 28 12 is_stmt 0 view .LVU37
+ 185 0068 0137     		adds	r7, r7, #1
+ 186              	.LVL16:
+  28:Src/eeprom.c  **** 		}
+ 187              		.loc 1 28 12 view .LVU38
+ 188 006a BFB2     		uxth	r7, r7
+ 189              	.LVL17:
+  28:Src/eeprom.c  **** 		}
+ 190              		.loc 1 28 12 view .LVU39
+ 191 006c DDE7     		b	.L4
+ 192              	.L9:
+  36:Src/eeprom.c  **** 			{
+  37:Src/eeprom.c  **** 				HAL_FLASH_Lock();
+ 193              		.loc 1 37 5 is_stmt 1 view .LVU40
+ 194 006e FFF7FEFF 		bl	HAL_FLASH_Lock
+ 195              	.LVL18:
+  38:Src/eeprom.c  **** 				return FLASH_ERROR; 
+ 196              		.loc 1 38 5 view .LVU41
+ 197              		.loc 1 38 12 is_stmt 0 view .LVU42
+ 198 0072 0020     		movs	r0, #0
+ 199 0074 02E0     		b	.L7
+ 200              	.L10:
+  39:Src/eeprom.c  **** 			}
+  40:Src/eeprom.c  **** 		}
+  41:Src/eeprom.c  **** 	}
+  42:Src/eeprom.c  **** 	
+  43:Src/eeprom.c  **** 	HAL_FLASH_Lock();
+ 201              		.loc 1 43 2 is_stmt 1 view .LVU43
+ 202 0076 FFF7FEFF 		bl	HAL_FLASH_Lock
+ 203              	.LVL19:
+  44:Src/eeprom.c  **** 	return FLASH_OK; 
+ 204              		.loc 1 44 2 view .LVU44
+ 205              		.loc 1 44 9 is_stmt 0 view .LVU45
+ 206 007a 0120     		movs	r0, #1
+ 207              	.L7:
+  45:Src/eeprom.c  **** }
+ 208              		.loc 1 45 1 view .LVU46
+ 209              		@ sp needed
+ 210              	.LVL20:
+ 211              	.LVL21:
+ 212              	.LVL22:
+ 213              	.LVL23:
+ 214              	.LVL24:
+ 215              		.loc 1 45 1 view .LVU47
+ 216 007c E0BC     		pop	{r5, r6, r7}
+ 217 007e BA46     		mov	r10, r7
+ 218 0080 B146     		mov	r9, r6
+ 219 0082 A846     		mov	r8, r5
+ 220 0084 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 221              		.cfi_endproc
+ 222              	.LFE315:
+ 224              		.section	.text.Eeprom_WriteModbus_Rtu,"ax",%progbits
+ 225              		.align	1
+ 226              		.global	Eeprom_WriteModbus_Rtu
+ 227              		.syntax unified
+ 228              		.code	16
+ 229              		.thumb_func
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 6
+
+
+ 231              	Eeprom_WriteModbus_Rtu:
+ 232              	.LVL25:
+ 233              	.LFB316:
+  46:Src/eeprom.c  ****   
+  47:Src/eeprom.c  **** Status_FlashTypeDef Eeprom_WriteModbus_Rtu(uint32_t addr, Position_FlashTypeDef pos, uint64_t *buf,
+  48:Src/eeprom.c  **** {
+ 234              		.loc 1 48 1 is_stmt 1 view -0
+ 235              		.cfi_startproc
+ 236              		@ args = 0, pretend = 0, frame = 0
+ 237              		@ frame_needed = 0, uses_anonymous_args = 0
+ 238              		.loc 1 48 1 is_stmt 0 view .LVU49
+ 239 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 240              	.LCFI2:
+ 241              		.cfi_def_cfa_offset 24
+ 242              		.cfi_offset 3, -24
+ 243              		.cfi_offset 4, -20
+ 244              		.cfi_offset 5, -16
+ 245              		.cfi_offset 6, -12
+ 246              		.cfi_offset 7, -8
+ 247              		.cfi_offset 14, -4
+ 248 0002 0700     		movs	r7, r0
+ 249 0004 0D00     		movs	r5, r1
+ 250 0006 1600     		movs	r6, r2
+ 251 0008 1C00     		movs	r4, r3
+ 252 000a 10E0     		b	.L15
+ 253              	.LVL26:
+ 254              	.L13:
+  49:Src/eeprom.c  **** 	while(1)
+  50:Src/eeprom.c  **** 	{
+  51:Src/eeprom.c  **** 		HAL_FLASH_Unlock();
+  52:Src/eeprom.c  **** 
+  53:Src/eeprom.c  **** 		switch(pos)
+  54:Src/eeprom.c  **** 		{
+  55:Src/eeprom.c  **** 			case Position_1:
+  56:Src/eeprom.c  **** 				if(HAL_FLASH_Program(TYPEPROGRAM_DOUBLEWORD, addr + pos, buf[0] | buf[1] << 32) == HAL_OK)
+ 255              		.loc 1 56 5 is_stmt 1 view .LVU50
+ 256              		.loc 1 56 8 is_stmt 0 view .LVU51
+ 257 000c 7368     		ldr	r3, [r6, #4]
+ 258 000e B268     		ldr	r2, [r6, #8]
+ 259 0010 1343     		orrs	r3, r2
+ 260 0012 E919     		adds	r1, r5, r7
+ 261 0014 3268     		ldr	r2, [r6]
+ 262 0016 0120     		movs	r0, #1
+ 263 0018 FFF7FEFF 		bl	HAL_FLASH_Program
+ 264              	.LVL27:
+ 265              		.loc 1 56 7 view .LVU52
+ 266 001c 0028     		cmp	r0, #0
+ 267 001e 21D0     		beq	.L20
+  57:Src/eeprom.c  **** 				{
+  58:Src/eeprom.c  **** 					HAL_FLASH_Lock();
+  59:Src/eeprom.c  **** 					return FLASH_OK; 
+  60:Src/eeprom.c  **** 				}
+  61:Src/eeprom.c  **** 				
+  62:Src/eeprom.c  **** 				HAL_Delay(1); 
+ 268              		.loc 1 62 5 is_stmt 1 view .LVU53
+ 269 0020 0120     		movs	r0, #1
+ 270 0022 FFF7FEFF 		bl	HAL_Delay
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 7
+
+
+ 271              	.LVL28:
+  63:Src/eeprom.c  **** 				timeout--; 
+ 272              		.loc 1 63 5 view .LVU54
+ 273              		.loc 1 63 12 is_stmt 0 view .LVU55
+ 274 0026 013C     		subs	r4, r4, #1
+ 275              	.LVL29:
+ 276              		.loc 1 63 12 view .LVU56
+ 277 0028 A4B2     		uxth	r4, r4
+ 278              	.LVL30:
+  64:Src/eeprom.c  **** 				if(timeout == 0) 
+ 279              		.loc 1 64 5 is_stmt 1 view .LVU57
+ 280              		.loc 1 64 7 is_stmt 0 view .LVU58
+ 281 002a 002C     		cmp	r4, #0
+ 282 002c 1ED0     		beq	.L21
+ 283              	.LVL31:
+ 284              	.L15:
+  49:Src/eeprom.c  **** 	{
+ 285              		.loc 1 49 2 is_stmt 1 view .LVU59
+  51:Src/eeprom.c  **** 
+ 286              		.loc 1 51 3 view .LVU60
+ 287 002e FFF7FEFF 		bl	HAL_FLASH_Unlock
+ 288              	.LVL32:
+  53:Src/eeprom.c  **** 		{
+ 289              		.loc 1 53 3 view .LVU61
+ 290 0032 002D     		cmp	r5, #0
+ 291 0034 EAD0     		beq	.L13
+ 292 0036 082D     		cmp	r5, #8
+ 293 0038 F9D1     		bne	.L15
+  65:Src/eeprom.c  **** 				{
+  66:Src/eeprom.c  **** 					HAL_FLASH_Lock();
+  67:Src/eeprom.c  **** 					return FLASH_ERROR; 
+  68:Src/eeprom.c  **** 				}
+  69:Src/eeprom.c  **** 				break;
+  70:Src/eeprom.c  **** 
+  71:Src/eeprom.c  **** 			case Position_2:
+  72:Src/eeprom.c  **** 				if(HAL_FLASH_Program(TYPEPROGRAM_DOUBLEWORD, addr + pos, buf[0] | buf[1] << 32) == HAL_OK)
+ 294              		.loc 1 72 5 view .LVU62
+ 295              		.loc 1 72 8 is_stmt 0 view .LVU63
+ 296 003a 7368     		ldr	r3, [r6, #4]
+ 297 003c B268     		ldr	r2, [r6, #8]
+ 298 003e 1343     		orrs	r3, r2
+ 299 0040 E919     		adds	r1, r5, r7
+ 300 0042 3268     		ldr	r2, [r6]
+ 301 0044 0120     		movs	r0, #1
+ 302 0046 FFF7FEFF 		bl	HAL_FLASH_Program
+ 303              	.LVL33:
+ 304              		.loc 1 72 7 view .LVU64
+ 305 004a 0028     		cmp	r0, #0
+ 306 004c 12D0     		beq	.L22
+  73:Src/eeprom.c  **** 				{
+  74:Src/eeprom.c  **** 					HAL_FLASH_Lock();
+  75:Src/eeprom.c  **** 					return FLASH_OK; 
+  76:Src/eeprom.c  **** 				}
+  77:Src/eeprom.c  **** 				
+  78:Src/eeprom.c  **** 				HAL_Delay(1); 
+ 307              		.loc 1 78 5 is_stmt 1 view .LVU65
+ 308 004e 0120     		movs	r0, #1
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 8
+
+
+ 309 0050 FFF7FEFF 		bl	HAL_Delay
+ 310              	.LVL34:
+  79:Src/eeprom.c  **** 				timeout--; 
+ 311              		.loc 1 79 5 view .LVU66
+ 312              		.loc 1 79 12 is_stmt 0 view .LVU67
+ 313 0054 013C     		subs	r4, r4, #1
+ 314              	.LVL35:
+ 315              		.loc 1 79 12 view .LVU68
+ 316 0056 A4B2     		uxth	r4, r4
+ 317              	.LVL36:
+  80:Src/eeprom.c  **** 				if(timeout == 0) 
+ 318              		.loc 1 80 5 is_stmt 1 view .LVU69
+ 319              		.loc 1 80 7 is_stmt 0 view .LVU70
+ 320 0058 002C     		cmp	r4, #0
+ 321 005a E8D1     		bne	.L15
+  81:Src/eeprom.c  **** 				{
+  82:Src/eeprom.c  **** 					HAL_FLASH_Lock();
+ 322              		.loc 1 82 6 is_stmt 1 view .LVU71
+ 323 005c FFF7FEFF 		bl	HAL_FLASH_Lock
+ 324              	.LVL37:
+  83:Src/eeprom.c  **** 					return FLASH_ERROR;
+ 325              		.loc 1 83 6 view .LVU72
+ 326              		.loc 1 83 13 is_stmt 0 view .LVU73
+ 327 0060 0020     		movs	r0, #0
+ 328 0062 02E0     		b	.L17
+ 329              	.L20:
+  58:Src/eeprom.c  **** 					return FLASH_OK; 
+ 330              		.loc 1 58 6 is_stmt 1 view .LVU74
+ 331 0064 FFF7FEFF 		bl	HAL_FLASH_Lock
+ 332              	.LVL38:
+  59:Src/eeprom.c  **** 				}
+ 333              		.loc 1 59 6 view .LVU75
+  59:Src/eeprom.c  **** 				}
+ 334              		.loc 1 59 13 is_stmt 0 view .LVU76
+ 335 0068 0120     		movs	r0, #1
+ 336              	.L17:
+  84:Src/eeprom.c  **** 				}
+  85:Src/eeprom.c  **** 				break; 
+  86:Src/eeprom.c  **** 		}
+  87:Src/eeprom.c  **** 	}
+  88:Src/eeprom.c  **** }
+ 337              		.loc 1 88 1 view .LVU77
+ 338              		@ sp needed
+ 339              	.LVL39:
+ 340              	.LVL40:
+ 341              	.LVL41:
+ 342              		.loc 1 88 1 view .LVU78
+ 343 006a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 344              	.LVL42:
+ 345              	.L21:
+  66:Src/eeprom.c  **** 					return FLASH_ERROR; 
+ 346              		.loc 1 66 6 is_stmt 1 view .LVU79
+ 347 006c FFF7FEFF 		bl	HAL_FLASH_Lock
+ 348              	.LVL43:
+  67:Src/eeprom.c  **** 				}
+ 349              		.loc 1 67 6 view .LVU80
+  67:Src/eeprom.c  **** 				}
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 9
+
+
+ 350              		.loc 1 67 13 is_stmt 0 view .LVU81
+ 351 0070 2800     		movs	r0, r5
+ 352 0072 FAE7     		b	.L17
+ 353              	.L22:
+  74:Src/eeprom.c  **** 					return FLASH_OK; 
+ 354              		.loc 1 74 6 is_stmt 1 view .LVU82
+ 355 0074 FFF7FEFF 		bl	HAL_FLASH_Lock
+ 356              	.LVL44:
+  75:Src/eeprom.c  **** 				}
+ 357              		.loc 1 75 6 view .LVU83
+  75:Src/eeprom.c  **** 				}
+ 358              		.loc 1 75 13 is_stmt 0 view .LVU84
+ 359 0078 0120     		movs	r0, #1
+ 360 007a F6E7     		b	.L17
+ 361              		.cfi_endproc
+ 362              	.LFE316:
+ 364              		.section	.text.Eeprom_Write_Data,"ax",%progbits
+ 365              		.align	1
+ 366              		.global	Eeprom_Write_Data
+ 367              		.syntax unified
+ 368              		.code	16
+ 369              		.thumb_func
+ 371              	Eeprom_Write_Data:
+ 372              	.LVL45:
+ 373              	.LFB317:
+  89:Src/eeprom.c  **** 
+  90:Src/eeprom.c  **** Status_FlashTypeDef Eeprom_Write_Data(uint32_t addr, Position_FlashTypeDef pos, uint32_t val, uint1
+  91:Src/eeprom.c  **** {
+ 374              		.loc 1 91 1 is_stmt 1 view -0
+ 375              		.cfi_startproc
+ 376              		@ args = 0, pretend = 0, frame = 0
+ 377              		@ frame_needed = 0, uses_anonymous_args = 0
+ 378              		.loc 1 91 1 is_stmt 0 view .LVU86
+ 379 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 380              	.LCFI3:
+ 381              		.cfi_def_cfa_offset 24
+ 382              		.cfi_offset 3, -24
+ 383              		.cfi_offset 4, -20
+ 384              		.cfi_offset 5, -16
+ 385              		.cfi_offset 6, -12
+ 386              		.cfi_offset 7, -8
+ 387              		.cfi_offset 14, -4
+ 388 0002 0700     		movs	r7, r0
+ 389 0004 0E00     		movs	r6, r1
+ 390 0006 1500     		movs	r5, r2
+ 391 0008 1C00     		movs	r4, r3
+ 392              	.LVL46:
+ 393              	.L26:
+  92:Src/eeprom.c  **** 	while(1)
+ 394              		.loc 1 92 2 is_stmt 1 view .LVU87
+  93:Src/eeprom.c  **** 	{
+  94:Src/eeprom.c  **** 		HAL_FLASH_Unlock();
+ 395              		.loc 1 94 3 view .LVU88
+ 396 000a FFF7FEFF 		bl	HAL_FLASH_Unlock
+ 397              	.LVL47:
+  95:Src/eeprom.c  **** 		if(HAL_FLASH_Program(TYPEPROGRAM_DOUBLEWORD, addr + pos, val) == HAL_OK) 
+ 398              		.loc 1 95 3 view .LVU89
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 10
+
+
+ 399              		.loc 1 95 6 is_stmt 0 view .LVU90
+ 400 000e F119     		adds	r1, r6, r7
+ 401 0010 2A00     		movs	r2, r5
+ 402 0012 0023     		movs	r3, #0
+ 403 0014 0120     		movs	r0, #1
+ 404 0016 FFF7FEFF 		bl	HAL_FLASH_Program
+ 405              	.LVL48:
+ 406              		.loc 1 95 5 view .LVU91
+ 407 001a 0028     		cmp	r0, #0
+ 408 001c 0AD0     		beq	.L27
+  96:Src/eeprom.c  **** 		{
+  97:Src/eeprom.c  **** 			HAL_FLASH_Lock();
+  98:Src/eeprom.c  **** 			return FLASH_OK;
+  99:Src/eeprom.c  **** 		}
+ 100:Src/eeprom.c  **** 		
+ 101:Src/eeprom.c  **** 		HAL_Delay(1); 
+ 409              		.loc 1 101 3 is_stmt 1 view .LVU92
+ 410 001e 0120     		movs	r0, #1
+ 411 0020 FFF7FEFF 		bl	HAL_Delay
+ 412              	.LVL49:
+ 102:Src/eeprom.c  **** 		timeout--; 
+ 413              		.loc 1 102 3 view .LVU93
+ 414              		.loc 1 102 10 is_stmt 0 view .LVU94
+ 415 0024 013C     		subs	r4, r4, #1
+ 416              	.LVL50:
+ 417              		.loc 1 102 10 view .LVU95
+ 418 0026 A4B2     		uxth	r4, r4
+ 419              	.LVL51:
+ 103:Src/eeprom.c  **** 		if(timeout == 0) 
+ 420              		.loc 1 103 3 is_stmt 1 view .LVU96
+ 421              		.loc 1 103 5 is_stmt 0 view .LVU97
+ 422 0028 002C     		cmp	r4, #0
+ 423 002a EED1     		bne	.L26
+ 104:Src/eeprom.c  **** 		{
+ 105:Src/eeprom.c  **** 			HAL_FLASH_Lock();
+ 424              		.loc 1 105 4 is_stmt 1 view .LVU98
+ 425 002c FFF7FEFF 		bl	HAL_FLASH_Lock
+ 426              	.LVL52:
+ 106:Src/eeprom.c  **** 			return FLASH_ERROR; 
+ 427              		.loc 1 106 4 view .LVU99
+ 428              		.loc 1 106 11 is_stmt 0 view .LVU100
+ 429 0030 0020     		movs	r0, #0
+ 430 0032 02E0     		b	.L25
+ 431              	.L27:
+  97:Src/eeprom.c  **** 			return FLASH_OK;
+ 432              		.loc 1 97 4 is_stmt 1 view .LVU101
+ 433 0034 FFF7FEFF 		bl	HAL_FLASH_Lock
+ 434              	.LVL53:
+  98:Src/eeprom.c  **** 		}
+ 435              		.loc 1 98 4 view .LVU102
+  98:Src/eeprom.c  **** 		}
+ 436              		.loc 1 98 11 is_stmt 0 view .LVU103
+ 437 0038 0120     		movs	r0, #1
+ 438              	.L25:
+ 107:Src/eeprom.c  **** 		}
+ 108:Src/eeprom.c  **** 	}
+ 109:Src/eeprom.c  **** } 
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 11
+
+
+ 439              		.loc 1 109 1 view .LVU104
+ 440              		@ sp needed
+ 441              	.LVL54:
+ 442              	.LVL55:
+ 443              	.LVL56:
+ 444              		.loc 1 109 1 view .LVU105
+ 445 003a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 446              		.cfi_endproc
+ 447              	.LFE317:
+ 449              		.section	.text.Eeprom_ClearPage,"ax",%progbits
+ 450              		.align	1
+ 451              		.global	Eeprom_ClearPage
+ 452              		.syntax unified
+ 453              		.code	16
+ 454              		.thumb_func
+ 456              	Eeprom_ClearPage:
+ 457              	.LVL57:
+ 458              	.LFB318:
+ 110:Src/eeprom.c  **** 
+ 111:Src/eeprom.c  **** void Eeprom_ClearPage(uint32_t page)
+ 112:Src/eeprom.c  **** {
+ 459              		.loc 1 112 1 is_stmt 1 view -0
+ 460              		.cfi_startproc
+ 461              		@ args = 0, pretend = 0, frame = 0
+ 462              		@ frame_needed = 0, uses_anonymous_args = 0
+ 463              		.loc 1 112 1 is_stmt 0 view .LVU107
+ 464 0000 70B5     		push	{r4, r5, r6, lr}
+ 465              	.LCFI4:
+ 466              		.cfi_def_cfa_offset 16
+ 467              		.cfi_offset 4, -16
+ 468              		.cfi_offset 5, -12
+ 469              		.cfi_offset 6, -8
+ 470              		.cfi_offset 14, -4
+ 471 0002 0500     		movs	r5, r0
+ 113:Src/eeprom.c  **** 	HAL_FLASH_Unlock();
+ 472              		.loc 1 113 2 is_stmt 1 view .LVU108
+ 473 0004 FFF7FEFF 		bl	HAL_FLASH_Unlock
+ 474              	.LVL58:
+ 114:Src/eeprom.c  **** 	
+ 115:Src/eeprom.c  **** 	FLASH_WaitForLastOperation(1000);
+ 475              		.loc 1 115 2 view .LVU109
+ 476 0008 FA26     		movs	r6, #250
+ 477 000a B600     		lsls	r6, r6, #2
+ 478 000c 3000     		movs	r0, r6
+ 479 000e FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 480              	.LVL59:
+ 116:Src/eeprom.c  **** 	__HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGAERR);
+ 481              		.loc 1 116 2 view .LVU110
+ 482              		.loc 1 116 2 view .LVU111
+ 483              		.loc 1 116 2 view .LVU112
+ 484 0012 084C     		ldr	r4, .L29
+ 485 0014 2023     		movs	r3, #32
+ 486 0016 2361     		str	r3, [r4, #16]
+ 487              		.loc 1 116 2 view .LVU113
+ 117:Src/eeprom.c  **** 	FLASH_PageErase(FLASH_BANK_1, page); 
+ 488              		.loc 1 117 2 view .LVU114
+ 489 0018 2900     		movs	r1, r5
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 12
+
+
+ 490 001a 0420     		movs	r0, #4
+ 491 001c FFF7FEFF 		bl	FLASH_PageErase
+ 492              	.LVL60:
+ 118:Src/eeprom.c  **** 	FLASH_WaitForLastOperation(1000);
+ 493              		.loc 1 118 2 view .LVU115
+ 494 0020 3000     		movs	r0, r6
+ 495 0022 FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 496              	.LVL61:
+ 119:Src/eeprom.c  **** 	CLEAR_BIT(FLASH->CR, FLASH_CR_PER); 
+ 497              		.loc 1 119 2 view .LVU116
+ 498 0026 6369     		ldr	r3, [r4, #20]
+ 499 0028 0222     		movs	r2, #2
+ 500 002a 9343     		bics	r3, r2
+ 501 002c 6361     		str	r3, [r4, #20]
+ 120:Src/eeprom.c  ****   
+ 121:Src/eeprom.c  ****   /*FLASH_WaitForLastOperation(1000);
+ 122:Src/eeprom.c  **** 	__HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGAERR);
+ 123:Src/eeprom.c  **** 	FLASH_PageErase(0, page); 
+ 124:Src/eeprom.c  **** 	FLASH_WaitForLastOperation(1000);
+ 125:Src/eeprom.c  **** 	CLEAR_BIT(FLASH->CR, FLASH_CR_PER); */ 
+ 126:Src/eeprom.c  **** 	
+ 127:Src/eeprom.c  **** 	HAL_FLASH_Lock(); 
+ 502              		.loc 1 127 2 view .LVU117
+ 503 002e FFF7FEFF 		bl	HAL_FLASH_Lock
+ 504              	.LVL62:
+ 128:Src/eeprom.c  **** }
+ 505              		.loc 1 128 1 is_stmt 0 view .LVU118
+ 506              		@ sp needed
+ 507              	.LVL63:
+ 508              		.loc 1 128 1 view .LVU119
+ 509 0032 70BD     		pop	{r4, r5, r6, pc}
+ 510              	.L30:
+ 511              		.align	2
+ 512              	.L29:
+ 513 0034 00200240 		.word	1073881088
+ 514              		.cfi_endproc
+ 515              	.LFE318:
+ 517              		.section	.text.Eeprom_ReadStr_Hexadecimal,"ax",%progbits
+ 518              		.align	1
+ 519              		.global	Eeprom_ReadStr_Hexadecimal
+ 520              		.syntax unified
+ 521              		.code	16
+ 522              		.thumb_func
+ 524              	Eeprom_ReadStr_Hexadecimal:
+ 525              	.LVL64:
+ 526              	.LFB319:
+ 129:Src/eeprom.c  **** 
+ 130:Src/eeprom.c  **** void Eeprom_ReadStr_Hexadecimal(uint32_t addr, Position_FlashTypeDef pos, uint32_t *input, uint16_t
+ 131:Src/eeprom.c  **** {
+ 527              		.loc 1 131 1 is_stmt 1 view -0
+ 528              		.cfi_startproc
+ 529              		@ args = 8, pretend = 0, frame = 8
+ 530              		@ frame_needed = 1, uses_anonymous_args = 0
+ 531              		.loc 1 131 1 is_stmt 0 view .LVU121
+ 532 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 533              	.LCFI5:
+ 534              		.cfi_def_cfa_offset 20
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 13
+
+
+ 535              		.cfi_offset 4, -20
+ 536              		.cfi_offset 5, -16
+ 537              		.cfi_offset 6, -12
+ 538              		.cfi_offset 7, -8
+ 539              		.cfi_offset 14, -4
+ 540 0002 DE46     		mov	lr, fp
+ 541 0004 5746     		mov	r7, r10
+ 542 0006 4E46     		mov	r6, r9
+ 543 0008 4546     		mov	r5, r8
+ 544 000a E0B5     		push	{r5, r6, r7, lr}
+ 545              	.LCFI6:
+ 546              		.cfi_def_cfa_offset 36
+ 547              		.cfi_offset 8, -36
+ 548              		.cfi_offset 9, -32
+ 549              		.cfi_offset 10, -28
+ 550              		.cfi_offset 11, -24
+ 551 000c 83B0     		sub	sp, sp, #12
+ 552              	.LCFI7:
+ 553              		.cfi_def_cfa_offset 48
+ 554 000e 00AF     		add	r7, sp, #0
+ 555              	.LCFI8:
+ 556              		.cfi_def_cfa_register 7
+ 557 0010 3860     		str	r0, [r7]
+ 558 0012 0D00     		movs	r5, r1
+ 559 0014 7A60     		str	r2, [r7, #4]
+ 560 0016 9846     		mov	r8, r3
+ 561 0018 2823     		movs	r3, #40
+ 562              	.LVL65:
+ 563              		.loc 1 131 1 view .LVU122
+ 564 001a 0822     		movs	r2, #8
+ 565              	.LVL66:
+ 566              		.loc 1 131 1 view .LVU123
+ 567 001c 9B18     		adds	r3, r3, r2
+ 568 001e DB19     		adds	r3, r3, r7
+ 569 0020 04CB     		ldmia	r3!, {r2}
+ 570 0022 9146     		mov	r9, r2
+ 571 0024 1B88     		ldrh	r3, [r3]
+ 572 0026 9B46     		mov	fp, r3
+ 132:Src/eeprom.c  **** 	uint8_t *ptr = 0; 
+ 573              		.loc 1 132 2 is_stmt 1 view .LVU124
+ 574              	.LVL67:
+ 133:Src/eeprom.c  **** 	uint32_t temp[input_size]; 
+ 575              		.loc 1 133 2 view .LVU125
+ 576              		.loc 1 133 11 is_stmt 0 view .LVU126
+ 577 0028 4346     		mov	r3, r8
+ 578 002a 9B00     		lsls	r3, r3, #2
+ 579 002c 0733     		adds	r3, r3, #7
+ 580 002e DB08     		lsrs	r3, r3, #3
+ 581 0030 DB00     		lsls	r3, r3, #3
+ 582 0032 6A46     		mov	r2, sp
+ 583 0034 D31A     		subs	r3, r2, r3
+ 584 0036 9D46     		mov	sp, r3
+ 585 0038 EA46     		mov	r10, sp
+ 586              	.LVL68:
+ 134:Src/eeprom.c  **** 	 
+ 135:Src/eeprom.c  **** 	for(uint8_t i = 0; i < input_size; i++)
+ 587              		.loc 1 135 2 is_stmt 1 view .LVU127
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 14
+
+
+ 588              	.LBB2:
+ 589              		.loc 1 135 6 view .LVU128
+ 590              		.loc 1 135 14 is_stmt 0 view .LVU129
+ 591 003a 0024     		movs	r4, #0
+ 592              		.loc 1 135 2 view .LVU130
+ 593 003c 0CE0     		b	.L32
+ 594              	.LVL69:
+ 595              	.L33:
+ 136:Src/eeprom.c  **** 	{
+ 137:Src/eeprom.c  **** 		input[i] = Eeprom_Read_Data(addr, pos); 
+ 596              		.loc 1 137 3 is_stmt 1 discriminator 3 view .LVU131
+ 597              		.loc 1 137 8 is_stmt 0 discriminator 3 view .LVU132
+ 598 003e A600     		lsls	r6, r4, #2
+ 599 0040 7B68     		ldr	r3, [r7, #4]
+ 600 0042 9C46     		mov	ip, r3
+ 601 0044 6644     		add	r6, r6, ip
+ 602              		.loc 1 137 14 discriminator 3 view .LVU133
+ 603 0046 2900     		movs	r1, r5
+ 604 0048 3868     		ldr	r0, [r7]
+ 605 004a FFF7FEFF 		bl	Eeprom_Read_Data
+ 606              	.LVL70:
+ 607              		.loc 1 137 12 discriminator 3 view .LVU134
+ 608 004e 3060     		str	r0, [r6]
+ 138:Src/eeprom.c  **** 		pos += 4; 
+ 609              		.loc 1 138 3 is_stmt 1 discriminator 3 view .LVU135
+ 610              		.loc 1 138 7 is_stmt 0 discriminator 3 view .LVU136
+ 611 0050 0435     		adds	r5, r5, #4
+ 612              	.LVL71:
+ 613              		.loc 1 138 7 discriminator 3 view .LVU137
+ 614 0052 EDB2     		uxtb	r5, r5
+ 615              	.LVL72:
+ 135:Src/eeprom.c  **** 	{
+ 616              		.loc 1 135 37 is_stmt 1 discriminator 3 view .LVU138
+ 135:Src/eeprom.c  **** 	{
+ 617              		.loc 1 135 38 is_stmt 0 discriminator 3 view .LVU139
+ 618 0054 0134     		adds	r4, r4, #1
+ 619              	.LVL73:
+ 135:Src/eeprom.c  **** 	{
+ 620              		.loc 1 135 38 discriminator 3 view .LVU140
+ 621 0056 E4B2     		uxtb	r4, r4
+ 622              	.LVL74:
+ 623              	.L32:
+ 135:Src/eeprom.c  **** 	{
+ 624              		.loc 1 135 21 is_stmt 1 discriminator 1 view .LVU141
+ 135:Src/eeprom.c  **** 	{
+ 625              		.loc 1 135 23 is_stmt 0 discriminator 1 view .LVU142
+ 626 0058 A3B2     		uxth	r3, r4
+ 135:Src/eeprom.c  **** 	{
+ 627              		.loc 1 135 2 discriminator 1 view .LVU143
+ 628 005a 4345     		cmp	r3, r8
+ 629 005c EFD3     		bcc	.L33
+ 630              	.LBE2:
+ 139:Src/eeprom.c  **** 	}
+ 140:Src/eeprom.c  **** 
+ 141:Src/eeprom.c  **** 	strcpy((char*)temp, (char*)input);
+ 631              		.loc 1 141 2 is_stmt 1 view .LVU144
+ 632 005e 7968     		ldr	r1, [r7, #4]
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 15
+
+
+ 633 0060 5046     		mov	r0, r10
+ 634 0062 FFF7FEFF 		bl	strcpy
+ 635              	.LVL75:
+ 142:Src/eeprom.c  **** 	ptr = (uint8_t*)&temp; 
+ 636              		.loc 1 142 2 view .LVU145
+ 143:Src/eeprom.c  **** 	for(uint16_t i = 0; i < output_size; i++) output[i] = ptr[i];
+ 637              		.loc 1 143 2 view .LVU146
+ 638              	.LBB3:
+ 639              		.loc 1 143 6 view .LVU147
+ 640              		.loc 1 143 15 is_stmt 0 view .LVU148
+ 641 0066 0023     		movs	r3, #0
+ 642              		.loc 1 143 2 view .LVU149
+ 643 0068 05E0     		b	.L34
+ 644              	.LVL76:
+ 645              	.L35:
+ 646              		.loc 1 143 44 is_stmt 1 discriminator 3 view .LVU150
+ 647              		.loc 1 143 59 is_stmt 0 discriminator 3 view .LVU151
+ 648 006a 5246     		mov	r2, r10
+ 649 006c D25C     		ldrb	r2, [r2, r3]
+ 650              		.loc 1 143 54 discriminator 3 view .LVU152
+ 651 006e 4946     		mov	r1, r9
+ 652 0070 CA54     		strb	r2, [r1, r3]
+ 653              		.loc 1 143 39 is_stmt 1 discriminator 3 view .LVU153
+ 654              		.loc 1 143 40 is_stmt 0 discriminator 3 view .LVU154
+ 655 0072 0133     		adds	r3, r3, #1
+ 656              	.LVL77:
+ 657              		.loc 1 143 40 discriminator 3 view .LVU155
+ 658 0074 9BB2     		uxth	r3, r3
+ 659              	.LVL78:
+ 660              	.L34:
+ 661              		.loc 1 143 22 is_stmt 1 discriminator 1 view .LVU156
+ 662              		.loc 1 143 2 is_stmt 0 discriminator 1 view .LVU157
+ 663 0076 5B45     		cmp	r3, fp
+ 664 0078 F7D3     		bcc	.L35
+ 665              	.LBE3:
+ 144:Src/eeprom.c  **** }
+ 666              		.loc 1 144 1 view .LVU158
+ 667 007a BD46     		mov	sp, r7
+ 668              	.LVL79:
+ 669              		.loc 1 144 1 view .LVU159
+ 670 007c 03B0     		add	sp, sp, #12
+ 671              	.LVL80:
+ 672              		.loc 1 144 1 view .LVU160
+ 673              		@ sp needed
+ 674              	.LVL81:
+ 675              	.LVL82:
+ 676              	.LVL83:
+ 677              	.LVL84:
+ 678              		.loc 1 144 1 view .LVU161
+ 679 007e F0BC     		pop	{r4, r5, r6, r7}
+ 680 0080 BB46     		mov	fp, r7
+ 681 0082 B246     		mov	r10, r6
+ 682 0084 A946     		mov	r9, r5
+ 683 0086 A046     		mov	r8, r4
+ 684 0088 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 685              		.cfi_endproc
+ 686              	.LFE319:
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 16
+
+
+ 688              		.text
+ 689              	.Letext0:
+ 690              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 691              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 692              		.file 4 "Drivers/CMSIS/Device/ST/STM32G0xx/Include/stm32g070xx.h"
+ 693              		.file 5 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h"
+ 694              		.file 6 "Inc/eeprom.h"
+ 695              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 696              		.file 8 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_flash.h"
+ 697              		.file 9 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_flash_ex.h"
+ 698              		.file 10 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h"
+ 699              		.file 11 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 eeprom.c
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:18     .text.Eeprom_Read_Data:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:24     .text.Eeprom_Read_Data:00000000 Eeprom_Read_Data
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:48     .text.Eeprom_ReadModbus_Rtu:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:54     .text.Eeprom_ReadModbus_Rtu:00000000 Eeprom_ReadModbus_Rtu
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:74     .text.Eeprom_WriteStr_Hexadecimal:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:80     .text.Eeprom_WriteStr_Hexadecimal:00000000 Eeprom_WriteStr_Hexadecimal
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:225    .text.Eeprom_WriteModbus_Rtu:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:231    .text.Eeprom_WriteModbus_Rtu:00000000 Eeprom_WriteModbus_Rtu
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:365    .text.Eeprom_Write_Data:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:371    .text.Eeprom_Write_Data:00000000 Eeprom_Write_Data
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:450    .text.Eeprom_ClearPage:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:456    .text.Eeprom_ClearPage:00000000 Eeprom_ClearPage
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:513    .text.Eeprom_ClearPage:00000034 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:518    .text.Eeprom_ReadStr_Hexadecimal:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccNWggMo.s:524    .text.Eeprom_ReadStr_Hexadecimal:00000000 Eeprom_ReadStr_Hexadecimal
+
+UNDEFINED SYMBOLS
+HAL_FLASH_Unlock
+HAL_Delay
+HAL_FLASH_Program
+HAL_FLASH_Lock
+FLASH_WaitForLastOperation
+FLASH_PageErase
+strcpy
