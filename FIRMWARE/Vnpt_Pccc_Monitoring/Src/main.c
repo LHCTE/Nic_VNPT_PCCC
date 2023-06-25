@@ -86,9 +86,11 @@ typedef enum
   SERVERCMD_NORMAL_PING      	= 2,
   SERVERCMD_NORMAL_QUEST_CMD 	= 3,
   SERVERCMD_NORMAL_RESTART   	= 4,
-  SERVERCMD_NORMAL_RELAY_0	= 5,
-	SERVERCMD_NORMAL_RELAY_1	= 6,
-	SERVERCMD_NORMAL_CONFIRM    = 7
+  SERVERCMD_NORMAL_RELAY_0	  = 5,
+	SERVERCMD_NORMAL_RELAY_1	  = 6,
+	SERVERCMD_NORMAL_CONFIRM    = 7,
+  SERVERCMD_NORMAL_SIM_RSSI   = 8,
+  SERVERCMD_NORMAL_WIRELESS   = 9 
 } ServerCmd_NormalModHandleTypeDef; 
 
 typedef enum 
@@ -376,7 +378,7 @@ int main(void)
   //   HAL_UART_Transmit(&huart2, (uint8_t*)"AT+CSQ\r\n", strlen("AT+CSQ\r\n"), 100); 
 	//   HAL_Delay(2000); 
   // }
-
+  
   wirelessProtocol = SimA7670C_Modules; 
   SimA7670C_4GLTE_Init(); 
   
@@ -1334,7 +1336,7 @@ int main(void)
 			else CmdConfig_Cnt = Eeprom_Read_Data(Addr_CmdConfig, Position_1); 
       #endif
 
-      sprintf((char*)Send_Package_Buf, "<!> Started data -> Device %s --%s --RSSI(dBm): %d --Commands config: %d --Interval(s): %ld", DeviceID, Version, RSSI_Sim4GLTE(huart2, IoT_Protocol_Buf), CmdConfig_Cnt, Eeprom_Read_Data(Addr_Interval, Position_1));
+      sprintf((char*)Send_Package_Buf, "<!> Started data -> Device %s --%s --RSSI(dBm): %d --Commands config: %d --Interval(s): %ld", DeviceID, Version, Get_RSSI_Sim4GLTE(huart2, IoT_Protocol_Buf), CmdConfig_Cnt, Eeprom_Read_Data(Addr_Interval, Position_1));
 			Broker_Publish_Topic(Send_Package_Buf);
 			Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
 			Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
@@ -1519,7 +1521,7 @@ int main(void)
             Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
             break;
             #else
-            sprintf((char*)Send_Package_Buf, "%s%ld%s%d", "PING	(*)INTERVAL: ", Eeprom_Read_Data(Addr_Interval, Position_1), "	(*)RSSI: ", RSSI_Sim4GLTE(huart2, IoT_Protocol_Buf)); 
+            sprintf((char*)Send_Package_Buf, "%s%ld%s%d", "PING	(*)INTERVAL: ", Eeprom_Read_Data(Addr_Interval, Position_1), "	(*)RSSI: ", Get_RSSI_Sim4GLTE(huart2, IoT_Protocol_Buf)); 
             Broker_Publish_Topic(Send_Package_Buf); 
             Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
           
@@ -1532,6 +1534,28 @@ int main(void)
 					
 						Interval_Flag = 1; 
 						break; 
+
+          case SERVERCMD_NORMAL_SIM_RSSI:
+            sprintf((char*)Send_Package_Buf, "RSSI: %d dBm - Network provider: ", Get_RSSI_Sim4GLTE(huart2, IoT_Protocol_Buf)); 
+            Get_Service_Provider_Name_Sim4GLTE(huart2, IoT_Protocol_Buf, Send_Package_Buf); 
+
+            Broker_Publish_Topic(Send_Package_Buf);
+            Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+            Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
+            break; 
+
+          case SERVERCMD_NORMAL_WIRELESS:
+            if(wirelessProtocol == SimA7670C_Modules)
+            {
+              Broker_Publish_Topic((uint8_t*)">> The device is using 4G-LTE Network"); 
+              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+            }
+            else if(wirelessProtocol == Esp32_Modules)
+            {
+              Broker_Publish_Topic((uint8_t*)">> The device is using Internet WiFi");
+              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+            }
+            break;
         }
 				
         //...Device query to Inverter with interval
@@ -2038,10 +2062,8 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(PhysRestart_Sim7020_GPIO_Port, PhysRestart_Sim7020_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, DC_LED_Pin|Battery_LED_Pin|Test_LED_Pin, GPIO_PIN_SET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, SOS_LED_Pin|PhysRestart_Pin|IO2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, DC_LED_Pin|Battery_LED_Pin|Test_LED_Pin|SOS_LED_Pin
+                          |PhysRestart_Pin|IO2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : Relay_Pin */
   GPIO_InitStruct.Pin = Relay_Pin;
@@ -2063,15 +2085,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(PhysRestart_Sim7020_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DC_LED_Pin Battery_LED_Pin Test_LED_Pin */
-  GPIO_InitStruct.Pin = DC_LED_Pin|Battery_LED_Pin|Test_LED_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : SOS_LED_Pin PhysRestart_Pin IO2_Pin */
-  GPIO_InitStruct.Pin = SOS_LED_Pin|PhysRestart_Pin|IO2_Pin;
+  /*Configure GPIO pins : DC_LED_Pin Battery_LED_Pin Test_LED_Pin SOS_LED_Pin
+                           PhysRestart_Pin IO2_Pin */
+  GPIO_InitStruct.Pin = DC_LED_Pin|Battery_LED_Pin|Test_LED_Pin|SOS_LED_Pin
+                          |PhysRestart_Pin|IO2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -2178,6 +2195,12 @@ ServerCmd_NormalModHandleTypeDef Normal_CommandsHandle(uint8_t *recv_buf, uint16
     
     //...cmd 'CONFIRM'
     else if(recv_buf[i] == 'C' && recv_buf[i + 1] == 'O' && recv_buf[i + 2] == 'N' && recv_buf[i + 3] == 'F' && recv_buf[i + 4] == 'I' && recv_buf[i + 5] == 'R' && recv_buf[i + 6] == 'M') return SERVERCMD_NORMAL_CONFIRM; 
+
+    //...cmd 'SIM_RSSI?'
+    else if(recv_buf[i] == 'S' && recv_buf[i + 1] == 'I' && recv_buf[i + 2] == 'M' && recv_buf[i + 3] == '_' && recv_buf[i + 4] == 'R' && recv_buf[i + 5] == 'S' && recv_buf[i + 6] == 'S' && recv_buf[i + 7] == 'I' && recv_buf[i + 8] == '?') return SERVERCMD_NORMAL_SIM_RSSI; 
+
+    //...cmd 'WIRELESS?' 
+    else if(recv_buf[i] == 'W' && recv_buf[i + 1] == 'I' && recv_buf[i + 2] == 'R' && recv_buf[i + 3] == 'E' && recv_buf[i + 4] == 'L' && recv_buf[i + 5] == 'E' && recv_buf[i + 6] == 'S' && recv_buf[i + 7] == 'S' && recv_buf[i + 8] == '?') return SERVERCMD_NORMAL_WIRELESS; 
   }
 
   return NONE_CMD; 
@@ -2364,7 +2387,8 @@ void Esp32_WiFi_Init(void)
 void SimA7670C_4GLTE_Init(void)
 {
   SimA7670C_Reset(huart2); 
-  HAL_Delay(20000); 
+  //Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"SMS DONE"); 
+  HAL_Delay(30000); 
 
   SimA7670C_Echo(huart2, ECHO_DISABLE);
   Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 

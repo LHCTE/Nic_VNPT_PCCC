@@ -104,26 +104,55 @@ SIMA7670C_StatusTypeDef SimA7670C_Response(uint8_t *recv_buf, uint8_t *content, 
 	}
 }
 
-int8_t RSSI_Sim4GLTE(UART_HandleTypeDef huart, uint8_t *recv_buf)
+int8_t Get_RSSI_Sim4GLTE(UART_HandleTypeDef huart, uint8_t *recv_buf)
 {
-	uint8_t *pStr_Analysis = 0; 
-	uint8_t *temp = 0; 
-	int8_t val = 0; 
-
+	uint8_t RSSI_Str[4] = {0}; 
+	uint8_t *_pStr = 0; 
+	int8_t value = 0; 
+	
 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CSQ\r\n", strlen("AT+CSQ\r\n"), 100); 
-	HAL_Delay(1000); 
+	HAL_Delay(_ms_); 
 
-	// +1 Remove string ": "
-	pStr_Analysis = (uint8_t*)strstr((char*)recv_buf, ":") + 1; 
-	for(uint8_t i = 0; i < strlen((char*)pStr_Analysis); i++)
+	// +6 Remove string "+CSQ: "
+	_pStr = (uint8_t*)strstr((char*)recv_buf, "+CSQ:") + 6; 
+	for(uint8_t i = 0; i < strlen((char*)_pStr); i++)
 	{
-		if(pStr_Analysis[i] == ',') break; 
-		else temp[i] = pStr_Analysis[i]; 
+		if(_pStr[i] == ',') break;
+		else RSSI_Str[i] = _pStr[i]; 
 	}
 
 	// Convert 'str' type to 'int' type 
-	val = (int8_t)atoi((char*)temp);
-	return val; 
+	value = (int8_t)atoi((char*)RSSI_Str);
+
+	return value; 
+}
+
+void Get_Service_Provider_Name_Sim4GLTE(UART_HandleTypeDef huart, uint8_t *recv_buf, uint8_t *output_buf)
+{
+	uint8_t *_pStr = 0; 
+	uint8_t _numberic[5] = {0};
+
+	HAL_UART_Transmit(&huart, (uint8_t*)"AT+COPS?\r\n", strlen("AT+COPS?\r\n"), 100); 
+	HAL_Delay(_ms_); 
+
+	// +2 Remove string ",\"" 
+	_pStr = (uint8_t*)strstr((char*)recv_buf, ",\"") + 2; 
+	memcpy((char*)_numberic, (char*)_pStr, 5); 
+
+	//...45205 numberic 
+	if(_numberic[4] == '5') strcat((char*)output_buf, "Vietnamobile"); 
+
+	//...45204 numberic 
+	else if(_numberic[4] == '4') strcat((char*)output_buf, "Viettel"); 
+
+	//...45202 numberic 
+	else if(_numberic[4] == '2') strcat((char*)output_buf, "VinaPhone");
+
+	//...45201 numberic 
+	else if(_numberic[4] == '1') strcat((char*)output_buf, "MobiFone"); 
+
+	//...No service 
+	else strcpy((char*)output_buf, "Not find service provider"); 
 }
 
 void Is_Insert_Sim_Card(UART_HandleTypeDef huart) 
@@ -135,8 +164,8 @@ void Is_Insert_Sim_Card(UART_HandleTypeDef huart)
 void SimA7670C_Reset(UART_HandleTypeDef huart)
 {
 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CRESET\r\n", strlen("AT+CRESET\r\n"), 100); 
-	HAL_Delay(1000); 
-	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CRESET\r\n", strlen("AT+CRESET\r\n"), 100); 
+	//HAL_Delay(1000); 
+	//HAL_UART_Transmit(&huart, (uint8_t*)"AT+CRESET\r\n", strlen("AT+CRESET\r\n"), 100); 
 
 	HAL_Delay(_ms_); 
 }

@@ -47,7 +47,8 @@ void Sim7020E_Mqtt_Subscribe(UART_HandleTypeDef huart, uint8_t *topic);
 void Sim7020E_Mqtt_Publish(UART_HandleTypeDef huart, uint8_t *topic, uint8_t *msg);
 #else 
 SIMA7670C_StatusTypeDef SimA7670C_Response(uint8_t *recv_buf, uint8_t *content, uint16_t timeout); 
-int8_t RSSI_Sim4GLTE(UART_HandleTypeDef huart, uint8_t *recv_buf); 
+int8_t Get_RSSI_Sim4GLTE(UART_HandleTypeDef huart, uint8_t *recv_buf); 
+void Get_Service_Provider_Name_Sim4GLTE(UART_HandleTypeDef huart, uint8_t *recv_buf, uint8_t *output_buf); 
 void Is_Insert_Sim_Card(UART_HandleTypeDef huart); 
 void SimA7670C_Reset(UART_HandleTypeDef huart); 
 void SimA7670C_Echo(UART_HandleTypeDef huart, StateTypeDef ctrl); 

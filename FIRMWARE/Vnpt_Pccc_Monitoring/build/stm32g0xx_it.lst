@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
   30:Src/stm32g0xx_it.c **** 
   31:Src/stm32g0xx_it.c **** /* USER CODE END TD */
   32:Src/stm32g0xx_it.c **** 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 2
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 2
 
 
   33:Src/stm32g0xx_it.c **** /* Private define ------------------------------------------------------------*/
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
   80:Src/stm32g0xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 0 */
   81:Src/stm32g0xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
   82:Src/stm32g0xx_it.c ****   while (1)
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 3
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 3
 
 
   34              		.loc 1 82 3 discriminator 1 view .LVU1
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
   72              	.LFB312:
  101:Src/stm32g0xx_it.c **** }
  102:Src/stm32g0xx_it.c **** 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 4
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 4
 
 
  103:Src/stm32g0xx_it.c **** /**
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
  105              		.align	1
  106              		.global	SysTick_Handler
  107              		.syntax unified
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 5
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 5
 
 
  108              		.code	16
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
  153:Src/stm32g0xx_it.c **** void FLASH_IRQHandler(void)
  154:Src/stm32g0xx_it.c **** {
  140              		.loc 1 154 1 is_stmt 1 view -0
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 6
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 6
 
 
  141              		.cfi_startproc
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
  176              	.LFE316:
  178              		.section	.text.TIM1_BRK_UP_TRG_COM_IRQHandler,"ax",%progbits
  179              		.align	1
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 7
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 7
 
 
  180              		.global	TIM1_BRK_UP_TRG_COM_IRQHandler
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
  194:Src/stm32g0xx_it.c **** void TIM1_CC_IRQHandler(void)
  195:Src/stm32g0xx_it.c **** {
  219              		.loc 1 195 1 is_stmt 1 view -0
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 8
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 8
 
 
  220              		.cfi_startproc
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
  212:Src/stm32g0xx_it.c ****   /* USER CODE END TIM3_IRQn 0 */
  213:Src/stm32g0xx_it.c ****   HAL_TIM_IRQHandler(&htim3);
  260              		.loc 1 213 3 view .LVU27
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 9
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 9
 
 
  261 0002 0248     		ldr	r0, .L17
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
  299              	.L21:
  300 000a C046     		.align	2
  301              	.L20:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 10
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 10
 
 
  302 000c 00000000 		.word	htim6
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
  346              	.LFB322:
  246:Src/stm32g0xx_it.c **** 
  247:Src/stm32g0xx_it.c **** /**
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 11
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 11
 
 
  248:Src/stm32g0xx_it.c ****   * @brief This function handles USART1 global interrupt / USART1 wake-up interrupt through EXTI li
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
  385              		.cfi_def_cfa_offset 8
  386              		.cfi_offset 4, -8
  387              		.cfi_offset 14, -4
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 12
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 12
 
 
  266:Src/stm32g0xx_it.c ****   /* USER CODE BEGIN USART2_IRQn 0 */
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
  286:Src/stm32g0xx_it.c ****   /* USER CODE END USART3_4_IRQn 1 */
  287:Src/stm32g0xx_it.c **** }
  424              		.loc 1 287 1 is_stmt 0 view .LVU43
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 13
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 13
 
 
  425              		@ sp needed
@@ -741,49 +741,49 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 1
  443              		.file 9 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_flash.h"
  444              		.file 10 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h"
  445              		.file 11 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s 			page 14
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g0xx_it.c
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:18     .text.NMI_Handler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:24     .text.NMI_Handler:00000000 NMI_Handler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:42     .text.HardFault_Handler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:48     .text.HardFault_Handler:00000000 HardFault_Handler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:65     .text.SVC_Handler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:71     .text.SVC_Handler:00000000 SVC_Handler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:85     .text.PendSV_Handler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:91     .text.PendSV_Handler:00000000 PendSV_Handler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:105    .text.SysTick_Handler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:111    .text.SysTick_Handler:00000000 SysTick_Handler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:132    .text.FLASH_IRQHandler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:138    .text.FLASH_IRQHandler:00000000 FLASH_IRQHandler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:159    .text.RCC_IRQHandler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:165    .text.RCC_IRQHandler:00000000 RCC_IRQHandler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:179    .text.TIM1_BRK_UP_TRG_COM_IRQHandler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:185    .text.TIM1_BRK_UP_TRG_COM_IRQHandler:00000000 TIM1_BRK_UP_TRG_COM_IRQHandler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:206    .text.TIM1_BRK_UP_TRG_COM_IRQHandler:0000000c $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:211    .text.TIM1_CC_IRQHandler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:217    .text.TIM1_CC_IRQHandler:00000000 TIM1_CC_IRQHandler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:238    .text.TIM1_CC_IRQHandler:0000000c $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:243    .text.TIM3_IRQHandler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:249    .text.TIM3_IRQHandler:00000000 TIM3_IRQHandler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:270    .text.TIM3_IRQHandler:0000000c $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:275    .text.TIM6_IRQHandler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:281    .text.TIM6_IRQHandler:00000000 TIM6_IRQHandler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:302    .text.TIM6_IRQHandler:0000000c $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:307    .text.TIM15_IRQHandler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:313    .text.TIM15_IRQHandler:00000000 TIM15_IRQHandler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:334    .text.TIM15_IRQHandler:0000000c $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:339    .text.USART1_IRQHandler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:345    .text.USART1_IRQHandler:00000000 USART1_IRQHandler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:366    .text.USART1_IRQHandler:0000000c $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:371    .text.USART2_IRQHandler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:377    .text.USART2_IRQHandler:00000000 USART2_IRQHandler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:398    .text.USART2_IRQHandler:0000000c $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:403    .text.USART3_4_IRQHandler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:409    .text.USART3_4_IRQHandler:00000000 USART3_4_IRQHandler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccDQHmtv.s:430    .text.USART3_4_IRQHandler:0000000c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:18     .text.NMI_Handler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:24     .text.NMI_Handler:00000000 NMI_Handler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:42     .text.HardFault_Handler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:48     .text.HardFault_Handler:00000000 HardFault_Handler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:65     .text.SVC_Handler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:71     .text.SVC_Handler:00000000 SVC_Handler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:85     .text.PendSV_Handler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:91     .text.PendSV_Handler:00000000 PendSV_Handler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:105    .text.SysTick_Handler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:111    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:132    .text.FLASH_IRQHandler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:138    .text.FLASH_IRQHandler:00000000 FLASH_IRQHandler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:159    .text.RCC_IRQHandler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:165    .text.RCC_IRQHandler:00000000 RCC_IRQHandler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:179    .text.TIM1_BRK_UP_TRG_COM_IRQHandler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:185    .text.TIM1_BRK_UP_TRG_COM_IRQHandler:00000000 TIM1_BRK_UP_TRG_COM_IRQHandler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:206    .text.TIM1_BRK_UP_TRG_COM_IRQHandler:0000000c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:211    .text.TIM1_CC_IRQHandler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:217    .text.TIM1_CC_IRQHandler:00000000 TIM1_CC_IRQHandler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:238    .text.TIM1_CC_IRQHandler:0000000c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:243    .text.TIM3_IRQHandler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:249    .text.TIM3_IRQHandler:00000000 TIM3_IRQHandler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:270    .text.TIM3_IRQHandler:0000000c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:275    .text.TIM6_IRQHandler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:281    .text.TIM6_IRQHandler:00000000 TIM6_IRQHandler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:302    .text.TIM6_IRQHandler:0000000c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:307    .text.TIM15_IRQHandler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:313    .text.TIM15_IRQHandler:00000000 TIM15_IRQHandler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:334    .text.TIM15_IRQHandler:0000000c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:339    .text.USART1_IRQHandler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:345    .text.USART1_IRQHandler:00000000 USART1_IRQHandler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:366    .text.USART1_IRQHandler:0000000c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:371    .text.USART2_IRQHandler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:377    .text.USART2_IRQHandler:00000000 USART2_IRQHandler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:398    .text.USART2_IRQHandler:0000000c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:403    .text.USART3_4_IRQHandler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:409    .text.USART3_4_IRQHandler:00000000 USART3_4_IRQHandler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccBOKPuJ.s:430    .text.USART3_4_IRQHandler:0000000c $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick

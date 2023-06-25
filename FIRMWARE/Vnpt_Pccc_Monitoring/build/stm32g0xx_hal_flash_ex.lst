@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
   30:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****            (++) Erase function: Erase page, erase all sectors
   31:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****            (++) There are two modes of erase :
   32:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****              (+++) Polling Mode using HAL_FLASHEx_Erase()
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 2
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 2
 
 
   33:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****              (+++) Interrupt Mode using HAL_FLASHEx_Erase_IT()
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
   87:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** /* Private variables ---------------------------------------------------------*/
   88:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** /* Private function prototypes -----------------------------------------------*/
   89:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** /** @defgroup FLASHEx_Private_Functions FLASHEx Private Functions
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 3
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 3
 
 
   90:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   * @{
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  144:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   */
  145:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** /**
  146:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   * @brief  Perform a mass erase or erase the specified FLASH memory pages.
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 4
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 4
 
 
  147:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   * @param[in]  pEraseInit Pointer to an @ref FLASH_EraseInitTypeDef structure that
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  201:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****           /* In case of error, stop erase procedure and return the faulty address */
  202:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****           *PageError = index;
  203:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****           break;
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 5
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 5
 
 
  204:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****         }
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  258:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** 
  259:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****     /* Enable End of Operation and Error interrupts */
  260:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****     FLASH->CR |= FLASH_CR_EOPIE | FLASH_CR_ERRIE;
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 6
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 6
 
 
  261:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  315:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   }
  316:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** 
  317:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   /* Option register */
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 7
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 7
 
 
  318:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   if ((pOBInit->OptionType & (OPTIONBYTE_RDP | OPTIONBYTE_USER)) == (OPTIONBYTE_RDP | OPTIONBYTE_US
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  372:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   }
  373:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** #endif /* FLASH_PCROP_SUPPORT */
  374:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 8
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 8
 
 
  375:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** #if defined(FLASH_SECURABLE_MEMORY_SUPPORT)
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  429:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   pOBInit->RDPLevel = FLASH_OB_GetRDP();
  430:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** 
  431:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   /* Get the user option bytes */
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 9
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 9
 
 
  432:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   pOBInit->USERConfig = FLASH_OB_GetUser();
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  486:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   * @retval 0 if 1st location is not programmed else
  487:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   */
  488:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** uint32_t HAL_FLASHEx_FlashEmptyCheck(void)
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 10
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 10
 
 
  489:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** {
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  543:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   }
  544:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** }
  545:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** #endif /* FLASH_SECURABLE_MEMORY_SUPPORT */
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 11
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 11
 
 
  546:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** /**
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
   51              		.cfi_endproc
   52              	.LFE316:
   54              		.section	.text.FLASH_OB_WRPConfig,"ax",%progbits
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 12
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 12
 
 
   55              		.align	1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  623:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   {
  624:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****     /* Disable instruction cache  */
  625:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****     __HAL_FLASH_INSTRUCTION_CACHE_DISABLE();
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 13
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 13
 
 
  626:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****     /* Reset instruction cache */
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  668:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** #if defined(FLASH_DBANK_SUPPORT)
  669:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   else if (WRPArea == OB_WRPAREA_ZONE2_A)
  670:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   {
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 14
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 14
 
 
  671:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****     FLASH->WRP2AR = ((WRDPEndOffset << FLASH_WRP2AR_WRP2A_END_Pos) | WRPStartOffset);
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  115              	.LFB320:
  683:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** 
  684:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** /**
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 15
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 15
 
 
  685:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   * @brief  Return the FLASH Write Protection Option Bytes value.
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  724:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****     *WRPStartOffset = READ_BIT(FLASH->WRP1BR, FLASH_WRP1BR_WRP1B_STRT);
  131              		.loc 1 724 5 is_stmt 1 view .LVU26
  132              		.loc 1 724 23 is_stmt 0 view .LVU27
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 16
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 16
 
 
  133 0006 0A4C     		ldr	r4, .L14
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  176              	.L15:
  177 002e C046     		.align	2
  178              	.L14:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 17
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 17
 
 
  179 0030 00200240 		.word	1073881088
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  199              		.cfi_def_cfa_offset 12
  200              		.cfi_offset 4, -12
  201              		.cfi_offset 5, -8
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 18
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 18
 
 
  202              		.cfi_offset 14, -4
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  776:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** 
  777:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** /**
  778:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   * @brief  Return the FLASH Read Protection level.
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 19
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 19
 
 
  779:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   * @retval FLASH ReadOut Protection Status:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  282              		.syntax unified
  283              		.code	16
  284              		.thumb_func
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 20
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 20
 
 
  286              	FLASH_OB_GetUser:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  313              		.section	.text.HAL_FLASHEx_OBProgram,"ax",%progbits
  314              		.align	1
  315              		.global	HAL_FLASHEx_OBProgram
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 21
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 21
 
 
  316              		.syntax unified
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  358              	.L29:
  318:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   {
  359              		.loc 1 318 3 is_stmt 1 view .LVU87
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 22
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 22
 
 
  318:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   {
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  398              	.L28:
  409:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** 
  399              		.loc 1 409 1 is_stmt 0 view .LVU104
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 23
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 23
 
 
  400              		@ sp needed
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  333:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   }
  444              		.loc 1 333 5 is_stmt 0 view .LVU115
  445 0072 FFF7FEFF 		bl	FLASH_OB_OptrConfig
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 24
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 24
 
 
  446              	.LVL34:
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  490              	.LFE312:
  492              		.section	.text.HAL_FLASHEx_OBGetConfig,"ax",%progbits
  493              		.align	1
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 25
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 25
 
 
  494              		.global	HAL_FLASHEx_OBGetConfig
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  537              		.loc 1 432 23 view .LVU137
  538 0020 A061     		str	r0, [r4, #24]
  433:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 26
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 26
 
 
  539              		.loc 1 433 3 is_stmt 1 view .LVU138
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  588              		.align	1
  589              		.global	HAL_FLASHEx_ForceFlashEmpty
  590              		.syntax unified
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 27
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 27
 
 
  591              		.code	16
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  638              	.LFB317:
  589:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   uint32_t tmp;
  639              		.loc 1 589 1 is_stmt 1 view -0
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 28
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 28
 
 
  640              		.cfi_startproc
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  682              		.align	1
  683              		.global	HAL_FLASHEx_Erase
  684              		.syntax unified
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 29
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 29
 
 
  685              		.code	16
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  169:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** 
  727              		.loc 1 169 12 discriminator 2 view .LVU184
  728 001a 8000     		lsls	r0, r0, #2
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 30
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 30
 
 
  729 001c FFF7FEFF 		bl	FLASH_WaitForLastOperation
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  768 0046 FFF7FEFF 		bl	FLASH_PageErase
  769              	.LVL61:
  197:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c **** 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 31
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 31
 
 
  770              		.loc 1 197 9 is_stmt 1 view .LVU200
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  208:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****     }
  810              		.loc 1 208 7 view .LVU215
  811 006c 064A     		ldr	r2, .L65+4
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 32
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 32
 
 
  812 006e 5369     		ldr	r3, [r2, #20]
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  859              		.cfi_startproc
  860              		@ args = 0, pretend = 0, frame = 0
  861              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 33
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 33
 
 
  227:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   HAL_StatusTypeDef status;
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  245:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   {
  902              		.loc 1 245 3 is_stmt 1 discriminator 2 view .LVU239
  245:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****   {
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 34
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 34
 
 
  903              		.loc 1 245 6 is_stmt 0 discriminator 2 view .LVU240
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  273:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_flash_ex.c ****       pFlash.Page = pEraseInit->Page;
  943              		.loc 1 273 29 is_stmt 0 view .LVU255
  944 004a 094B     		ldr	r3, .L73
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 35
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 35
 
 
  945 004c E268     		ldr	r2, [r4, #12]
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  990              		.code	16
  991              		.thumb_func
  993              	FLASH_FlushCaches:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 36
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 36
 
 
  994              	.LFB318:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  1037              		.align	2
  1038              	.L77:
  1039 0030 00200240 		.word	1073881088
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 37
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 37
 
 
  1040 0034 FFFDFFFF 		.word	-513
@@ -2173,53 +2173,53 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 1
  1050              		.file 5 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_def.h"
  1051              		.file 6 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_flash.h"
  1052              		.file 7 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s 			page 38
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s 			page 38
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g0xx_hal_flash_ex.c
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:18     .text.FLASH_MassErase:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:23     .text.FLASH_MassErase:00000000 FLASH_MassErase
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:50     .text.FLASH_MassErase:00000010 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:55     .text.FLASH_OB_WRPConfig:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:60     .text.FLASH_OB_WRPConfig:00000000 FLASH_OB_WRPConfig
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:103    .text.FLASH_OB_WRPConfig:00000018 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:108    .text.FLASH_OB_GetWRP:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:113    .text.FLASH_OB_GetWRP:00000000 FLASH_OB_GetWRP
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:179    .text.FLASH_OB_GetWRP:00000030 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:184    .text.FLASH_OB_OptrConfig:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:189    .text.FLASH_OB_OptrConfig:00000000 FLASH_OB_OptrConfig
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:234    .text.FLASH_OB_OptrConfig:00000014 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:239    .text.FLASH_OB_GetRDP:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:244    .text.FLASH_OB_GetRDP:00000000 FLASH_OB_GetRDP
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:276    .text.FLASH_OB_GetRDP:00000014 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:281    .text.FLASH_OB_GetUser:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:286    .text.FLASH_OB_GetUser:00000000 FLASH_OB_GetUser
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:308    .text.FLASH_OB_GetUser:0000000c $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:314    .text.HAL_FLASHEx_OBProgram:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:320    .text.HAL_FLASHEx_OBProgram:00000000 HAL_FLASHEx_OBProgram
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:486    .text.HAL_FLASHEx_OBProgram:0000009c $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:493    .text.HAL_FLASHEx_OBGetConfig:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:499    .text.HAL_FLASHEx_OBGetConfig:00000000 HAL_FLASHEx_OBGetConfig
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:551    .text.HAL_FLASHEx_OBGetConfig:00000028 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:556    .text.HAL_FLASHEx_FlashEmptyCheck:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:562    .text.HAL_FLASHEx_FlashEmptyCheck:00000000 HAL_FLASHEx_FlashEmptyCheck
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:583    .text.HAL_FLASHEx_FlashEmptyCheck:0000000c $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:588    .text.HAL_FLASHEx_ForceFlashEmpty:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:594    .text.HAL_FLASHEx_ForceFlashEmpty:00000000 HAL_FLASHEx_ForceFlashEmpty
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:624    .text.HAL_FLASHEx_ForceFlashEmpty:00000010 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:630    .text.FLASH_PageErase:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:636    .text.FLASH_PageErase:00000000 FLASH_PageErase
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:675    .text.FLASH_PageErase:00000014 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:682    .text.HAL_FLASHEx_Erase:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:688    .text.HAL_FLASHEx_Erase:00000000 HAL_FLASHEx_Erase
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:843    .text.HAL_FLASHEx_Erase:00000084 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:849    .text.HAL_FLASHEx_Erase_IT:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:855    .text.HAL_FLASHEx_Erase_IT:00000000 HAL_FLASHEx_Erase_IT
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:981    .text.HAL_FLASHEx_Erase_IT:00000070 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:987    .text.FLASH_FlushCaches:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:993    .text.FLASH_FlushCaches:00000000 FLASH_FlushCaches
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc1oKA8d.s:1039   .text.FLASH_FlushCaches:00000030 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:18     .text.FLASH_MassErase:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:23     .text.FLASH_MassErase:00000000 FLASH_MassErase
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:50     .text.FLASH_MassErase:00000010 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:55     .text.FLASH_OB_WRPConfig:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:60     .text.FLASH_OB_WRPConfig:00000000 FLASH_OB_WRPConfig
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:103    .text.FLASH_OB_WRPConfig:00000018 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:108    .text.FLASH_OB_GetWRP:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:113    .text.FLASH_OB_GetWRP:00000000 FLASH_OB_GetWRP
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:179    .text.FLASH_OB_GetWRP:00000030 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:184    .text.FLASH_OB_OptrConfig:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:189    .text.FLASH_OB_OptrConfig:00000000 FLASH_OB_OptrConfig
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:234    .text.FLASH_OB_OptrConfig:00000014 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:239    .text.FLASH_OB_GetRDP:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:244    .text.FLASH_OB_GetRDP:00000000 FLASH_OB_GetRDP
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:276    .text.FLASH_OB_GetRDP:00000014 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:281    .text.FLASH_OB_GetUser:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:286    .text.FLASH_OB_GetUser:00000000 FLASH_OB_GetUser
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:308    .text.FLASH_OB_GetUser:0000000c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:314    .text.HAL_FLASHEx_OBProgram:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:320    .text.HAL_FLASHEx_OBProgram:00000000 HAL_FLASHEx_OBProgram
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:486    .text.HAL_FLASHEx_OBProgram:0000009c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:493    .text.HAL_FLASHEx_OBGetConfig:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:499    .text.HAL_FLASHEx_OBGetConfig:00000000 HAL_FLASHEx_OBGetConfig
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:551    .text.HAL_FLASHEx_OBGetConfig:00000028 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:556    .text.HAL_FLASHEx_FlashEmptyCheck:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:562    .text.HAL_FLASHEx_FlashEmptyCheck:00000000 HAL_FLASHEx_FlashEmptyCheck
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:583    .text.HAL_FLASHEx_FlashEmptyCheck:0000000c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:588    .text.HAL_FLASHEx_ForceFlashEmpty:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:594    .text.HAL_FLASHEx_ForceFlashEmpty:00000000 HAL_FLASHEx_ForceFlashEmpty
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:624    .text.HAL_FLASHEx_ForceFlashEmpty:00000010 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:630    .text.FLASH_PageErase:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:636    .text.FLASH_PageErase:00000000 FLASH_PageErase
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:675    .text.FLASH_PageErase:00000014 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:682    .text.HAL_FLASHEx_Erase:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:688    .text.HAL_FLASHEx_Erase:00000000 HAL_FLASHEx_Erase
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:843    .text.HAL_FLASHEx_Erase:00000084 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:849    .text.HAL_FLASHEx_Erase_IT:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:855    .text.HAL_FLASHEx_Erase_IT:00000000 HAL_FLASHEx_Erase_IT
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:981    .text.HAL_FLASHEx_Erase_IT:00000070 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:987    .text.FLASH_FlushCaches:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:993    .text.FLASH_FlushCaches:00000000 FLASH_FlushCaches
+C:\Users\EMBEDD~1\AppData\Local\Temp\cc2HMWiY.s:1039   .text.FLASH_FlushCaches:00000030 $d
 
 UNDEFINED SYMBOLS
 FLASH_WaitForLastOperation

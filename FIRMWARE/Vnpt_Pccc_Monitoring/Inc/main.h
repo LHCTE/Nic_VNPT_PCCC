@@ -96,7 +96,7 @@ void Error_Handler(void);
 #define IO2_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 //...Info device 
-#define DeviceID "00032" 
+#define DeviceID "test" 
 #define Version "Ver 1.0" 
 #define Server PRODUCT_SERVER
 
