@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -25,7 +25,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
   22              		.thumb_func
   24              	HAL_RCCEx_PeriphCLKConfig:
   25              	.LVL0:
-  26              	.LFB310:
+  26              	.LFB440:
   27              		.file 1 "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c"
    1:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** /**
    2:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
   29:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   */
   30:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
   31:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** /** @defgroup RCCEx RCCEx
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 2
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 2
 
 
   32:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   * @brief RCC Extended HAL module driver
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
   86:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   *            @arg @ref RCC_PERIPHCLK_ADC     ADC peripheral clock
   87:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   *            @arg @ref RCC_PERIPHCLK_I2C1    I2C1 peripheral clock
   88:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   *            @arg @ref RCC_PERIPHCLK_I2C2    I2C2 peripheral clock (2)
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 3
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 3
 
 
   89:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   *            @arg @ref RCC_PERIPHCLK_I2S1    I2S1 peripheral clock
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
   50              		.loc 1 120 3 view .LVU6
  121:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
  122:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   /*-------------------------- RTC clock source configuration ----------------------*/
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 4
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 4
 
 
  123:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   if ((PeriphClkInit->PeriphClockSelection & RCC_PERIPHCLK_RTC) == RCC_PERIPHCLK_RTC)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  135:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     }
  136:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
  137:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     /* Enable write access to Backup domain */
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 5
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 5
 
 
  138:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     SET_BIT(PWR->CR1, PWR_CR1_DBP);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  125:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
  136              		.loc 1 125 22 view .LVU37
  137              	.LBE2:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 6
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 6
 
 
  116:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   HAL_StatusTypeDef status = HAL_OK;   /* Final status */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  163:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         __HAL_RCC_BACKUPRESET_FORCE();
  176              		.loc 1 163 9 is_stmt 1 view .LVU51
  177 007a D06D     		ldr	r0, [r2, #92]
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 7
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 7
 
 
  178 007c 8021     		movs	r1, #128
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  206 009e A169     		ldr	r1, [r4, #24]
  207 00a0 0B43     		orrs	r3, r1
  208 00a2 D365     		str	r3, [r2, #92]
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 8
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 8
 
 
  209              	.L7:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  239              		.loc 1 178 11 is_stmt 1 view .LVU69
  178:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****           {
  240              		.loc 1 178 16 is_stmt 0 view .LVU70
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 9
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 9
 
 
  241 00c2 FFF7FEFF 		bl	HAL_GetTick
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  219:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
  220:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** #if defined(RCC_CCIPR_USART2SEL)
  221:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   /*-------------------------- USART2 clock source configuration -------------------*/
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 10
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 10
 
 
  222:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   if (((PeriphClkInit->PeriphClockSelection) & RCC_PERIPHCLK_USART2) == RCC_PERIPHCLK_USART2)
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  261:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     assert_param(IS_RCC_LPUART2CLKSOURCE(PeriphClkInit->Lpuart2ClockSelection));
  262:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
  263:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     /* Configure the LPUART clock source */
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 11
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 11
 
 
  264:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     __HAL_RCC_LPUART2_CONFIG(PeriphClkInit->Lpuart2ClockSelection);
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  303:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     /* Configure the I2C2 clock source */
  304:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     __HAL_RCC_I2C2_CONFIG(PeriphClkInit->I2c2ClockSelection);
  305:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   }
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 12
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 12
 
 
  306:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** #endif /* (RCC_CCIPR_I2C2SEL */
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  338:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** #if defined(CEC)
  339:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   /*-------------------------- CEC clock source configuration ---------------------*/
  340:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   if (((PeriphClkInit->PeriphClockSelection) & RCC_PERIPHCLK_CEC) == RCC_PERIPHCLK_CEC)
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 13
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 13
 
 
  341:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   {
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  390:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     assert_param(IS_RCC_I2S1CLKSOURCE(PeriphClkInit->I2s1ClockSelection));
  334              		.loc 1 390 5 is_stmt 1 view .LVU97
  391:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 14
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 14
 
 
  392:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     /* Configure the I2S1 clock source */
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  429:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
  430:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     if (PeriphClkInit->UsbClockSelection == RCC_USBCLKSOURCE_PLL)
  431:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     {
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 15
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 15
 
 
  432:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****       /* Enable PLLQCLK output */
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  378 016a D360     		str	r3, [r2, #12]
  379 016c EEE7     		b	.L16
  380              	.L26:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 16
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 16
 
 
  381 016e C046     		.align	2
@@ -912,7 +912,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  389 0188 FFCFFFFF 		.word	-12289
  390 018c FF3FFFFF 		.word	-49153
  391              		.cfi_endproc
- 392              	.LFE310:
+ 392              	.LFE440:
  394              		.section	.text.HAL_RCCEx_GetPeriphCLKConfig,"ax",%progbits
  395              		.align	1
  396              		.global	HAL_RCCEx_GetPeriphCLKConfig
@@ -921,7 +921,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  399              		.thumb_func
  401              	HAL_RCCEx_GetPeriphCLKConfig:
  402              	.LVL29:
- 403              	.LFB311:
+ 403              	.LFB441:
  458:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
  459:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** /**
  460:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   * @brief  Get the RCC_ClkInitStruct according to the internal RCC configuration registers.
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  482:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   PeriphClkInit->PeriphClockSelection |=  RCC_PERIPHCLK_LPUART1;
  483:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** #endif /* RCC_CCIPR_LPUART1SEL */
  484:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** #if defined(RCC_CCIPR_LPUART2SEL)
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 17
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 17
 
 
  485:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   PeriphClkInit->PeriphClockSelection |=  RCC_PERIPHCLK_LPUART2;
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  520:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** #if defined(RCC_CCIPR_USART3SEL)
  521:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   /* Get the USART3 clock source ---------------------------------------------*/
  522:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   PeriphClkInit->Usart3ClockSelection  = __HAL_RCC_GET_USART3_SOURCE();
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 18
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 18
 
 
  523:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** #endif /* RCC_CCIPR_USART3SEL */
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  561:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   PeriphClkInit->AdcClockSelection     = __HAL_RCC_GET_ADC_SOURCE();
  448              		.loc 1 561 3 is_stmt 1 view .LVU124
  449              		.loc 1 561 42 is_stmt 0 view .LVU125
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 19
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 19
 
 
  450 002e 5A6D     		ldr	r2, [r3, #84]
@@ -1123,7 +1123,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  470 0048 23480200 		.word	149539
  471 004c 00100240 		.word	1073876992
  472              		.cfi_endproc
- 473              	.LFE311:
+ 473              	.LFE441:
  475              		.global	__aeabi_uidiv
  476              		.section	.text.HAL_RCCEx_GetPeriphCLKFreq,"ax",%progbits
  477              		.align	1
@@ -1133,12 +1133,12 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  481              		.thumb_func
  483              	HAL_RCCEx_GetPeriphCLKFreq:
  484              	.LVL30:
- 485              	.LFB312:
+ 485              	.LFB442:
  581:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
  582:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** /**
  583:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   * @brief  Return the peripheral clock frequency for peripherals with clock source from PLL
  584:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   * @note   Return 0 if peripheral clock identifier not managed by this API
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 20
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 20
 
 
  585:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   * @param  PeriphClk  Peripheral clock identifier
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  622:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
  623:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   if (PeriphClk == RCC_PERIPHCLK_RTC)
  503              		.loc 1 623 3 view .LVU138
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 21
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 21
 
 
  504              		.loc 1 623 6 is_stmt 0 view .LVU139
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  523 001e 1340     		ands	r3, r2
  524              		.loc 1 658 13 view .LVU145
  525 0020 032B     		cmp	r3, #3
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 22
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 22
 
 
  526 0022 4ED0     		beq	.L69
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  676:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         if (srcclk == RCC_RNGCLKSOURCE_HSI_DIV8)  /* HSI_DIV8 ? */
  677:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
  678:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****           rngclk = HSI_VALUE / 8U;
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 23
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 23
 
 
  679:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         }
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  733:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****           frequency = HAL_RCC_GetPCLK1Freq();
  734:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         }
  735:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         else if (srcclk == RCC_USART2CLKSOURCE_SYSCLK)
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 24
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 24
 
 
  736:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  790:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
  791:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****           frequency = (HSI_VALUE / 488U);
  792:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         }
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 25
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 25
 
 
  793:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         else if ((HAL_IS_BIT_SET(RCC->BDCR, RCC_BDCR_LSERDY)) && (srcclk == RCC_CECCLKSOURCE_LSE))
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  847:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         else if ((HAL_IS_BIT_SET(RCC->CR, RCC_CR_HSIRDY)) && (srcclk == RCC_LPUART2CLKSOURCE_HSI))
  848:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
  849:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****           frequency = HSI_VALUE;
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 26
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 26
 
 
  850:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         }
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  591 0072 79E0     		b	.L73	@long jump
  592              	.LCB554:
  612:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   uint32_t srcclk;
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 27
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 27
 
 
  593              		.loc 1 612 12 view .LVU163
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  635 00a2 CEE0     		b	.L55	@long jump
  636              	.LCB592:
  637              	.L34:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 28
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 28
 
 
  639:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     {
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  900:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
  901:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****           frequency = HAL_RCC_GetSysClockFreq();
  902:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         }
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 29
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 29
 
 
  903:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         else if ((HAL_IS_BIT_SET(RCC->CR, RCC_CR_HSIRDY)) && (srcclk == RCC_I2C1CLKSOURCE_HSI))
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  957:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
  958:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****           frequency = HSI_VALUE;
  959:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         }
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 30
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 30
 
 
  960:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         else if (srcclk == RCC_I2S1CLKSOURCE_EXT)
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
 1014:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****           frequency = HAL_RCC_GetPCLK1Freq();
 1015:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         }
 1016:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         else if ((HAL_IS_BIT_SET(RCC->CSR, RCC_CSR_LSIRDY)) && (srcclk == RCC_LPTIM1CLKSOURCE_LSI))
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 31
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 31
 
 
 1017:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
 1071:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
 1072:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****           if (__HAL_RCC_GET_PLLCLKOUT_CONFIG(RCC_PLLQCLK) != 0U)
 1073:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****           {
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 32
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 32
 
 
 1074:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****             /* f(PLLQ) = f(VCO input) * PLLN / PLLQ */
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
 1128:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         }
 1129:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** #if defined(RCC_HSI48_SUPPORT)
 1130:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         else if (srcclk == RCC_USBCLKSOURCE_HSI48) /* HSI48 ? */
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 33
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 33
 
 
 1131:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
 1185:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
 1186:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   return (frequency);
 1187:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** }
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 34
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 34
 
 
  662              		.loc 1 1187 1 view .LVU182
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  704 00e2 3BD0     		beq	.L76
  739:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
  705              		.loc 1 739 14 is_stmt 1 view .LVU196
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 35
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 35
 
 
  739:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  748 010e 0020     		movs	r0, #0
  749              	.LVL52:
  670:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     {
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 36
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 36
 
 
  750              		.loc 1 670 5 view .LVU209
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  716:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
  791              		.loc 1 716 19 view .LVU223
  792 013a 1840     		ands	r0, r3
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 37
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 37
 
 
  716:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  833              	.LVL63:
  737:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         }
  834              		.loc 1 737 23 view .LVU238
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 38
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 38
 
 
  835 0160 AEE7     		b	.L30
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  881:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****           }
  875              		.loc 1 881 45 view .LVU253
  876 0184 CB68     		ldr	r3, [r1, #12]
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 39
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 39
 
 
  877              	.LVL71:
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  918              	.LVL75:
  903:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
  919              		.loc 1 903 19 view .LVU267
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 40
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 40
 
 
  920 01b6 1840     		ands	r0, r3
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  961              		.loc 1 943 9 is_stmt 1 view .LVU280
  943:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         {
  962              		.loc 1 943 12 is_stmt 0 view .LVU281
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 41
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 41
 
 
  963 01e0 8021     		movs	r1, #128
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  1004 020e 5B02     		lsls	r3, r3, #9
  1005 0210 0800     		movs	r0, r1
  1006              	.LVL85:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 42
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 42
 
 
  945:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****           {
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  1046 0236 FFF7FEFF 		bl	HAL_RCC_GetSysClockFreq
  1047              	.LVL91:
  954:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****         }
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 43
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 43
 
 
  1048              		.loc 1 954 23 view .LVU310
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  1091 025a 8020     		movs	r0, #128
  1092 025c 0002     		lsls	r0, r0, #8
  1093 025e 2FE7     		b	.L30
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 44
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 44
 
 
  1094              	.LVL100:
@@ -2625,7 +2625,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  1127 027c 90D00300 		.word	250000
  1128 0280 80BB0000 		.word	48000
  1129              		.cfi_endproc
- 1130              	.LFE312:
+ 1130              	.LFE442:
  1132              		.section	.text.HAL_RCCEx_EnableLSCO,"ax",%progbits
  1133              		.align	1
  1134              		.global	HAL_RCCEx_EnableLSCO
@@ -2634,11 +2634,11 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  1137              		.thumb_func
  1139              	HAL_RCCEx_EnableLSCO:
  1140              	.LVL107:
- 1141              	.LFB313:
+ 1141              	.LFB443:
 1188:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
 1189:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** /**
 1190:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   * @}
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 45
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 45
 
 
 1191:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   */
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
 1225:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   /* LSCO Pin Clock Enable */
 1226:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   LSCO_CLK_ENABLE();
  1162              		.loc 1 1226 3 view .LVU336
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 46
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 46
 
 
  1163              	.LBB5:
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  1207 0034 1DD4     		bmi	.L90
 1237:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   {
 1238:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     __HAL_RCC_PWR_CLK_ENABLE();
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 47
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 47
 
 
  1208              		.loc 1 1238 5 is_stmt 1 view .LVU355
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
 1248:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
 1249:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   if (backupchanged == SET)
  1252              		.loc 1 1249 3 view .LVU368
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 48
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 48
 
 
  1253              		.loc 1 1249 6 is_stmt 0 view .LVU369
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  1292              		.loc 1 1255 5 is_stmt 1 view .LVU380
  1293 0084 024A     		ldr	r2, .L95
  1294 0086 D36B     		ldr	r3, [r2, #60]
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 49
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 49
 
 
  1295 0088 0449     		ldr	r1, .L95+12
@@ -2894,7 +2894,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  1305 0098 FFFFFFFC 		.word	-50331649
  1306 009c FFFFFFEF 		.word	-268435457
  1307              		.cfi_endproc
- 1308              	.LFE313:
+ 1308              	.LFE443:
  1310              		.section	.text.HAL_RCCEx_DisableLSCO,"ax",%progbits
  1311              		.align	1
  1312              		.global	HAL_RCCEx_DisableLSCO
@@ -2902,7 +2902,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  1314              		.code	16
  1315              		.thumb_func
  1317              	HAL_RCCEx_DisableLSCO:
- 1318              	.LFB314:
+ 1318              	.LFB444:
 1258:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** 
 1259:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c **** /**
 1260:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   * @brief  Disable the Low Speed clock output.
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  1339 0008 DB00     		lsls	r3, r3, #3
  1340 000a 1AD4     		bmi	.L102
 1270:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   {
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 50
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 50
 
 
 1271:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****     __HAL_RCC_PWR_CLK_ENABLE();
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
 1283:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   /* Restore previous configuration */
 1284:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_rcc_ex.c ****   if (backupchanged == SET)
  1382              		.loc 1 1284 3 view .LVU401
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 51
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 51
 
 
  1383              		.loc 1 1284 6 is_stmt 0 view .LVU402
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  1421              		.loc 1 1291 5 is_stmt 1 view .LVU413
  1422 0054 024A     		ldr	r2, .L107
  1423 0056 D36B     		ldr	r3, [r2, #60]
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 52
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 52
 
 
  1424 0058 0449     		ldr	r1, .L107+12
@@ -3074,7 +3074,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  1434 0068 FFFFFFFE 		.word	-16777217
  1435 006c FFFFFFEF 		.word	-268435457
  1436              		.cfi_endproc
- 1437              	.LFE314:
+ 1437              	.LFE444:
  1439              		.text
  1440              	.Letext0:
  1441              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
@@ -3088,26 +3088,26 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 1
  1449              		.file 10 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_pwr.h"
  1450              		.file 11 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_rcc.h"
  1451              		.file 12 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h"
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s 			page 53
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s 			page 53
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g0xx_hal_rcc_ex.c
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:18     .text.HAL_RCCEx_PeriphCLKConfig:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:24     .text.HAL_RCCEx_PeriphCLKConfig:00000000 HAL_RCCEx_PeriphCLKConfig
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:383    .text.HAL_RCCEx_PeriphCLKConfig:00000170 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:395    .text.HAL_RCCEx_GetPeriphCLKConfig:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:401    .text.HAL_RCCEx_GetPeriphCLKConfig:00000000 HAL_RCCEx_GetPeriphCLKConfig
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:469    .text.HAL_RCCEx_GetPeriphCLKConfig:00000044 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:477    .text.HAL_RCCEx_GetPeriphCLKFreq:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:483    .text.HAL_RCCEx_GetPeriphCLKFreq:00000000 HAL_RCCEx_GetPeriphCLKFreq
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:1124   .text.HAL_RCCEx_GetPeriphCLKFreq:00000270 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:1133   .text.HAL_RCCEx_EnableLSCO:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:1139   .text.HAL_RCCEx_EnableLSCO:00000000 HAL_RCCEx_EnableLSCO
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:1303   .text.HAL_RCCEx_EnableLSCO:00000090 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:1311   .text.HAL_RCCEx_DisableLSCO:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:1317   .text.HAL_RCCEx_DisableLSCO:00000000 HAL_RCCEx_DisableLSCO
-C:\Users\EMBEDD~1\AppData\Local\Temp\cc8TfI8C.s:1432   .text.HAL_RCCEx_DisableLSCO:00000060 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:18     .text.HAL_RCCEx_PeriphCLKConfig:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:24     .text.HAL_RCCEx_PeriphCLKConfig:00000000 HAL_RCCEx_PeriphCLKConfig
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:383    .text.HAL_RCCEx_PeriphCLKConfig:00000170 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:395    .text.HAL_RCCEx_GetPeriphCLKConfig:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:401    .text.HAL_RCCEx_GetPeriphCLKConfig:00000000 HAL_RCCEx_GetPeriphCLKConfig
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:469    .text.HAL_RCCEx_GetPeriphCLKConfig:00000044 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:477    .text.HAL_RCCEx_GetPeriphCLKFreq:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:483    .text.HAL_RCCEx_GetPeriphCLKFreq:00000000 HAL_RCCEx_GetPeriphCLKFreq
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:1124   .text.HAL_RCCEx_GetPeriphCLKFreq:00000270 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:1133   .text.HAL_RCCEx_EnableLSCO:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:1139   .text.HAL_RCCEx_EnableLSCO:00000000 HAL_RCCEx_EnableLSCO
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:1303   .text.HAL_RCCEx_EnableLSCO:00000090 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:1311   .text.HAL_RCCEx_DisableLSCO:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:1317   .text.HAL_RCCEx_DisableLSCO:00000000 HAL_RCCEx_DisableLSCO
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccnSLFIr.s:1432   .text.HAL_RCCEx_DisableLSCO:00000060 $d
 
 UNDEFINED SYMBOLS
 HAL_GetTick

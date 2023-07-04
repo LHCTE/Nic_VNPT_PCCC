@@ -60,6 +60,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define Relay_Pin GPIO_PIN_13
 #define Relay_GPIO_Port GPIOC
+#define Read_Voltage_Battery_Pin GPIO_PIN_1
+#define Read_Voltage_Battery_GPIO_Port GPIOA
 #define A7670C_SimCom_Tx_Pin GPIO_PIN_2
 #define A7670C_SimCom_Tx_GPIO_Port GPIOA
 #define A7670C_SimCom_Rx_Pin GPIO_PIN_3
@@ -88,8 +90,8 @@ void Error_Handler(void);
 #define Input_Device_GPIO_Port GPIOB
 #define Button_Pin GPIO_PIN_5
 #define Button_GPIO_Port GPIOB
-#define PhysRestart_Pin GPIO_PIN_7
-#define PhysRestart_GPIO_Port GPIOB
+#define PhysRestart_ESP32_Pin GPIO_PIN_7
+#define PhysRestart_ESP32_GPIO_Port GPIOB
 #define WiFi_Reset_Pin GPIO_PIN_8
 #define WiFi_Reset_GPIO_Port GPIOB
 #define IO2_Pin GPIO_PIN_9
@@ -110,7 +112,7 @@ void Error_Handler(void);
 //...Byte amount 
 #define Send_Byte 2000
 #define Receive_Byte 1300
-#define IoT_Byte 500
+#define Internet_Byte 500
 #define Inverter_Byte 500 
 #define Filter_Byte 500 
 #define Eeprom_Byte 2
@@ -135,7 +137,15 @@ void Error_Handler(void);
 #define Config_Mode 5
 #define Check_Mode 0
 
+#define ADC_12BITS 4095 
+#define ADC_VREF 3.3
+#define THRESHOLD_VOLTAGE 2.9 
+#define BATTERY_CAPACITY_LOW 0.0
+#define BATTERY_CAPACITY_FULL 100.0
+
 //...Eeprom 
+#define Switch_Internet_Page 58
+#define Addr_Switch_Internet 0x0801D000
 #define User_ConfigInfomation_Page 59
 #define Addr_BrokerFlag 0x0801D800
 #define Addr_Host 0x0801D810

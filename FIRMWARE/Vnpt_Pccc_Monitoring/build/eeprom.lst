@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -25,7 +25,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
   22              		.thumb_func
   24              	Eeprom_Read_Data:
   25              	.LVL0:
-  26              	.LFB313:
+  26              	.LFB443:
   27              		.file 1 "Src/eeprom.c"
    1:Src/eeprom.c  **** #include "eeprom.h"
    2:Src/eeprom.c  **** #include <stdio.h> 
@@ -53,19 +53,19 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
   42              		@ sp needed
   43 0004 7047     		bx	lr
   44              		.cfi_endproc
-  45              	.LFE313:
+  45              	.LFE443:
   47              		.section	.text.Eeprom_ReadModbus_Rtu,"ax",%progbits
   48              		.align	1
   49              		.global	Eeprom_ReadModbus_Rtu
   50              		.syntax unified
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 2
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 2
 
 
   51              		.code	16
   52              		.thumb_func
   54              	Eeprom_ReadModbus_Rtu:
   55              	.LVL3:
-  56              	.LFB314:
+  56              	.LFB444:
   10:Src/eeprom.c  **** 
   11:Src/eeprom.c  **** uint32_t Eeprom_ReadModbus_Rtu(uint32_t addr)
   12:Src/eeprom.c  **** {
@@ -86,7 +86,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
   68              		@ sp needed
   69 0002 7047     		bx	lr
   70              		.cfi_endproc
-  71              	.LFE314:
+  71              	.LFE444:
   73              		.section	.text.Eeprom_WriteStr_Hexadecimal,"ax",%progbits
   74              		.align	1
   75              		.global	Eeprom_WriteStr_Hexadecimal
@@ -95,7 +95,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
   78              		.thumb_func
   80              	Eeprom_WriteStr_Hexadecimal:
   81              	.LVL5:
-  82              	.LFB315:
+  82              	.LFB445:
   16:Src/eeprom.c  **** 
   17:Src/eeprom.c  **** Status_FlashTypeDef Eeprom_WriteStr_Hexadecimal(uint32_t addr, uint64_t *buf, uint16_t timeout)
   18:Src/eeprom.c  **** {
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
   99 0008 C0B5     		push	{r6, r7, lr}
  100              	.LCFI1:
  101              		.cfi_def_cfa_offset 32
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 3
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 3
 
 
  102              		.cfi_offset 8, -32
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  137 0028 21D0     		beq	.L9
  138              	.LVL12:
  139              	.L4:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 4
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 4
 
 
   23:Src/eeprom.c  **** 	{
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
   28:Src/eeprom.c  **** 		}
  183              		.loc 1 28 4 is_stmt 1 view .LVU36
   28:Src/eeprom.c  **** 		}
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 5
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 5
 
 
  184              		.loc 1 28 12 is_stmt 0 view .LVU37
@@ -291,19 +291,19 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  219 0082 A846     		mov	r8, r5
  220 0084 F0BD     		pop	{r4, r5, r6, r7, pc}
  221              		.cfi_endproc
- 222              	.LFE315:
+ 222              	.LFE445:
  224              		.section	.text.Eeprom_WriteModbus_Rtu,"ax",%progbits
  225              		.align	1
  226              		.global	Eeprom_WriteModbus_Rtu
  227              		.syntax unified
  228              		.code	16
  229              		.thumb_func
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 6
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 6
 
 
  231              	Eeprom_WriteModbus_Rtu:
  232              	.LVL25:
- 233              	.LFB316:
+ 233              	.LFB446:
   46:Src/eeprom.c  ****   
   47:Src/eeprom.c  **** Status_FlashTypeDef Eeprom_WriteModbus_Rtu(uint32_t addr, Position_FlashTypeDef pos, uint64_t *buf,
   48:Src/eeprom.c  **** {
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  268              		.loc 1 62 5 is_stmt 1 view .LVU53
  269 0020 0120     		movs	r0, #1
  270 0022 FFF7FEFF 		bl	HAL_Delay
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 7
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 7
 
 
  271              	.LVL28:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
   78:Src/eeprom.c  **** 				HAL_Delay(1); 
  307              		.loc 1 78 5 is_stmt 1 view .LVU65
  308 004e 0120     		movs	r0, #1
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 8
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 8
 
 
  309 0050 FFF7FEFF 		bl	HAL_Delay
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
   67:Src/eeprom.c  **** 				}
  349              		.loc 1 67 6 view .LVU80
   67:Src/eeprom.c  **** 				}
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 9
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 9
 
 
  350              		.loc 1 67 13 is_stmt 0 view .LVU81
@@ -496,7 +496,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  359 0078 0120     		movs	r0, #1
  360 007a F6E7     		b	.L17
  361              		.cfi_endproc
- 362              	.LFE316:
+ 362              	.LFE446:
  364              		.section	.text.Eeprom_Write_Data,"ax",%progbits
  365              		.align	1
  366              		.global	Eeprom_Write_Data
@@ -505,7 +505,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  369              		.thumb_func
  371              	Eeprom_Write_Data:
  372              	.LVL45:
- 373              	.LFB317:
+ 373              	.LFB447:
   89:Src/eeprom.c  **** 
   90:Src/eeprom.c  **** Status_FlashTypeDef Eeprom_Write_Data(uint32_t addr, Position_FlashTypeDef pos, uint32_t val, uint1
   91:Src/eeprom.c  **** {
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  397              	.LVL47:
   95:Src/eeprom.c  **** 		if(HAL_FLASH_Program(TYPEPROGRAM_DOUBLEWORD, addr + pos, val) == HAL_OK) 
  398              		.loc 1 95 3 view .LVU89
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 10
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 10
 
 
  399              		.loc 1 95 6 is_stmt 0 view .LVU90
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  107:Src/eeprom.c  **** 		}
  108:Src/eeprom.c  **** 	}
  109:Src/eeprom.c  **** } 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 11
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 11
 
 
  439              		.loc 1 109 1 view .LVU104
@@ -609,7 +609,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  444              		.loc 1 109 1 view .LVU105
  445 003a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  446              		.cfi_endproc
- 447              	.LFE317:
+ 447              	.LFE447:
  449              		.section	.text.Eeprom_ClearPage,"ax",%progbits
  450              		.align	1
  451              		.global	Eeprom_ClearPage
@@ -618,7 +618,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  454              		.thumb_func
  456              	Eeprom_ClearPage:
  457              	.LVL57:
- 458              	.LFB318:
+ 458              	.LFB448:
  110:Src/eeprom.c  **** 
  111:Src/eeprom.c  **** void Eeprom_ClearPage(uint32_t page)
  112:Src/eeprom.c  **** {
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  117:Src/eeprom.c  **** 	FLASH_PageErase(FLASH_BANK_1, page); 
  488              		.loc 1 117 2 view .LVU114
  489 0018 2900     		movs	r1, r5
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 12
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 12
 
 
  490 001a 0420     		movs	r0, #4
@@ -697,7 +697,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  512              	.L29:
  513 0034 00200240 		.word	1073881088
  514              		.cfi_endproc
- 515              	.LFE318:
+ 515              	.LFE448:
  517              		.section	.text.Eeprom_ReadStr_Hexadecimal,"ax",%progbits
  518              		.align	1
  519              		.global	Eeprom_ReadStr_Hexadecimal
@@ -706,7 +706,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  522              		.thumb_func
  524              	Eeprom_ReadStr_Hexadecimal:
  525              	.LVL64:
- 526              	.LFB319:
+ 526              	.LFB449:
  129:Src/eeprom.c  **** 
  130:Src/eeprom.c  **** void Eeprom_ReadStr_Hexadecimal(uint32_t addr, Position_FlashTypeDef pos, uint32_t *input, uint16_t
  131:Src/eeprom.c  **** {
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  532 0000 F0B5     		push	{r4, r5, r6, r7, lr}
  533              	.LCFI5:
  534              		.cfi_def_cfa_offset 20
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 13
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 13
 
 
  535              		.cfi_offset 4, -20
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  134:Src/eeprom.c  **** 	 
  135:Src/eeprom.c  **** 	for(uint8_t i = 0; i < input_size; i++)
  587              		.loc 1 135 2 is_stmt 1 view .LVU127
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 14
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 14
 
 
  588              	.LBB2:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  141:Src/eeprom.c  **** 	strcpy((char*)temp, (char*)input);
  631              		.loc 1 141 2 is_stmt 1 view .LVU144
  632 005e 7968     		ldr	r1, [r7, #4]
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 15
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 15
 
 
  633 0060 5046     		mov	r0, r10
@@ -897,8 +897,8 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  683 0086 A046     		mov	r8, r4
  684 0088 F0BD     		pop	{r4, r5, r6, r7, pc}
  685              		.cfi_endproc
- 686              	.LFE319:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 16
+ 686              	.LFE449:
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 16
 
 
  688              		.text
@@ -913,26 +913,26 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 1
  697              		.file 9 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_flash_ex.h"
  698              		.file 10 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal.h"
  699              		.file 11 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s 			page 17
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 eeprom.c
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:18     .text.Eeprom_Read_Data:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:24     .text.Eeprom_Read_Data:00000000 Eeprom_Read_Data
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:48     .text.Eeprom_ReadModbus_Rtu:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:54     .text.Eeprom_ReadModbus_Rtu:00000000 Eeprom_ReadModbus_Rtu
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:74     .text.Eeprom_WriteStr_Hexadecimal:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:80     .text.Eeprom_WriteStr_Hexadecimal:00000000 Eeprom_WriteStr_Hexadecimal
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:225    .text.Eeprom_WriteModbus_Rtu:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:231    .text.Eeprom_WriteModbus_Rtu:00000000 Eeprom_WriteModbus_Rtu
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:365    .text.Eeprom_Write_Data:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:371    .text.Eeprom_Write_Data:00000000 Eeprom_Write_Data
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:450    .text.Eeprom_ClearPage:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:456    .text.Eeprom_ClearPage:00000000 Eeprom_ClearPage
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:513    .text.Eeprom_ClearPage:00000034 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:518    .text.Eeprom_ReadStr_Hexadecimal:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccY18md6.s:524    .text.Eeprom_ReadStr_Hexadecimal:00000000 Eeprom_ReadStr_Hexadecimal
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:18     .text.Eeprom_Read_Data:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:24     .text.Eeprom_Read_Data:00000000 Eeprom_Read_Data
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:48     .text.Eeprom_ReadModbus_Rtu:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:54     .text.Eeprom_ReadModbus_Rtu:00000000 Eeprom_ReadModbus_Rtu
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:74     .text.Eeprom_WriteStr_Hexadecimal:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:80     .text.Eeprom_WriteStr_Hexadecimal:00000000 Eeprom_WriteStr_Hexadecimal
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:225    .text.Eeprom_WriteModbus_Rtu:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:231    .text.Eeprom_WriteModbus_Rtu:00000000 Eeprom_WriteModbus_Rtu
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:365    .text.Eeprom_Write_Data:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:371    .text.Eeprom_Write_Data:00000000 Eeprom_Write_Data
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:450    .text.Eeprom_ClearPage:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:456    .text.Eeprom_ClearPage:00000000 Eeprom_ClearPage
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:513    .text.Eeprom_ClearPage:00000034 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:518    .text.Eeprom_ReadStr_Hexadecimal:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\cchypdv7.s:524    .text.Eeprom_ReadStr_Hexadecimal:00000000 Eeprom_ReadStr_Hexadecimal
 
 UNDEFINED SYMBOLS
 HAL_FLASH_Unlock

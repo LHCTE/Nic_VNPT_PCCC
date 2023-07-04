@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -25,7 +25,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
   22              		.thumb_func
   24              	HAL_DMAEx_ConfigMuxSync:
   25              	.LVL0:
-  26              	.LFB310:
+  26              	.LFB440:
   27              		.file 1 "Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c"
    1:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c **** /**
    2:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
   29:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   * @attention
   30:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   *
   31:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   * Copyright (c) 2018 STMicroelectronics.
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 2
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 2
 
 
   32:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   * All rights reserved.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
   86:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   */
   87:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c **** 
   88:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c **** /**
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 3
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 3
 
 
   89:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   * @brief Configure the DMAMUX synchronization parameters for a given DMA channel (instance).
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
   59              		.loc 1 111 5 discriminator 2 view .LVU13
   60 0012 2424     		movs	r4, #36
   61 0014 0123     		movs	r3, #1
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 4
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 4
 
 
   62 0016 0355     		strb	r3, [r0, r4]
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
   99              		.loc 1 128 5 is_stmt 1 view .LVU23
  100              		.loc 1 128 21 is_stmt 0 view .LVU24
  101 0046 8023     		movs	r3, #128
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 5
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 5
 
 
  102 0048 C363     		str	r3, [r0, #60]
@@ -265,7 +265,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  116              		.loc 1 111 5 view .LVU29
  117 0050 FCE7     		b	.L3
  118              		.cfi_endproc
- 119              	.LFE310:
+ 119              	.LFE440:
  121              		.section	.text.HAL_DMAEx_ConfigMuxRequestGenerator,"ax",%progbits
  122              		.align	1
  123              		.global	HAL_DMAEx_ConfigMuxRequestGenerator
@@ -274,7 +274,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  126              		.thumb_func
  128              	HAL_DMAEx_ConfigMuxRequestGenerator:
  129              	.LVL7:
- 130              	.LFB311:
+ 130              	.LFB441:
  134:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c **** 
  135:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c **** /**
  136:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   * @brief Configure the DMAMUX request generator block used by the given DMA channel (instance).
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  138              		.cfi_def_cfa_offset 12
  139              		.cfi_offset 4, -12
  140              		.cfi_offset 5, -8
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 6
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 6
 
 
  141              		.cfi_offset 14, -4
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  173:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****     /* Process Locked */
  174:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****     __HAL_LOCK(hdma);
  175:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c **** 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 7
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 7
 
 
  176:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****     /* Set the request generator new parameters*/
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  197              		.loc 1 194 10 view .LVU57
  198 0026 FAE7     		b	.L7
  199              	.LVL16:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 8
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 8
 
 
  200              	.L11:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  237              		.loc 1 183 5 discriminator 2 view .LVU74
  183:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   }
  238              		.loc 1 183 12 is_stmt 0 discriminator 2 view .LVU75
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 9
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 9
 
 
  239 004a 0020     		movs	r0, #0
@@ -496,7 +496,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  248              		.loc 1 174 5 view .LVU78
  249 0050 E5E7     		b	.L7
  250              		.cfi_endproc
- 251              	.LFE311:
+ 251              	.LFE441:
  253              		.section	.text.HAL_DMAEx_EnableMuxRequestGenerator,"ax",%progbits
  254              		.align	1
  255              		.global	HAL_DMAEx_EnableMuxRequestGenerator
@@ -505,7 +505,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  258              		.thumb_func
  260              	HAL_DMAEx_EnableMuxRequestGenerator:
  261              	.LVL23:
- 262              	.LFB312:
+ 262              	.LFB442:
  196:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c **** 
  197:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c **** /**
  198:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   * @brief Enable the DMAMUX request generator block used by the given DMA channel (instance).
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  276              		.loc 1 211 52 discriminator 1 view .LVU84
  277 0008 036D     		ldr	r3, [r0, #80]
  278              		.loc 1 211 44 discriminator 1 view .LVU85
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 10
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 10
 
 
  279 000a 002B     		cmp	r3, #0
@@ -589,7 +589,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  308              		.loc 1 221 12 view .LVU94
  309 0022 FAE7     		b	.L13
  310              		.cfi_endproc
- 311              	.LFE312:
+ 311              	.LFE442:
  313              		.section	.text.HAL_DMAEx_DisableMuxRequestGenerator,"ax",%progbits
  314              		.align	1
  315              		.global	HAL_DMAEx_DisableMuxRequestGenerator
@@ -598,10 +598,10 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  318              		.thumb_func
  320              	HAL_DMAEx_DisableMuxRequestGenerator:
  321              	.LVL29:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 11
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 11
 
 
- 322              	.LFB313:
+ 322              	.LFB443:
  224:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c **** 
  225:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c **** /**
  226:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   * @brief Disable the DMAMUX request generator block used by the given DMA channel (instance).
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  248:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   {
  249:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****     return HAL_ERROR;
  250:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   }
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 12
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 12
 
 
  251:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c **** }
@@ -688,7 +688,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  371              	.L20:
  372 0024 FFFFFEFF 		.word	-65537
  373              		.cfi_endproc
- 374              	.LFE313:
+ 374              	.LFE443:
  376              		.section	.text.HAL_DMAEx_MUX_IRQHandler,"ax",%progbits
  377              		.align	1
  378              		.global	HAL_DMAEx_MUX_IRQHandler
@@ -697,7 +697,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  381              		.thumb_func
  383              	HAL_DMAEx_MUX_IRQHandler:
  384              	.LVL35:
- 385              	.LFB314:
+ 385              	.LFB444:
  252:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c **** 
  253:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c **** /**
  254:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   * @brief Handles DMAMUX interrupt request.
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  394              		.cfi_offset 4, -8
  395              		.cfi_offset 14, -4
  396 0002 0400     		movs	r4, r0
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 13
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 13
 
 
  261:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   /* Check for DMAMUX Synchronization overrun */
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  435              	.LVL36:
  436              	.L23:
  277:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****     }
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 14
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 14
 
 
  278:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****   }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  474              		.loc 1 294 10 view .LVU145
  475 005a 002B     		cmp	r3, #0
  476 005c 01D0     		beq	.L22
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 15
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 15
 
 
  295:Drivers/STM32G0xx_HAL_Driver/Src/stm32g0xx_hal_dma_ex.c ****       {
@@ -863,7 +863,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  489              	.L25:
  490 0064 FFFEFFFF 		.word	-257
  491              		.cfi_endproc
- 492              	.LFE314:
+ 492              	.LFE444:
  494              		.text
  495              	.Letext0:
  496              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
@@ -874,22 +874,22 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 1
  501              		.file 7 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_dma.h"
  502              		.file 8 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_dma_ex.h"
  503              		.file 9 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s 			page 16
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g0xx_hal_dma_ex.c
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s:18     .text.HAL_DMAEx_ConfigMuxSync:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s:24     .text.HAL_DMAEx_ConfigMuxSync:00000000 HAL_DMAEx_ConfigMuxSync
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s:122    .text.HAL_DMAEx_ConfigMuxRequestGenerator:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s:128    .text.HAL_DMAEx_ConfigMuxRequestGenerator:00000000 HAL_DMAEx_ConfigMuxRequestGenerator
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s:254    .text.HAL_DMAEx_EnableMuxRequestGenerator:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s:260    .text.HAL_DMAEx_EnableMuxRequestGenerator:00000000 HAL_DMAEx_EnableMuxRequestGenerator
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s:314    .text.HAL_DMAEx_DisableMuxRequestGenerator:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s:320    .text.HAL_DMAEx_DisableMuxRequestGenerator:00000000 HAL_DMAEx_DisableMuxRequestGenerator
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s:372    .text.HAL_DMAEx_DisableMuxRequestGenerator:00000024 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s:377    .text.HAL_DMAEx_MUX_IRQHandler:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s:383    .text.HAL_DMAEx_MUX_IRQHandler:00000000 HAL_DMAEx_MUX_IRQHandler
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccxAlhwk.s:490    .text.HAL_DMAEx_MUX_IRQHandler:00000064 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s:18     .text.HAL_DMAEx_ConfigMuxSync:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s:24     .text.HAL_DMAEx_ConfigMuxSync:00000000 HAL_DMAEx_ConfigMuxSync
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s:122    .text.HAL_DMAEx_ConfigMuxRequestGenerator:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s:128    .text.HAL_DMAEx_ConfigMuxRequestGenerator:00000000 HAL_DMAEx_ConfigMuxRequestGenerator
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s:254    .text.HAL_DMAEx_EnableMuxRequestGenerator:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s:260    .text.HAL_DMAEx_EnableMuxRequestGenerator:00000000 HAL_DMAEx_EnableMuxRequestGenerator
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s:314    .text.HAL_DMAEx_DisableMuxRequestGenerator:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s:320    .text.HAL_DMAEx_DisableMuxRequestGenerator:00000000 HAL_DMAEx_DisableMuxRequestGenerator
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s:372    .text.HAL_DMAEx_DisableMuxRequestGenerator:00000024 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s:377    .text.HAL_DMAEx_MUX_IRQHandler:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s:383    .text.HAL_DMAEx_MUX_IRQHandler:00000000 HAL_DMAEx_MUX_IRQHandler
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccCT1hjr.s:490    .text.HAL_DMAEx_MUX_IRQHandler:00000064 $d
 
 NO UNDEFINED SYMBOLS

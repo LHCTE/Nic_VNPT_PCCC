@@ -28,8 +28,15 @@ int8_t RSSI_WiFi(UART_HandleTypeDef huart, uint8_t *recv_buf)
 	return val; 
 }
 
+void Esp32_Check_Version(UART_HandleTypeDef huart)
+{
+	HAL_UART_Transmit(&huart, (uint8_t*)"AT+GMR\r\n", strlen("AT+GMR\r\n"), 100); 
+	HAL_Delay(_ms_); 
+}
+
 void Esp32_Restart(UART_HandleTypeDef huart)
 {
+	//HAL_UART_Transmit(&huart, (uint8_t*)"AT+RST\r\n", strlen("AT+RST\r\n"), 100); 
 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+RST\r\n", strlen("AT+RST\r\n"), 100); 
 	HAL_Delay(_ms_); 
 }	

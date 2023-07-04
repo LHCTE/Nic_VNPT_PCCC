@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -30,7 +30,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
   26              		.thumb_func
   28              	TextToHexStr:
   29              	.LVL0:
-  30              	.LFB313:
+  30              	.LFB443:
   31              		.file 1 "Src/datatype.c"
    1:Src/datatype.c **** #include "datatype.h"
    2:Src/datatype.c **** #include <stdio.h> 
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
   48              		.loc 1 7 2 is_stmt 1 view .LVU2
   49              	.LVL1:
    8:Src/datatype.c **** 	uint16_t loop = 0;
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 2
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 2
 
 
   50              		.loc 1 8 2 view .LVU3
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
   89              	.LVL8:
   90              		.loc 1 18 8 is_stmt 0 view .LVU21
   91 0022 3419     		adds	r4, r6, r4
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 3
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 3
 
 
   92              	.LVL9:
@@ -138,7 +138,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
  105              	.L4:
  106 002c 00000000 		.word	.LC0
  107              		.cfi_endproc
- 108              	.LFE313:
+ 108              	.LFE443:
  110              		.section	.text.HexStrToHexChar,"ax",%progbits
  111              		.align	1
  112              		.global	HexStrToHexChar
@@ -147,7 +147,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
  115              		.thumb_func
  117              	HexStrToHexChar:
  118              	.LVL13:
- 119              	.LFB314:
+ 119              	.LFB444:
   20:Src/datatype.c **** 
   21:Src/datatype.c **** void HexStrToHexChar(uint8_t *input, uint8_t *output)
   22:Src/datatype.c **** {
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
  143 0008 1FE0     		b	.L7
  144              	.LVL15:
  145              	.L8:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 4
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 4
 
 
   24:Src/datatype.c **** 	{ 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
  192 003c 203A     		subs	r2, r2, #32
  193 003e 52B2     		sxtb	r2, r2
  194              		.loc 1 31 72 discriminator 1 view .LVU50
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 5
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 5
 
 
  195 0040 7B5D     		ldrb	r3, [r7, r5]
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
   25:Src/datatype.c **** 		else if(input[i * 2] >= 97 && input[i * 2] <= 102) output[i] = (input[i * 2] - 32) << 4; //...Low
  234              		.loc 1 25 58 discriminator 1 view .LVU66
  235 0068 7B55     		strb	r3, [r7, r5]
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 6
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 6
 
 
  236              	.L9:
@@ -358,12 +358,12 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
  280              	.LVL20:
  281              	.LVL21:
  282              		.loc 1 34 1 view .LVU82
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 7
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 7
 
 
  283 0098 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  284              		.cfi_endproc
- 285              	.LFE314:
+ 285              	.LFE444:
  287              		.section	.text.HexCharToHexStr,"ax",%progbits
  288              		.align	1
  289              		.global	HexCharToHexStr
@@ -372,7 +372,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
  292              		.thumb_func
  294              	HexCharToHexStr:
  295              	.LVL22:
- 296              	.LFB315:
+ 296              	.LFB445:
   35:Src/datatype.c **** 
   36:Src/datatype.c **** void HexCharToHexStr(uint8_t *input, uint16_t size, uint8_t *output)
   37:Src/datatype.c **** {
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
   44:Src/datatype.c **** 		else output[i * 2] = (input[i] >> 4) + 55;
  330              		.loc 1 44 8 is_stmt 1 view .LVU94
  331              		.loc 1 44 17 is_stmt 0 view .LVU95
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 8
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 8
 
 
  332 0010 5D00     		lsls	r5, r3, #1
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
  371 0032 2D78     		ldrb	r5, [r5]
   43:Src/datatype.c **** 		else output[i * 2] = (input[i] >> 4) + 55;
  372              		.loc 1 43 23 view .LVU113
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 9
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 9
 
 
  373 0034 2C09     		lsrs	r4, r5, #4
@@ -508,28 +508,342 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 1
  389              		@ sp needed
  390 0042 70BD     		pop	{r4, r5, r6, pc}
  391              		.cfi_endproc
- 392              	.LFE315:
- 394              		.text
- 395              	.Letext0:
- 396              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 397              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 398              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 399              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
- 400              		.file 6 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s 			page 10
+ 392              	.LFE445:
+ 394              		.global	__aeabi_f2d
+ 395              		.global	__aeabi_dadd
+ 396              		.global	__aeabi_d2f
+ 397              		.global	__aeabi_f2iz
+ 398              		.global	__aeabi_fmul
+ 399              		.global	__aeabi_idivmod
+ 400              		.global	__aeabi_idiv
+ 401              		.section	.text.FloatToStr,"ax",%progbits
+ 402              		.align	1
+ 403              		.global	FloatToStr
+ 404              		.syntax unified
+ 405              		.code	16
+ 406              		.thumb_func
+ 408              	FloatToStr:
+ 409              	.LVL27:
+ 410              	.LFB446:
+  47:Src/datatype.c **** 
+  48:Src/datatype.c **** void FloatToStr(float value, uint8_t *output) 
+  49:Src/datatype.c **** {
+ 411              		.loc 1 49 1 is_stmt 1 view -0
+ 412              		.cfi_startproc
+ 413              		@ args = 0, pretend = 0, frame = 0
+ 414              		@ frame_needed = 0, uses_anonymous_args = 0
+ 415              		.loc 1 49 1 is_stmt 0 view .LVU122
+ 416 0000 70B5     		push	{r4, r5, r6, lr}
+ 417              	.LCFI3:
+ 418              		.cfi_def_cfa_offset 16
+ 419              		.cfi_offset 4, -16
+ 420              		.cfi_offset 5, -12
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 10
+
+
+ 421              		.cfi_offset 6, -8
+ 422              		.cfi_offset 14, -4
+ 423 0002 0E00     		movs	r6, r1
+  50:Src/datatype.c ****     int dVal, dec, i;
+ 424              		.loc 1 50 5 is_stmt 1 view .LVU123
+  51:Src/datatype.c **** 
+  52:Src/datatype.c ****     value += 0.005;   // added after a comment from Matt McNabb, see below.
+ 425              		.loc 1 52 5 view .LVU124
+ 426              		.loc 1 52 11 is_stmt 0 view .LVU125
+ 427 0004 FFF7FEFF 		bl	__aeabi_f2d
+ 428              	.LVL28:
+ 429              		.loc 1 52 11 view .LVU126
+ 430 0008 1F4A     		ldr	r2, .L29
+ 431 000a 204B     		ldr	r3, .L29+4
+ 432 000c FFF7FEFF 		bl	__aeabi_dadd
+ 433              	.LVL29:
+ 434 0010 FFF7FEFF 		bl	__aeabi_d2f
+ 435              	.LVL30:
+ 436 0014 051C     		adds	r5, r0, #0
+ 437              	.LVL31:
+  53:Src/datatype.c **** 
+  54:Src/datatype.c ****     dVal = value;
+ 438              		.loc 1 54 5 is_stmt 1 view .LVU127
+ 439              		.loc 1 54 10 is_stmt 0 view .LVU128
+ 440 0016 FFF7FEFF 		bl	__aeabi_f2iz
+ 441              	.LVL32:
+ 442              		.loc 1 54 10 view .LVU129
+ 443 001a 0400     		movs	r4, r0
+ 444              	.LVL33:
+  55:Src/datatype.c ****     dec = (int)(value * 100) % 100;
+ 445              		.loc 1 55 5 is_stmt 1 view .LVU130
+ 446              		.loc 1 55 23 is_stmt 0 view .LVU131
+ 447 001c 1C49     		ldr	r1, .L29+8
+ 448 001e 281C     		adds	r0, r5, #0
+ 449              	.LVL34:
+ 450              		.loc 1 55 23 view .LVU132
+ 451 0020 FFF7FEFF 		bl	__aeabi_fmul
+ 452              	.LVL35:
+ 453              		.loc 1 55 11 view .LVU133
+ 454 0024 FFF7FEFF 		bl	__aeabi_f2iz
+ 455              	.LVL36:
+ 456              		.loc 1 55 9 view .LVU134
+ 457 0028 6421     		movs	r1, #100
+ 458 002a FFF7FEFF 		bl	__aeabi_idivmod
+ 459              	.LVL37:
+ 460 002e 0D00     		movs	r5, r1
+ 461              	.LVL38:
+  56:Src/datatype.c **** 
+  57:Src/datatype.c ****     memset(output, 0, 100);
+ 462              		.loc 1 57 5 is_stmt 1 view .LVU135
+ 463 0030 6422     		movs	r2, #100
+ 464 0032 0021     		movs	r1, #0
+ 465              	.LVL39:
+ 466              		.loc 1 57 5 is_stmt 0 view .LVU136
+ 467 0034 3000     		movs	r0, r6
+ 468 0036 FFF7FEFF 		bl	memset
+ 469              	.LVL40:
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 11
+
+
+  58:Src/datatype.c ****     output[0] = (dec / 10) + '0';
+ 470              		.loc 1 58 5 is_stmt 1 view .LVU137
+ 471              		.loc 1 58 22 is_stmt 0 view .LVU138
+ 472 003a 0A21     		movs	r1, #10
+ 473 003c 2800     		movs	r0, r5
+ 474 003e FFF7FEFF 		bl	__aeabi_idiv
+ 475              	.LVL41:
+ 476              		.loc 1 58 28 view .LVU139
+ 477 0042 3030     		adds	r0, r0, #48
+ 478              		.loc 1 58 15 view .LVU140
+ 479 0044 3070     		strb	r0, [r6]
+  59:Src/datatype.c ****     //output[1] = (dec % 10) + '0';
+  60:Src/datatype.c ****     output[1] = '.';
+ 480              		.loc 1 60 5 is_stmt 1 view .LVU141
+ 481              		.loc 1 60 15 is_stmt 0 view .LVU142
+ 482 0046 2E23     		movs	r3, #46
+ 483 0048 7370     		strb	r3, [r6, #1]
+  61:Src/datatype.c **** 
+  62:Src/datatype.c ****     i = 2;
+ 484              		.loc 1 62 5 is_stmt 1 view .LVU143
+ 485              	.LVL42:
+  63:Src/datatype.c ****     while (dVal > 0)
+ 486              		.loc 1 63 5 view .LVU144
+  62:Src/datatype.c ****     while (dVal > 0)
+ 487              		.loc 1 62 7 is_stmt 0 view .LVU145
+ 488 004a 0225     		movs	r5, #2
+ 489              	.LVL43:
+ 490              		.loc 1 63 11 view .LVU146
+ 491 004c 0BE0     		b	.L25
+ 492              	.LVL44:
+ 493              	.L26:
+  64:Src/datatype.c ****     {
+  65:Src/datatype.c ****         output[i] = (dVal % 10) + '0';
+ 494              		.loc 1 65 9 is_stmt 1 view .LVU147
+ 495              		.loc 1 65 27 is_stmt 0 view .LVU148
+ 496 004e 0A21     		movs	r1, #10
+ 497 0050 2000     		movs	r0, r4
+ 498 0052 FFF7FEFF 		bl	__aeabi_idivmod
+ 499              	.LVL45:
+ 500              		.loc 1 65 33 view .LVU149
+ 501 0056 3031     		adds	r1, r1, #48
+ 502              		.loc 1 65 19 view .LVU150
+ 503 0058 7155     		strb	r1, [r6, r5]
+  66:Src/datatype.c ****         dVal /= 10;
+ 504              		.loc 1 66 9 is_stmt 1 view .LVU151
+ 505              		.loc 1 66 14 is_stmt 0 view .LVU152
+ 506 005a 0A21     		movs	r1, #10
+ 507 005c 2000     		movs	r0, r4
+ 508 005e FFF7FEFF 		bl	__aeabi_idiv
+ 509              	.LVL46:
+ 510 0062 0400     		movs	r4, r0
+ 511              	.LVL47:
+  67:Src/datatype.c ****         i++;
+ 512              		.loc 1 67 9 is_stmt 1 view .LVU153
+ 513              		.loc 1 67 10 is_stmt 0 view .LVU154
+ 514 0064 0135     		adds	r5, r5, #1
+ 515              	.LVL48:
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 12
+
+
+ 516              	.L25:
+  63:Src/datatype.c ****     {
+ 517              		.loc 1 63 11 is_stmt 1 view .LVU155
+ 518 0066 002C     		cmp	r4, #0
+ 519 0068 F1DC     		bgt	.L26
+  68:Src/datatype.c ****     }
+  69:Src/datatype.c **** 
+  70:Src/datatype.c ****     for (i=strlen((char*)output)-1; i>=0; i--)
+ 520              		.loc 1 70 5 view .LVU156
+ 521              		.loc 1 70 12 is_stmt 0 view .LVU157
+ 522 006a 3000     		movs	r0, r6
+ 523 006c FFF7FEFF 		bl	strlen
+ 524              	.LVL49:
+ 525              		.loc 1 70 33 view .LVU158
+ 526 0070 441E     		subs	r4, r0, #1
+ 527              	.LVL50:
+ 528              		.loc 1 70 5 view .LVU159
+ 529 0072 06E0     		b	.L27
+ 530              	.L28:
+  71:Src/datatype.c ****         putc(output[i], stdout);
+ 531              		.loc 1 71 9 is_stmt 1 discriminator 3 view .LVU160
+ 532              		.loc 1 71 20 is_stmt 0 discriminator 3 view .LVU161
+ 533 0074 305D     		ldrb	r0, [r6, r4]
+ 534              		.loc 1 71 25 discriminator 3 view .LVU162
+ 535 0076 074B     		ldr	r3, .L29+12
+ 536 0078 1B68     		ldr	r3, [r3]
+ 537 007a 9968     		ldr	r1, [r3, #8]
+ 538              		.loc 1 71 9 discriminator 3 view .LVU163
+ 539 007c FFF7FEFF 		bl	putc
+ 540              	.LVL51:
+  70:Src/datatype.c ****         putc(output[i], stdout);
+ 541              		.loc 1 70 43 is_stmt 1 discriminator 3 view .LVU164
+  70:Src/datatype.c ****         putc(output[i], stdout);
+ 542              		.loc 1 70 44 is_stmt 0 discriminator 3 view .LVU165
+ 543 0080 013C     		subs	r4, r4, #1
+ 544              	.LVL52:
+ 545              	.L27:
+  70:Src/datatype.c ****         putc(output[i], stdout);
+ 546              		.loc 1 70 37 is_stmt 1 discriminator 1 view .LVU166
+  70:Src/datatype.c ****         putc(output[i], stdout);
+ 547              		.loc 1 70 5 is_stmt 0 discriminator 1 view .LVU167
+ 548 0082 002C     		cmp	r4, #0
+ 549 0084 F6DA     		bge	.L28
+  72:Src/datatype.c **** }
+ 550              		.loc 1 72 1 view .LVU168
+ 551              		@ sp needed
+ 552              	.LVL53:
+ 553              	.LVL54:
+ 554              		.loc 1 72 1 view .LVU169
+ 555 0086 70BD     		pop	{r4, r5, r6, pc}
+ 556              	.L30:
+ 557              		.align	2
+ 558              	.L29:
+ 559 0088 7B14AE47 		.word	1202590843
+ 560 008c E17A743F 		.word	1064598241
+ 561 0090 0000C842 		.word	1120403456
+ 562 0094 00000000 		.word	_impure_ptr
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 13
+
+
+ 563              		.cfi_endproc
+ 564              	.LFE446:
+ 566              		.global	__aeabi_fsub
+ 567              		.global	__aeabi_fdiv
+ 568              		.global	__aeabi_fadd
+ 569              		.section	.text.map,"ax",%progbits
+ 570              		.align	1
+ 571              		.global	map
+ 572              		.syntax unified
+ 573              		.code	16
+ 574              		.thumb_func
+ 576              	map:
+ 577              	.LVL55:
+ 578              	.LFB447:
+  73:Src/datatype.c **** 
+  74:Src/datatype.c **** float map(float x, float in_min, float in_max, float out_min, float out_max)
+  75:Src/datatype.c **** {
+ 579              		.loc 1 75 1 is_stmt 1 view -0
+ 580              		.cfi_startproc
+ 581              		@ args = 4, pretend = 0, frame = 0
+ 582              		@ frame_needed = 0, uses_anonymous_args = 0
+ 583              		.loc 1 75 1 is_stmt 0 view .LVU171
+ 584 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 585              	.LCFI4:
+ 586              		.cfi_def_cfa_offset 24
+ 587              		.cfi_offset 3, -24
+ 588              		.cfi_offset 4, -20
+ 589              		.cfi_offset 5, -16
+ 590              		.cfi_offset 6, -12
+ 591              		.cfi_offset 7, -8
+ 592              		.cfi_offset 14, -4
+ 593 0002 0D1C     		adds	r5, r1, #0
+ 594 0004 171C     		adds	r7, r2, #0
+ 595 0006 1C1C     		adds	r4, r3, #0
+  76:Src/datatype.c ****   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+ 596              		.loc 1 76 3 is_stmt 1 view .LVU172
+ 597              		.loc 1 76 13 is_stmt 0 view .LVU173
+ 598 0008 FFF7FEFF 		bl	__aeabi_fsub
+ 599              	.LVL56:
+ 600              		.loc 1 76 13 view .LVU174
+ 601 000c 061C     		adds	r6, r0, #0
+ 602              		.loc 1 76 34 view .LVU175
+ 603 000e 211C     		adds	r1, r4, #0
+ 604 0010 0698     		ldr	r0, [sp, #24]
+ 605 0012 FFF7FEFF 		bl	__aeabi_fsub
+ 606              	.LVL57:
+ 607 0016 011C     		adds	r1, r0, #0
+ 608              		.loc 1 76 23 view .LVU176
+ 609 0018 301C     		adds	r0, r6, #0
+ 610 001a FFF7FEFF 		bl	__aeabi_fmul
+ 611              	.LVL58:
+ 612 001e 061C     		adds	r6, r0, #0
+ 613              		.loc 1 76 55 view .LVU177
+ 614 0020 291C     		adds	r1, r5, #0
+ 615 0022 381C     		adds	r0, r7, #0
+ 616 0024 FFF7FEFF 		bl	__aeabi_fsub
+ 617              	.LVL59:
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 14
+
+
+ 618 0028 011C     		adds	r1, r0, #0
+ 619              		.loc 1 76 45 view .LVU178
+ 620 002a 301C     		adds	r0, r6, #0
+ 621 002c FFF7FEFF 		bl	__aeabi_fdiv
+ 622              	.LVL60:
+ 623              		.loc 1 76 65 view .LVU179
+ 624 0030 211C     		adds	r1, r4, #0
+ 625 0032 FFF7FEFF 		bl	__aeabi_fadd
+ 626              	.LVL61:
+  77:Src/datatype.c **** }...
+ 627              		.loc 1 77 1 view .LVU180
+ 628              		@ sp needed
+ 629              	.LVL62:
+ 630              	.LVL63:
+ 631              	.LVL64:
+ 632              		.loc 1 77 1 view .LVU181
+ 633 0036 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 634              		.cfi_endproc
+ 635              	.LFE447:
+ 637              		.text
+ 638              	.Letext0:
+ 639              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 640              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 641              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\lib\\gcc\\arm-none-eabi\
+ 642              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 643              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 644              		.file 7 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 645              		.file 8 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 646              		.file 9 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 647              		.file 10 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_ll_dma.h"
+ 648              		.file 11 "<built-in>"
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 datatype.c
-C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s:18     .rodata.TextToHexStr.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s:22     .text.TextToHexStr:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s:28     .text.TextToHexStr:00000000 TextToHexStr
-C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s:106    .text.TextToHexStr:0000002c $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s:111    .text.HexStrToHexChar:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s:117    .text.HexStrToHexChar:00000000 HexStrToHexChar
-C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s:288    .text.HexCharToHexStr:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\cciPIJgb.s:294    .text.HexCharToHexStr:00000000 HexCharToHexStr
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s:18     .rodata.TextToHexStr.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s:22     .text.TextToHexStr:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s:28     .text.TextToHexStr:00000000 TextToHexStr
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s:106    .text.TextToHexStr:0000002c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s:111    .text.HexStrToHexChar:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s:117    .text.HexStrToHexChar:00000000 HexStrToHexChar
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s:288    .text.HexCharToHexStr:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s:294    .text.HexCharToHexStr:00000000 HexCharToHexStr
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s:402    .text.FloatToStr:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s:408    .text.FloatToStr:00000000 FloatToStr
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s:559    .text.FloatToStr:00000088 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s:570    .text.map:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccmegWis.s:576    .text.map:00000000 map
 
 UNDEFINED SYMBOLS
 sprintf
 strlen
+__aeabi_f2d
+__aeabi_dadd
+__aeabi_d2f
+__aeabi_f2iz
+__aeabi_fmul
+__aeabi_idivmod
+__aeabi_idiv
+memset
+putc
+_impure_ptr
+__aeabi_fsub
+__aeabi_fdiv
+__aeabi_fadd

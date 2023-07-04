@@ -44,3 +44,34 @@ void HexCharToHexStr(uint8_t *input, uint16_t size, uint8_t *output)
 		else output[i * 2] = (input[i] >> 4) + 55;
 	}
 }
+
+void FloatToStr(float value, uint8_t *output) 
+{
+    int dVal, dec, i;
+
+    value += 0.005;   // added after a comment from Matt McNabb, see below.
+
+    dVal = value;
+    dec = (int)(value * 100) % 100;
+
+    memset(output, 0, 100);
+    output[0] = (dec / 10) + '0';
+    //output[1] = (dec % 10) + '0';
+    output[1] = '.';
+
+    i = 2;
+    while (dVal > 0)
+    {
+        output[i] = (dVal % 10) + '0';
+        dVal /= 10;
+        i++;
+    }
+
+    for (i=strlen((char*)output)-1; i>=0; i--)
+        putc(output[i], stdout);
+}
+
+float map(float x, float in_min, float in_max, float out_min, float out_max)
+{
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}

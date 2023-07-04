@@ -79,18 +79,19 @@ typedef enum
 typedef enum 
 {
   //...None Command 
-  NONE_CMD                   	= 0,
+  NONE_CMD                   	  = 0,
 
   //...Command
-  SERVERCMD_NORMAL_RS485     	= 1, 
-  SERVERCMD_NORMAL_PING      	= 2,
-  SERVERCMD_NORMAL_QUEST_CMD 	= 3,
-  SERVERCMD_NORMAL_RESTART   	= 4,
-  SERVERCMD_NORMAL_RELAY_0	  = 5,
-	SERVERCMD_NORMAL_RELAY_1	  = 6,
-	SERVERCMD_NORMAL_CONFIRM    = 7,
-  SERVERCMD_NORMAL_SIM_RSSI   = 8,
-  SERVERCMD_NORMAL_WIRELESS   = 9 
+  SERVERCMD_NORMAL_RS485     	  = 1, 
+  SERVERCMD_NORMAL_PING      	  = 2,
+  SERVERCMD_NORMAL_QUEST_CMD 	  = 3,
+  SERVERCMD_NORMAL_RESTART   	  = 4,
+  SERVERCMD_NORMAL_RELAY_0	    = 5,
+	SERVERCMD_NORMAL_RELAY_1	    = 6,
+	SERVERCMD_NORMAL_CONFIRM      = 7,
+  SERVERCMD_NORMAL_SIM_RSSI     = 8,
+  SERVERCMD_NORMAL_WIRELESS     = 9,
+  SERVERCMD_NORMAL_VOLTAGE_BAT  = 10 
 } ServerCmd_NormalModHandleTypeDef; 
 
 typedef enum 
@@ -105,9 +106,9 @@ typedef enum
 
 typedef enum
 {
-  None_Modules 		  = 0, 
-  Esp32_Modules 	  = 1,
-  SimA7670C_Modules  = 2 
+  SimA7670C_Modules     = 0, 
+  LAN_Internet_Modules  = 1, 
+  Esp32_Modules 	      = 2,
 } Module_PeripheralsTypeDef;
 typedef enum
 {
@@ -128,6 +129,8 @@ typedef enum
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc1;
+
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim6;
@@ -141,10 +144,15 @@ UART_HandleTypeDef huart3;
 MQTT_StructuresTypeDef broker;   
 Module_PeripheralsTypeDef wirelessProtocol;
 
-//...Buffer data of IoT_Protocol
-uint8_t IoT_Protocol_Buf[IoT_Byte]; 
-uint8_t IoT_Protocol_Data = 0; 
-uint16_t IoT_Protocol_Count = 0;
+//...Buffer data of SimA7670C (4G-LTE)
+uint8_t SimA7670C_Rx_Buf[Internet_Byte]; 
+uint8_t SimA7670C_Data = 0; 
+uint16_t SimA7670C_Count_Data = 0;
+
+//...Buffer data of WiFi 
+uint8_t WiFi_Rx_Buf[Internet_Byte]; 
+uint8_t WiFi_Data = 0; 
+uint16_t WiFi_Count_Data = 0;
 
 //...Buffer data of Modbus Protocol
 uint8_t Inverter_Buf[Inverter_Byte]; 
@@ -166,9 +174,14 @@ uint8_t Filter_Buf[Filter_Byte];
 
 uint8_t WIRELESS_DISPLAY = 0, DATA_DISPLAY = 0;
 uint8_t Interval_Flag = 0, Req_Ping_Flag = 0; 
+uint16_t ADC_Value = 0; 
 uint32_t Baudrate_Default = 9600; 
+uint32_t intervalValue = 0; // bien nay dung de gui data sau 1 khoan thoi gian 
 
-uint32_t intervalValue = 0; // bien nay dung de gui data sau 1 khoan thoi gian
+uint8_t Battery_Voltage_Buf[3]; 
+float Battery_Percentage = 0; 
+float Battery_Voltage = 0; 
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -181,6 +194,7 @@ static void MX_USART2_UART_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_TIM15_Init(void);
 static void MX_TIM6_Init(void);
+static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
 ServerCmd_ConfigModHandleTypeDef Configuration_Commands_Handle(uint8_t *recv_buf, uint16_t size); 
 ServerCmd_NormalModHandleTypeDef Normal_CommandsHandle(uint8_t *recv_buf, uint16_t size); 
@@ -193,12 +207,14 @@ void Esp32_WiFi_Init(void);
 void SimA7670C_4GLTE_Init(void); 
 void Stm32_Restart(void); 
 void Stm32_Clear_Buf(uint8_t *clr_buf, uint16_t size); 
-void Checking_Wireless_Response(uint8_t *recv_buf, uint8_t *content);
+void Checking_Internet_Response(uint8_t *content);
 void Broker_Connect_Init(Server_OptionTypeDef server_name, Module_PeripheralsTypeDef modules); 
 void Broker_Publish_Topic(uint8_t *msg); 
 void Broker_Subscribe_Topic(void); 
 unsigned char CheckInput(void);
 void sendCBSC (void);
+void Auto_Switch(Module_PeripheralsTypeDef modules); 
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -218,14 +234,26 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
     __HAL_TIM_SET_COUNTER(&htim15, 0);    
 	}
 
-	//...Sim 4G-LTE
+	//...Sim A7670C (4G-LTE)
 	if(huart->Instance == USART2) 
 	{
     HAL_TIM_Base_Start(&htim6);
-		HAL_UART_Receive_IT(&huart2, &IoT_Protocol_Data, 1);
-		if(IoT_Protocol_Data == 0) IoT_Protocol_Data = 64; 
-		IoT_Protocol_Buf[IoT_Protocol_Count++] = IoT_Protocol_Data; 
-		if(IoT_Protocol_Count > IoT_Byte - 1) IoT_Protocol_Count = 0; 
+		HAL_UART_Receive_IT(&huart2, &SimA7670C_Data, 1);
+		//if(SimA7670C_Data == 0) SimA7670C_Data = 64; 
+		SimA7670C_Rx_Buf[SimA7670C_Count_Data++] = SimA7670C_Data; 
+		if(SimA7670C_Count_Data > Internet_Byte - 1) SimA7670C_Count_Data = 0; 
+
+    __HAL_TIM_SET_COUNTER(&htim6, 0);
+	}
+
+  //...WiFi 
+  if(huart->Instance == USART3) 
+	{
+    HAL_TIM_Base_Start(&htim6);
+		HAL_UART_Receive_IT(&huart3, &WiFi_Data, 1);
+		if(WiFi_Data == 0) WiFi_Data = 64; 
+		WiFi_Rx_Buf[WiFi_Count_Data++] = WiFi_Data; 
+		if(WiFi_Count_Data > Internet_Byte - 1) WiFi_Count_Data = 0; 
 
     __HAL_TIM_SET_COUNTER(&htim6, 0);
 	}
@@ -303,6 +331,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		}
 	}
 }
+
 /* USER CODE END 0 */
 
 /**
@@ -329,7 +358,11 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
   if(Eeprom_Read_Data(Addr_Baudrate, Position_1) != 0xFFFFFFFF) Baudrate_Default = Eeprom_Read_Data(Addr_Baudrate, Position_1); 
-  
+  if(Eeprom_Read_Data(Addr_Switch_Internet, Position_1) == 0xFFFFFFFF) 
+  {
+    Eeprom_ClearPage(Switch_Internet_Page); 
+    Eeprom_Write_Data(Addr_Switch_Internet, Position_1, 0, 1000); 
+  }
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -341,46 +374,34 @@ int main(void)
   MX_USART3_UART_Init();
   MX_TIM15_Init();
   MX_TIM6_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
+
+  //NVIC_EnableIRQ(ADC1_IRQn); 
+  //LL_ADC_REG_SetSequencerConfigurable(ADC1, LL_ADC_REG_SEQ_FIXED); 
+
   HAL_UART_Receive_IT(&huart1, &Inverter_Data, 1); 
-	HAL_UART_Receive_IT(&huart2, &IoT_Protocol_Data, 1);
+	HAL_UART_Receive_IT(&huart2, &SimA7670C_Data, 1);
+  HAL_UART_Receive_IT(&huart3, &WiFi_Data, 1);
   HAL_TIM_Base_Start_IT(&htim1); 
   HAL_TIM_Base_Start_IT(&htim3); 
 	HAL_Delay(100);	
 
-  // if(HAL_GPIO_ReadPin(Checking_Esp32_GPIO_Port, Checking_Esp32_Pin) == GPIO_PIN_SET)
-	// {
-  //   wirelessProtocol = Esp32_Modules; 
-  //   Esp32_WiFi_Init();
-  // }
-  // else if(HAL_GPIO_ReadPin(Checking_Esp32_GPIO_Port, Checking_Esp32_Pin) == GPIO_PIN_RESET)
-  // {
-  //   wirelessProtocol = SimA7670C_Modules; 
-  //   SimA7670C_4GLTE_Init(); 
-  // }
-  // else
-  // {
-  //   while(1)
-  //   {
-  //     HAL_GPIO_WritePin(Test_LED_GPIO_Port, Test_LED_Pin, GPIO_PIN_RESET); 
-  //     HAL_GPIO_WritePin(Battery_LED_GPIO_Port, Battery_LED_Pin, GPIO_PIN_RESET); 
-  //     HAL_GPIO_WritePin(DC_LED_GPIO_Port, DC_LED_Pin, GPIO_PIN_RESET); 
-  //     HAL_Delay(1000); 
-  //     HAL_GPIO_WritePin(Test_LED_GPIO_Port, Test_LED_Pin, GPIO_PIN_SET); 
-  //     HAL_GPIO_WritePin(Battery_LED_GPIO_Port, Battery_LED_Pin, GPIO_PIN_SET); 
-  //     HAL_GPIO_WritePin(DC_LED_GPIO_Port, DC_LED_Pin, GPIO_PIN_SET);
-  //     HAL_Delay(1000); 
-  //   }
-  // }
-
-  // while(1)
-  // {
-  //   HAL_UART_Transmit(&huart2, (uint8_t*)"AT+CSQ\r\n", strlen("AT+CSQ\r\n"), 100); 
-	//   HAL_Delay(2000); 
-  // }
-  
-  wirelessProtocol = SimA7670C_Modules; 
-  SimA7670C_4GLTE_Init(); 
+  if(Eeprom_Read_Data(Addr_Switch_Internet, Position_1) == SimA7670C_Modules) 
+  {
+    wirelessProtocol = SimA7670C_Modules; 
+    SimA7670C_4GLTE_Init(); 
+  }
+  else if(Eeprom_Read_Data(Addr_Switch_Internet, Position_1) == LAN_Internet_Modules) 
+  {
+    wirelessProtocol = LAN_Internet_Modules; 
+    Auto_Switch(wirelessProtocol); 
+  }
+  else if(Eeprom_Read_Data(Addr_Switch_Internet, Position_1) == Esp32_Modules)
+  {
+    wirelessProtocol = Esp32_Modules; 
+    Esp32_WiFi_Init();
+  } 
   
   Broker_Connect_Init(Server,  wirelessProtocol); 
   HAL_GPIO_WritePin(DC_LED_GPIO_Port, DC_LED_Pin, GPIO_PIN_RESET); 
@@ -392,13 +413,21 @@ int main(void)
   {
     uint8_t Set_Time = 30;
     uint8_t Timeout_UserConfig = Set_Time;  
-    uint8_t *Analysis = 0, Mode_Flag = 0, CmdConfig_Cnt = 0;
+    uint8_t *Analysis = 0, Mode_Flag = 0, CmdConfig_Cnt = 0, IsSetupRight_Flag = 0;
     uint16_t CRC_Byte = 0, Config_Addr_Next = 0; 
     uint32_t BaudRate_Value = 0, Interval_Value = 0, SetTime_C2C = 0; 
 
-    Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
-    Mode_Flag = Waiting_For_Config(IoT_Protocol_Buf, IoT_Byte, 8000); 
-
+    if(wirelessProtocol == SimA7670C_Modules) 
+    {
+      Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+      Mode_Flag = Waiting_For_Config(SimA7670C_Rx_Buf, Internet_Byte, 8000); 
+    }
+    else if(wirelessProtocol == Esp32_Modules) 
+    {
+      Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+      Mode_Flag = Waiting_For_Config(WiFi_Rx_Buf, Internet_Byte, 8000); 
+    }
+    
     if(Mode_Flag == SYSMONITOR_CONFIGBROKER_MODE)
     {
       //...Clear page 
@@ -406,24 +435,29 @@ int main(void)
   
       sprintf((char*)Filter_Buf, "%s", "<!> Started config broker"); 
       Broker_Publish_Topic(Filter_Buf); 
-			Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+			Checking_Internet_Response((uint8_t*)"OK"); 
 			Stm32_Clear_Buf(Filter_Buf, Filter_Byte); 
 			HAL_Delay(100);
 
-      Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+      if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+      else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
       Timeout_UserConfig = Set_Time;
+      uint8_t cmd= 0; 
       while(1)
       {
         DATA_DISPLAY = Config_Mode; 
-        uint8_t cmd = Configuration_Commands_Handle(IoT_Protocol_Buf, IoT_Byte); 
         
+        if(wirelessProtocol == SimA7670C_Modules) cmd = Configuration_Commands_Handle(SimA7670C_Rx_Buf, Internet_Byte); 
+        else if(wirelessProtocol == Esp32_Modules) cmd = Configuration_Commands_Handle(WiFi_Rx_Buf, Internet_Byte); 
+
         //...Wait for the end of string
 				while(cmd != NONE_CMD)
         {
           if(__HAL_TIM_GetCounter(&htim6) > 5)
           {
             __HAL_TIM_SET_COUNTER(&htim6, 0);
-            HAL_TIM_Base_Stop(&htim6);
+            HAL_TIM_Base_Stop(&htim6); 
 
             break; 
           }
@@ -433,8 +467,9 @@ int main(void)
         {
           case SERVERCMD_WRITECFG_HOST:
             //...+5 Remove string "HOST:"
-            Analysis = (uint8_t*)strstr((char*)IoT_Protocol_Buf, "HOST") + 5;  
-
+            if(wirelessProtocol == SimA7670C_Modules) Analysis = (uint8_t*)strstr((char*)SimA7670C_Rx_Buf, "HOST") + 5;  
+            else if(wirelessProtocol == Esp32_Modules) Analysis = (uint8_t*)strstr((char*)WiFi_Rx_Buf, "HOST") + 5;  
+            
             //...Filter string 
 						for(uint8_t i = 0; i < Filter_Byte; i++)
 						{
@@ -442,7 +477,9 @@ int main(void)
 							else Filter_Buf[i] = Analysis[i];						
 						}
 
-            Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+            if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
 						Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
             Stm32_Clear_Buf(Receive_Package_Buf, Receive_Byte);
             
@@ -451,12 +488,12 @@ int main(void)
             if(Eeprom_WriteStr_Hexadecimal(Addr_Host, (uint64_t*)Send_Package_Buf, 1000) == FLASH_OK)
             {
               Broker_Publish_Topic((uint8_t*)"<!> Broker-Host Write Ok");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
             else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> Broker-Host Write Error");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
 
             Stm32_Clear_Buf(Filter_Buf, Filter_Byte); 
@@ -466,62 +503,75 @@ int main(void)
             break; 
 
           case SERVERCMD_WRITECFG_PORT: 
-            if(Is_Setup_Right(IoT_Protocol_Buf, IoT_Byte) == CORRECT_SYNTAX)
+            if(wirelessProtocol == SimA7670C_Modules) IsSetupRight_Flag = Is_Setup_Right(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) IsSetupRight_Flag = Is_Setup_Right(WiFi_Rx_Buf, Internet_Byte); 
+
+            if(IsSetupRight_Flag == CORRECT_SYNTAX)
             {
               //...+5 Remove string "PORT:"
-              Analysis = (uint8_t*)strstr((char*)IoT_Protocol_Buf, "PORT") + 5;
+              if(wirelessProtocol == SimA7670C_Modules) Analysis = (uint8_t*)strstr((char*)SimA7670C_Rx_Buf, "PORT") + 5;
+              else if(wirelessProtocol == Esp32_Modules) Analysis = (uint8_t*)strstr((char*)WiFi_Rx_Buf, "PORT") + 5;  
 
               if(Eeprom_Write_Data(Addr_Port, Position_2, (uint32_t)atoi((char*)Analysis), 1000) == FLASH_OK)
               {
                 Broker_Publish_Topic((uint8_t*)"<!> Broker-Port Write Ok"); 
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+                Checking_Internet_Response((uint8_t*)"OK");
               }
               else 
               {
                 Broker_Publish_Topic((uint8_t*)"<X> Broker-Port Write Error");
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                Checking_Internet_Response((uint8_t*)"OK"); 
               }
             }
             else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> Invalid Broker-Port Syntax");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             } 
 
-            Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+            if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
             Timeout_UserConfig = Set_Time;
             break;
 
           case SERVERCMD_WRITECFG_ID: 
-            if(Is_Setup_Right(IoT_Protocol_Buf, IoT_Byte) == CORRECT_SYNTAX)
+            if(wirelessProtocol == SimA7670C_Modules) IsSetupRight_Flag = Is_Setup_Right(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) IsSetupRight_Flag = Is_Setup_Right(WiFi_Rx_Buf, Internet_Byte); 
+
+            if(IsSetupRight_Flag == CORRECT_SYNTAX)
             {
               //...+3 Remove string "ID:"
-              Analysis = (uint8_t*)strstr((char*)IoT_Protocol_Buf, "ID") + 3;
+              if(wirelessProtocol == SimA7670C_Modules) Analysis = (uint8_t*)strstr((char*)SimA7670C_Rx_Buf, "ID") + 3;
+              else if(wirelessProtocol == Esp32_Modules) Analysis = (uint8_t*)strstr((char*)WiFi_Rx_Buf, "ID") + 3; 
 
               if(Eeprom_Write_Data(Addr_ID, Position_1, (uint32_t)atoi((char*)Analysis), 1000) == FLASH_OK)
               {
                 Broker_Publish_Topic((uint8_t*)"<!> Broker-ID Write Ok");
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                Checking_Internet_Response((uint8_t*)"OK"); 
               }
               else 
               {
                 Broker_Publish_Topic((uint8_t*)"<X> Broker-ID Write Error");
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                Checking_Internet_Response((uint8_t*)"OK"); 
               }
             }
             else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> Invalid Broker-ID Syntax");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             } 
             
-            Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+            if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+            
             Timeout_UserConfig = Set_Time;
             break;
 
           case SERVERCMD_WRITECFG_USERNAME:
             //...+9 Remove string "USERNAME:"
-            Analysis = (uint8_t*)strstr((char*)IoT_Protocol_Buf, "USERNAME") + 9;
+            if(wirelessProtocol == SimA7670C_Modules) Analysis = (uint8_t*)strstr((char*)SimA7670C_Rx_Buf, "USERNAME") + 9;
+            else if(wirelessProtocol == Esp32_Modules) Analysis = (uint8_t*)strstr((char*)WiFi_Rx_Buf, "USERNAME") + 9; 
 
             //...Filter string 
 						for(uint8_t i = 0; i < Filter_Byte; i++)
@@ -530,7 +580,9 @@ int main(void)
 							else Filter_Buf[i] = Analysis[i];						
 						}
 
-            Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+            if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
 						Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
             Stm32_Clear_Buf(Receive_Package_Buf, Receive_Byte); 
 
@@ -539,12 +591,12 @@ int main(void)
             if(Eeprom_WriteStr_Hexadecimal(Addr_Username, (uint64_t*)Send_Package_Buf, 1000) == FLASH_OK)
             {
               Broker_Publish_Topic((uint8_t*)"<!> Broker-Username Write Ok");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
             else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> Broker-Username Write Error");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
 
             Stm32_Clear_Buf(Filter_Buf, Filter_Byte); 
@@ -555,7 +607,8 @@ int main(void)
 
           case SERVERCMD_WRITECFG_PASSWORD:
             //...+9 Remove string "PASSWORD:"
-            Analysis = (uint8_t*)strstr((char*)IoT_Protocol_Buf, "PASSWORD") + 9;
+            if(wirelessProtocol == SimA7670C_Modules) Analysis = (uint8_t*)strstr((char*)SimA7670C_Rx_Buf, "PASSWORD") + 9;
+            else if(wirelessProtocol == Esp32_Modules) Analysis = (uint8_t*)strstr((char*)WiFi_Rx_Buf, "PASSWORD") + 9; 
 
             //...Filter string 
 						for(uint8_t i = 0; i < Filter_Byte; i++)
@@ -564,7 +617,9 @@ int main(void)
 							else Filter_Buf[i] = Analysis[i];						
 						}
 
-						Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+						if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
 						Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
             Stm32_Clear_Buf(Receive_Package_Buf, Receive_Byte); 
 
@@ -574,12 +629,12 @@ int main(void)
             if(Eeprom_WriteStr_Hexadecimal(Addr_Password, (uint64_t*)Send_Package_Buf, 1000) == FLASH_OK)
             {
               Broker_Publish_Topic((uint8_t*)"<!> Broker-Password Write Ok");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
             else
             {
               Broker_Publish_Topic((uint8_t*)"<X> Broker-Password Write Error");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
 
             Stm32_Clear_Buf(Filter_Buf, Filter_Byte); 
@@ -590,7 +645,8 @@ int main(void)
 
           case SERVERCMD_WRITECFG_TOPICSUB:
             //...+9 Remove string "TOPICSUB:"
-            Analysis = (uint8_t*)strstr((char*)IoT_Protocol_Buf, "TOPICSUB") + 9;
+            if(wirelessProtocol == SimA7670C_Modules) Analysis = (uint8_t*)strstr((char*)SimA7670C_Rx_Buf, "TOPICSUB") + 9;
+            else if(wirelessProtocol == Esp32_Modules) Analysis = (uint8_t*)strstr((char*)WiFi_Rx_Buf, "TOPICSUB") + 9;  
 
             //...Filter string 
 						for(uint8_t i = 0; i < Filter_Byte; i++)
@@ -599,7 +655,9 @@ int main(void)
 							else Filter_Buf[i] = Analysis[i];						
 						}
 
-            Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+            if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
 						Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
             Stm32_Clear_Buf(Receive_Package_Buf, Receive_Byte); 
 
@@ -608,12 +666,12 @@ int main(void)
             if(Eeprom_WriteStr_Hexadecimal(Addr_TopicSub, (uint64_t*)Send_Package_Buf, 1000) == FLASH_OK)
             {
               Broker_Publish_Topic((uint8_t*)"<!> Broker-Topic Subscribe Write Ok");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
             else
             {
               Broker_Publish_Topic((uint8_t*)"<X> Broker-Topic Subscribe Write Error");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
             
             Stm32_Clear_Buf(Filter_Buf, Filter_Byte); 
@@ -624,7 +682,8 @@ int main(void)
           
           case SERVERCMD_WRITECFG_TOPICPUB:
             //...+9 Remove string "TOPICPUB:"
-            Analysis = (uint8_t*)strstr((char*)IoT_Protocol_Buf, "TOPICPUB") + 9;
+            if(wirelessProtocol == SimA7670C_Modules) Analysis = (uint8_t*)strstr((char*)SimA7670C_Rx_Buf, "TOPICPUB") + 9;
+            else if(wirelessProtocol == Esp32_Modules) Analysis = (uint8_t*)strstr((char*)WiFi_Rx_Buf, "TOPICPUB") + 9;   
 
             //...Filter string 
 						for(uint8_t i = 0; i < Filter_Byte; i++)
@@ -633,7 +692,9 @@ int main(void)
 							else Filter_Buf[i] = Analysis[i];						
 						}
 
-            Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+            if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
 						Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
             Stm32_Clear_Buf(Receive_Package_Buf, Receive_Byte); 
 
@@ -642,12 +703,12 @@ int main(void)
             if(Eeprom_WriteStr_Hexadecimal(Addr_TopicPub, (uint64_t*)Send_Package_Buf, 1000) == FLASH_OK)
             {
               Broker_Publish_Topic((uint8_t*)"<!> Broker-Topic Publish Write Ok");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
             else
             {
               Broker_Publish_Topic((uint8_t*)"<X> Broker-Topic Publish Write Error");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
 
             Stm32_Clear_Buf(Filter_Buf, Filter_Byte); 
@@ -668,18 +729,18 @@ int main(void)
               if(Eeprom_Write_Data(Addr_BrokerFlag, Position_1, CmdConfig_Cnt, 1000) == FLASH_OK)
               {
                 Broker_Publish_Topic((uint8_t*)"<!> Stopped configure -> Restart now");
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+                Checking_Internet_Response((uint8_t*)"OK");
               }
               else 
               {
                 Broker_Publish_Topic((uint8_t*)"<X> Write Error"); 
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+                Checking_Internet_Response((uint8_t*)"OK");
               }
             }
             else
             {
               Broker_Publish_Topic((uint8_t*)"<!> None Configure -> Restart now");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+              Checking_Internet_Response((uint8_t*)"OK");
             }
 
             HAL_NVIC_SystemReset(); 
@@ -701,18 +762,18 @@ int main(void)
             if(Eeprom_Write_Data(Addr_BrokerFlag, Position_1, CmdConfig_Cnt, 1000) == FLASH_OK)
             {
               Broker_Publish_Topic((uint8_t*)"<!> Configure Timeout -> Restart now");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+              Checking_Internet_Response((uint8_t*)"OK");
             }
             else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> Write Error"); 
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+              Checking_Internet_Response((uint8_t*)"OK");
             }
           }
           else
           {
             Broker_Publish_Topic((uint8_t*)"<!> None Configure -> Restart now");
-            Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+            Checking_Internet_Response((uint8_t*)"OK");
           }
 
           Mode_Flag = SYSMONITOR_NORMAL_MODE; 
@@ -724,16 +785,21 @@ int main(void)
     {
       sprintf((char*)Filter_Buf, "%s", "<!> Started config interval"); 
       Broker_Publish_Topic(Filter_Buf); 
-			Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+			Checking_Internet_Response((uint8_t*)"OK"); 
 			Stm32_Clear_Buf(Filter_Buf, Filter_Byte); 
 			HAL_Delay(100); 
 
-      Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+      if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+      else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
       Timeout_UserConfig = Set_Time;
+      uint8_t cmd = 0; 
       while(1)
       {
         DATA_DISPLAY = Config_Mode; 
-        uint8_t cmd = Configuration_Commands_Handle(IoT_Protocol_Buf, IoT_Byte); 
+
+        if(wirelessProtocol == SimA7670C_Modules) cmd = Configuration_Commands_Handle(SimA7670C_Rx_Buf, Internet_Byte); 
+        else if(wirelessProtocol == Esp32_Modules) cmd = Configuration_Commands_Handle(WiFi_Rx_Buf, Internet_Byte); 
         
         //...Wait for the end of string
 				while(cmd != NONE_CMD)
@@ -750,10 +816,14 @@ int main(void)
         switch(cmd)
         {
           case SERVERCMD_WRITECFG_INTERVAL:
-            if(Is_Setup_Right(IoT_Protocol_Buf, IoT_Byte) == CORRECT_SYNTAX)
+            if(wirelessProtocol == SimA7670C_Modules) IsSetupRight_Flag = Is_Setup_Right(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) IsSetupRight_Flag = Is_Setup_Right(WiFi_Rx_Buf, Internet_Byte); 
+
+            if(IsSetupRight_Flag == CORRECT_SYNTAX)
             {
               //...+9 Remove string "INTERVAL="
-              Analysis = (uint8_t*)strstr((char*)IoT_Protocol_Buf, "INTERVAL") + 9;  
+              if(wirelessProtocol == SimA7670C_Modules) Analysis = (uint8_t*)strstr((char*)SimA7670C_Rx_Buf, "INTERVAL") + 9;  
+              else if(wirelessProtocol == Esp32_Modules) Analysis = (uint8_t*)strstr((char*)WiFi_Rx_Buf, "INTERVAL") + 9;   
 
               if(wirelessProtocol == Esp32_Modules) Interval_Value = atoi((char*)Analysis); 
               else if(wirelessProtocol == SimA7670C_Modules) 
@@ -784,13 +854,13 @@ int main(void)
                   if(Eeprom_Read_Data(Addr_Interval, Position_1) != 0xFFFFFFFF) 
                   {
                     Broker_Publish_Topic((uint8_t*)"<!> Interval Write Ok -> Restart now");
-                    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                    Checking_Internet_Response((uint8_t*)"OK"); 
                     HAL_NVIC_SystemReset(); 
                   }    
                   else 
                   {
                     Broker_Publish_Topic((uint8_t*)"<X> Interval Write Error");
-                    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                    Checking_Internet_Response((uint8_t*)"OK"); 
                   }
                 }
               }
@@ -798,10 +868,12 @@ int main(void)
             else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> Invalid Interval Syntax");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             } 
 
-            Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+            if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
             break; 
 
           //...If commands then clear 
@@ -814,7 +886,9 @@ int main(void)
           case SERVERCMD_WRITECFG_TIMEC2C:
           case SERVERCMD_RESTART:
           case SERVERCMD_BREAK:
-            Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+            if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
             break; 
         }
 
@@ -836,24 +910,24 @@ int main(void)
               if(Eeprom_Read_Data(Addr_Interval, Position_1) != 0xFFFFFFFF) 
               {
                 Broker_Publish_Topic((uint8_t*)"<!> Interval Default Write Ok"); 
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                Checking_Internet_Response((uint8_t*)"OK"); 
               }
               else 
               {
                 Broker_Publish_Topic((uint8_t*)"<X> Interval Default Write Error");
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                Checking_Internet_Response((uint8_t*)"OK"); 
               }
             }
             else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> Interval Already exists"); 
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
           }
           else 
           {
             Broker_Publish_Topic((uint8_t*)"<!> Timeout!"); 
-            Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+            Checking_Internet_Response((uint8_t*)"OK"); 
           }
 
           Mode_Flag = SYSMONITOR_NORMAL_MODE; 
@@ -865,16 +939,21 @@ int main(void)
     {
       sprintf((char*)Filter_Buf, "%s", "<!> Started config Command to Command"); 
       Broker_Publish_Topic(Filter_Buf); 
-			Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+			Checking_Internet_Response((uint8_t*)"OK"); 
 			Stm32_Clear_Buf(Filter_Buf, Filter_Byte); 
 			HAL_Delay(100); 
 
-      Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+      if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+      else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
       Timeout_UserConfig = Set_Time; 
+      uint8_t cmd = 0; 
       while(1)
       {
         DATA_DISPLAY = Config_Mode; 
-        uint8_t cmd = Configuration_Commands_Handle(IoT_Protocol_Buf, IoT_Byte); 
+
+        if(wirelessProtocol == SimA7670C_Modules) cmd = Configuration_Commands_Handle(SimA7670C_Rx_Buf, Internet_Byte); 
+        else if(wirelessProtocol == Esp32_Modules) cmd = Configuration_Commands_Handle(WiFi_Rx_Buf, Internet_Byte); 
 
         //...Wait for the end of string
 			  while(cmd != NONE_CMD)
@@ -891,12 +970,17 @@ int main(void)
         switch(cmd)
         {
           case SERVERCMD_WRITECFG_TIMEC2C: 
-            if(Is_Setup_Right(IoT_Protocol_Buf, IoT_Byte) == CORRECT_SYNTAX)
+            if(wirelessProtocol == SimA7670C_Modules) IsSetupRight_Flag = Is_Setup_Right(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) IsSetupRight_Flag = Is_Setup_Right(WiFi_Rx_Buf, Internet_Byte); 
+
+            if(IsSetupRight_Flag == CORRECT_SYNTAX)
             {
               //...+8 Remove string "CMDSEND=" 
-              Analysis = (uint8_t*)strstr((char*)IoT_Protocol_Buf, "CMDSEND") + 8;  
-              SetTime_C2C = atoi((char*)Analysis); 
+              if(wirelessProtocol == SimA7670C_Modules) Analysis = (uint8_t*)strstr((char*)SimA7670C_Rx_Buf, "CMDSEND") + 8;   
+              else if(wirelessProtocol == Esp32_Modules) Analysis = (uint8_t*)strstr((char*)WiFi_Rx_Buf, "CMDSEND") + 8;  
               
+              SetTime_C2C = atoi((char*)Analysis); 
+
               //...From 200 - 500 milliseconds 
               if(SetTime_C2C < 200) SetTime_C2C = 200; //...Limit Time Cmd 2 Cmd 
               else if(SetTime_C2C > 500) SetTime_C2C = 500; //...Too Time Cmd 2 Cmd 
@@ -912,13 +996,13 @@ int main(void)
                   if(Eeprom_Read_Data(Addr_C2C, Position_1) != 0xFFFFFFFF) 
                   {
                     Broker_Publish_Topic((uint8_t*)"<!> Time Cmd 2 Cmd Write Ok -> Restart now"); 
-                    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                    Checking_Internet_Response((uint8_t*)"OK"); 
                     HAL_NVIC_SystemReset(); 
                   }
                   else 
                   {
                     Broker_Publish_Topic((uint8_t*)"<X> Time Cmd 2 Cmd Write Error");
-                    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                    Checking_Internet_Response((uint8_t*)"OK"); 
                   }
                 }
               }
@@ -926,10 +1010,12 @@ int main(void)
             else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> Invalid Time Cmd 2 Cmd Syntax");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
 
-            Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+            if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
             break; 
 
           //...If commands then clear  
@@ -942,7 +1028,9 @@ int main(void)
           case SERVERCMD_WRITECFG_BAUDRATE:
           case SERVERCMD_RESTART:
           case SERVERCMD_BREAK:
-						Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+						if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
 						break; 
         }
 
@@ -964,24 +1052,24 @@ int main(void)
               if(Eeprom_Read_Data(Addr_C2C, Position_1) != 0xFFFFFFFF) 
               {
                 Broker_Publish_Topic((uint8_t*)"<!> Time Cmd 2 Cmd Default Write Ok"); 
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                Checking_Internet_Response((uint8_t*)"OK"); 
               }
               else 
               {
                 Broker_Publish_Topic((uint8_t*)"<X> Time Cmd 2 Cmd Default Write Error");
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                Checking_Internet_Response((uint8_t*)"OK"); 
               }
             }
             else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> Time Cmd 2 Cmd Already exists"); 
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
           }
           else 
           {
             Broker_Publish_Topic((uint8_t*)"<!> Timeout!"); 
-            Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+            Checking_Internet_Response((uint8_t*)"OK"); 
           }
 
           Mode_Flag = SYSMONITOR_NORMAL_MODE; 
@@ -993,16 +1081,21 @@ int main(void)
     {
       sprintf((char*)Filter_Buf, "%s", "<!> Started config baud rate"); 
       Broker_Publish_Topic(Filter_Buf); 
-			Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+			Checking_Internet_Response((uint8_t*)"OK"); 
 			Stm32_Clear_Buf(Filter_Buf, Filter_Byte); 
 			HAL_Delay(100);
 
-      Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+      if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+      else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
       Timeout_UserConfig = Set_Time; 
+      uint8_t cmd = 0; 
       while(1)
       {
         DATA_DISPLAY = Config_Mode; 
-        uint8_t cmd = Configuration_Commands_Handle(IoT_Protocol_Buf, IoT_Byte); 
+
+        if(wirelessProtocol == SimA7670C_Modules) cmd = Configuration_Commands_Handle(SimA7670C_Rx_Buf, Internet_Byte); 
+        else if(wirelessProtocol == Esp32_Modules) cmd = Configuration_Commands_Handle(WiFi_Rx_Buf, Internet_Byte); 
 
         //...Wait for the end of string
 				while(cmd != NONE_CMD)
@@ -1019,9 +1112,14 @@ int main(void)
         switch(cmd)
         {
           case SERVERCMD_WRITECFG_BAUDRATE:
-            if(Is_Setup_Right(IoT_Protocol_Buf, IoT_Byte) == CORRECT_SYNTAX)
+            if(wirelessProtocol == SimA7670C_Modules) IsSetupRight_Flag = Is_Setup_Right(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) IsSetupRight_Flag = Is_Setup_Right(WiFi_Rx_Buf, Internet_Byte); 
+
+            if(IsSetupRight_Flag == CORRECT_SYNTAX)
             {
-              Analysis = (uint8_t*)strstr((char*)IoT_Protocol_Buf, "BAUDRATE") + 9; //+9: Remove string "BAUDRATE="  
+              //...+9: Remove string "BAUDRATE="  
+              if(wirelessProtocol == SimA7670C_Modules) Analysis = (uint8_t*)strstr((char*)SimA7670C_Rx_Buf, "BAUDRATE") + 9;  
+              else if(wirelessProtocol == Esp32_Modules) Analysis = (uint8_t*)strstr((char*)WiFi_Rx_Buf, "BAUDRATE") + 9; 
               BaudRate_Value = atoi((char*)Analysis); 
               
               /*if((BaudRate_Value == 9600) || (BaudRate_Value == 115200))
@@ -1037,13 +1135,13 @@ int main(void)
                     if(Eeprom_Read_Data(Addr_Baudrate, Position_1) != 0xFFFFFFFF)
                     {
                       Broker_Publish_Topic((uint8_t*)"<!> Baud Rate Write Ok -> Restart now"); 
-                      Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                      Checking_Internet_Response((uint8_t*)"OK"); 
                       HAL_NVIC_SystemReset(); 
                     }
                     else 
                     {
                       Broker_Publish_Topic((uint8_t*)"<X> Baud Rate Write Error");
-                      Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                      Checking_Internet_Response((uint8_t*)"OK"); 
                     }
                   }
                 }
@@ -1051,7 +1149,7 @@ int main(void)
               else 
               {
                 Broker_Publish_Topic((uint8_t*)"<X> None. Only baud rate: 9600bps or 115200bps"); 
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                Checking_Internet_Response((uint8_t*)"OK"); 
               }*/
 
               if(Eeprom_Read_Data(Addr_Baudrate, Position_1) == 0xFFFFFFFF || Eeprom_Read_Data(Addr_Baudrate, Position_1) != 0xFFFFFFFF) 
@@ -1065,13 +1163,13 @@ int main(void)
                   if(Eeprom_Read_Data(Addr_Baudrate, Position_1) != 0xFFFFFFFF)
                   {
                     Broker_Publish_Topic((uint8_t*)"<!> Baud Rate Write Ok -> Restart now"); 
-                    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                    Checking_Internet_Response((uint8_t*)"OK"); 
                     HAL_NVIC_SystemReset(); 
                   }
                   else 
                   {
                     Broker_Publish_Topic((uint8_t*)"<X> Baud Rate Write Error");
-                    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                    Checking_Internet_Response((uint8_t*)"OK"); 
                   }
                 }
               }
@@ -1079,10 +1177,12 @@ int main(void)
             else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> Invalid Baud Rate Syntax"); 
-				      Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+				      Checking_Internet_Response((uint8_t*)"OK");
             }
 
-            Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+            if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
             break; 
 
           //...If commands then clear 
@@ -1095,7 +1195,9 @@ int main(void)
           case SERVERCMD_WRITECFG_TIMEC2C:
           case SERVERCMD_RESTART:
           case SERVERCMD_BREAK:
-						Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+						if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
 						break; 
         }
 
@@ -1114,24 +1216,24 @@ int main(void)
               if(Eeprom_Read_Data(Addr_Baudrate, Position_1) != 0xFFFFFFFF)
               {
                 Broker_Publish_Topic((uint8_t*)"<!> Baud Rate Default Write Ok"); 
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                Checking_Internet_Response((uint8_t*)"OK"); 
               }
               else 
               {
                 Broker_Publish_Topic((uint8_t*)"<X> Baud Rate Default Write Error");
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                Checking_Internet_Response((uint8_t*)"OK"); 
               }
             }
             else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> Baud Rate Already exists"); 
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+              Checking_Internet_Response((uint8_t*)"OK");
             }
           }
           else 
           {
             Broker_Publish_Topic((uint8_t*)"<!> Timeout!"); 
-            Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+            Checking_Internet_Response((uint8_t*)"OK"); 
           }
 
           Mode_Flag = SYSMONITOR_NORMAL_MODE;
@@ -1143,17 +1245,22 @@ int main(void)
     {
       sprintf((char*)Filter_Buf, "%s", "<!> Started config modbus RTU"); 
       Broker_Publish_Topic(Filter_Buf); 
-			Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+			Checking_Internet_Response((uint8_t*)"OK"); 
 			Stm32_Clear_Buf(Filter_Buf, Filter_Byte); 
 			HAL_Delay(100); 
 
       Eeprom_ClearPage(User_ConfigRs485Cmd_Page); 
-      Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+      if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+      else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
       Timeout_UserConfig = Set_Time; 
+      uint8_t cmd = 0; 
       while(1)
       {
         DATA_DISPLAY = Config_Mode; 
-        uint8_t cmd = Configuration_Commands_Handle(IoT_Protocol_Buf, IoT_Byte); 
+
+        if(wirelessProtocol == SimA7670C_Modules) cmd = Configuration_Commands_Handle(SimA7670C_Rx_Buf, Internet_Byte); 
+        else if(wirelessProtocol == Esp32_Modules) cmd = Configuration_Commands_Handle(WiFi_Rx_Buf, Internet_Byte); 
 
         //...Wait for the end of string
 				while(cmd != NONE_CMD)
@@ -1171,7 +1278,8 @@ int main(void)
         {
           case SERVERCMD_WRITECFG_RS485:
             //...+6 Remove string "RS485-" 
-            Analysis = (uint8_t*)strstr((char*)IoT_Protocol_Buf, "RS485") + 6; 
+            if(wirelessProtocol == SimA7670C_Modules) Analysis = (uint8_t*)strstr((char*)SimA7670C_Rx_Buf, "RS485") + 6; 
+            else if(wirelessProtocol == Esp32_Modules) Analysis = (uint8_t*)strstr((char*)WiFi_Rx_Buf, "RS485") + 6;  
 
             //...Filter string 
 						for(uint8_t i = 0; i < Filter_Byte; i++)
@@ -1179,7 +1287,10 @@ int main(void)
 							if(Analysis[i] == 0x0D || Analysis[i] == 0x0A || Analysis[i] == '\0' || Analysis[i] == 0) break; 
 							else Filter_Buf[i] = Analysis[i];						
 						}
-						Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+
+						if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
 						Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
 					
 						HexStrToHexChar(Filter_Buf, Send_Package_Buf); 
@@ -1193,18 +1304,18 @@ int main(void)
 								{
 									Config_Addr_Next += 16; 
 									Broker_Publish_Topic((uint8_t*)"<!> RS485 Commands Write Ok"); 
-                  Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                  Checking_Internet_Response((uint8_t*)"OK"); 
 								}
 								else 
                 {
                   Broker_Publish_Topic((uint8_t*)"<X> RS485 Commands Write Error"); 
-                  Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                  Checking_Internet_Response((uint8_t*)"OK"); 
                 }
 							}
 							else 
 							{
 								Broker_Publish_Topic((uint8_t*)"<X> Memory Low"); 
-								Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+								Checking_Internet_Response((uint8_t*)"OK"); 
 								
 								Stm32_Clear_Buf(Send_Package_Buf, Send_Byte);
 								Stm32_Clear_Buf(Filter_Buf, Filter_Byte); 								
@@ -1215,7 +1326,7 @@ int main(void)
 						else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> Invalid Checksum");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
 						
             Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
@@ -1227,13 +1338,13 @@ int main(void)
 						if(Eeprom_Write_Data(Addr_CmdConfig, Position_1, CmdConfig_Cnt, 1000) == FLASH_OK)
 						{
 							Broker_Publish_Topic((uint8_t*)"<!> Stopped configure -> Restart now");
-							Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+							Checking_Internet_Response((uint8_t*)"OK");
 							HAL_NVIC_SystemReset(); 
 						}
 						else 
 						{
 							Broker_Publish_Topic((uint8_t*)"<X> Write Error"); 
-							Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+							Checking_Internet_Response((uint8_t*)"OK");
 							Timeout_UserConfig = Set_Time;
 						}
             break; 
@@ -1247,7 +1358,9 @@ int main(void)
           case SERVERCMD_WRITECFG_BAUDRATE:
           case SERVERCMD_WRITECFG_TIMEC2C:
           case SERVERCMD_RESTART:
-						Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+						if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
 						break; 
         }
         
@@ -1262,18 +1375,18 @@ int main(void)
               if(Eeprom_Read_Data(Addr_CmdConfig, Position_1) != 0xFFFFFFFF) 
               {
                 Broker_Publish_Topic((uint8_t*)"<!> Amount RS485 Commands Write Ok");
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+                Checking_Internet_Response((uint8_t*)"OK");
               }
               else
               {
                 Broker_Publish_Topic((uint8_t*)"<!> Amount RS485 Commands Write Error");
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+                Checking_Internet_Response((uint8_t*)"OK");
               }
             }
             else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> RS485 Commands Already exists"); 
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+              Checking_Internet_Response((uint8_t*)"OK");
             }
           }
 
@@ -1291,23 +1404,23 @@ int main(void)
               if(Eeprom_Read_Data(Addr_Interval, Position_1) != 0xFFFFFFFF) 
               {
                 Broker_Publish_Topic((uint8_t*)"<!> Interval Default Write Ok"); 
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                Checking_Internet_Response((uint8_t*)"OK"); 
               }
               else 
               {
                 Broker_Publish_Topic((uint8_t*)"<X> Interval Default Write Error");
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                Checking_Internet_Response((uint8_t*)"OK"); 
               }
             }
             else 
             {
               Broker_Publish_Topic((uint8_t*)"<X> Interval Already exists"); 
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
           }
 
           Broker_Publish_Topic((uint8_t*)"<!> Timeout!"); 
-          Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+          Checking_Internet_Response((uint8_t*)"OK");
           Mode_Flag = SYSMONITOR_NORMAL_MODE; 
           break; 
         }
@@ -1336,13 +1449,26 @@ int main(void)
 			else CmdConfig_Cnt = Eeprom_Read_Data(Addr_CmdConfig, Position_1); 
       #endif
 
-      sprintf((char*)Send_Package_Buf, "<!> Started data -> Device %s --%s --RSSI(dBm): %d --Commands config: %d --Interval(s): %ld", DeviceID, Version, Get_RSSI_Sim4GLTE(huart2, IoT_Protocol_Buf), CmdConfig_Cnt, Eeprom_Read_Data(Addr_Interval, Position_1));
+      if(wirelessProtocol == SimA7670C_Modules) sprintf((char*)Send_Package_Buf, 
+                                                        "<!> Started data -> Device %s --%s --RSSI(dBm): %d --Commands config: %d --Interval(s): %ld", 
+                                                        DeviceID, Version, 
+                                                        Get_RSSI_Sim4GLTE(huart2, SimA7670C_Rx_Buf), 
+                                                        CmdConfig_Cnt, 
+                                                        Eeprom_Read_Data(Addr_Interval, Position_1));
+
+      else if(wirelessProtocol == Esp32_Modules) sprintf((char*)Send_Package_Buf, 
+                                                        "<!> Started data -> Device %s --%s --RSSI(dBm): %d --Commands config: %d --Interval(s): %ld", 
+                                                        DeviceID, Version, 
+                                                        RSSI_WiFi(huart3, WiFi_Rx_Buf), 
+                                                        CmdConfig_Cnt, 
+                                                        Eeprom_Read_Data(Addr_Interval, Position_1));
+      
 			Broker_Publish_Topic(Send_Package_Buf);
-			Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+			Checking_Internet_Response((uint8_t*)"OK");
 			Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
       HAL_Delay(500);  
 			
-			uint8_t CmdConfig_Amount = 0, Config_Addr_Position = 0, IT_Handle = 0; 
+			uint8_t CmdConfig_Amount = 0, Config_Addr_Position = 0, IT_Handle = 0, cmd = 0; 
       uint32_t Eep_Read = 0; 
       while(1)
       { 
@@ -1374,12 +1500,13 @@ int main(void)
 					if(Req_Ping_Flag == 1) 
 					{
             Broker_Publish_Topic((uint8_t*)"REQUEST_PING");
-            Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+            Checking_Internet_Response((uint8_t*)"OK");
 						Req_Ping_Flag = 0; 
 					}
 				}
-				
-        uint8_t cmd = Normal_CommandsHandle(IoT_Protocol_Buf, IoT_Byte); 
+
+				if(wirelessProtocol == SimA7670C_Modules) cmd = Normal_CommandsHandle(SimA7670C_Rx_Buf, Internet_Byte); 
+        else if(wirelessProtocol == Esp32_Modules) cmd = Normal_CommandsHandle(WiFi_Rx_Buf, Internet_Byte); 
 
         //...Wait for the end of string 
         while(cmd != NONE_CMD)
@@ -1400,15 +1527,18 @@ int main(void)
 						Stm32_Clear_Buf(Inverter_Buf, Inverter_Byte); 
 
             //...+6 Remove string "RS485-"
-            Analysis = (uint8_t*)strstr((char*)IoT_Protocol_Buf, "RS485") + 6; 
+            if(wirelessProtocol == SimA7670C_Modules) Analysis = (uint8_t*)strstr((char*)SimA7670C_Rx_Buf, "RS485") + 6; 
+            else if(wirelessProtocol == Esp32_Modules) Analysis = (uint8_t*)strstr((char*)WiFi_Rx_Buf, "RS485") + 6;  
             for(uint16_t i = 0; i < Filter_Byte; i++)
 						{
 							if(Analysis[i] == 0x0D || Analysis[i] == 0x0A || Analysis[i] == '\0') break; 
 							else Filter_Buf[i] = Analysis[i];						
 						}
 
+						if(wirelessProtocol == SimA7670C_Modules) Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
+            else if(wirelessProtocol == Esp32_Modules) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+
             Stm32_Clear_Buf(Inverter_Buf, Inverter_Byte); 
-						Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
             Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
 						
             HexStrToHexChar(Filter_Buf, Send_Package_Buf); 
@@ -1467,7 +1597,7 @@ int main(void)
             }
             else Broker_Publish_Topic((uint8_t*)"<X> Invalid Checksum"); 
             
-            Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+            Checking_Internet_Response((uint8_t*)"OK"); 
 
             //Relay_Control(Relay_GPIO_Port, Relay_Pin, HIGH, OFF); 
 						Stm32_Clear_Buf(Inverter_Buf, Inverter_Byte);
@@ -1500,7 +1630,7 @@ int main(void)
 								
 								sprintf((char*)Send_Package_Buf, "%s%c%s", "RS485", '-', Receive_Package_Buf); 
 								Broker_Publish_Topic(Send_Package_Buf);
-                Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+                Checking_Internet_Response((uint8_t*)"OK"); 
 
 								Stm32_Clear_Buf(Send_Package_Buf, Send_Byte);
                 Stm32_Clear_Buf(Receive_Package_Buf, Receive_Byte); 
@@ -1510,37 +1640,37 @@ int main(void)
             else 
 						{
 							Broker_Publish_Topic((uint8_t*)"<X> No RS485 Commands");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
 						}
             break;
           
           case SERVERCMD_NORMAL_PING: 
             #ifdef CBSC
             sendCBSC();
-            Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+            Checking_Internet_Response((uint8_t*)"OK");
             Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
             break;
             #else
-            sprintf((char*)Send_Package_Buf, "%s%ld%s%d", "PING	(*)INTERVAL: ", Eeprom_Read_Data(Addr_Interval, Position_1), "	(*)RSSI: ", Get_RSSI_Sim4GLTE(huart2, IoT_Protocol_Buf)); 
+            sprintf((char*)Send_Package_Buf, "%s%ld%s%d", "PING	(*)INTERVAL: ", Eeprom_Read_Data(Addr_Interval, Position_1), "	(*)RSSI: ", Get_RSSI_Sim4GLTE(huart2, SimA7670C_Rx_Buf)); 
             Broker_Publish_Topic(Send_Package_Buf); 
-            Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+            Checking_Internet_Response((uint8_t*)"OK");
           
             Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
             break; 
             #endif
 					case SERVERCMD_NORMAL_CONFIRM:
 						Broker_Publish_Topic((uint8_t*)"<!> Confirm!");
-            Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+            Checking_Internet_Response((uint8_t*)"OK");
 					
 						Interval_Flag = 1; 
 						break; 
 
           case SERVERCMD_NORMAL_SIM_RSSI:
-            sprintf((char*)Send_Package_Buf, "RSSI: %d dBm - Network provider: ", Get_RSSI_Sim4GLTE(huart2, IoT_Protocol_Buf)); 
-            Get_Service_Provider_Name_Sim4GLTE(huart2, IoT_Protocol_Buf, Send_Package_Buf); 
+            sprintf((char*)Send_Package_Buf, "RSSI: %d dBm - Network provider: ", Get_RSSI_Sim4GLTE(huart2, SimA7670C_Rx_Buf)); 
+            Get_Service_Provider_Name_Sim4GLTE(huart2, SimA7670C_Rx_Buf, Send_Package_Buf); 
 
             Broker_Publish_Topic(Send_Package_Buf);
-            Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+            Checking_Internet_Response((uint8_t*)"OK");
             Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
             break; 
 
@@ -1548,13 +1678,31 @@ int main(void)
             if(wirelessProtocol == SimA7670C_Modules)
             {
               Broker_Publish_Topic((uint8_t*)">> The device is using 4G-LTE Network"); 
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+              Checking_Internet_Response((uint8_t*)"OK");
             }
             else if(wirelessProtocol == Esp32_Modules)
             {
               Broker_Publish_Topic((uint8_t*)">> The device is using Internet WiFi");
-              Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+              Checking_Internet_Response((uint8_t*)"OK"); 
             }
+            break;
+
+          case SERVERCMD_NORMAL_VOLTAGE_BAT: 
+            HAL_ADC_Start(&hadc1); 
+            if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
+            {
+              ADC_Value = HAL_ADC_GetValue(&hadc1); 
+              Battery_Voltage = ADC_Value * ADC_VREF / ADC_12BITS; 
+              Battery_Percentage = map(Battery_Voltage, THRESHOLD_VOLTAGE, ADC_VREF, BATTERY_CAPACITY_LOW, BATTERY_CAPACITY_FULL); ; 
+            }
+            HAL_ADC_Stop(&hadc1); 
+
+            FloatToStr(Battery_Voltage, Battery_Voltage_Buf); 
+            sprintf((char*)Send_Package_Buf, "Voltage: %sV - Percent: %d%%", Battery_Voltage_Buf, (uint16_t)(Battery_Percentage)); 
+    
+            Broker_Publish_Topic(Send_Package_Buf);
+            Checking_Internet_Response((uint8_t*)"OK");
+            Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
             break;
         }
 				
@@ -1624,7 +1772,7 @@ int main(void)
 						else 
 						{
 							Broker_Publish_Topic((uint8_t*)"<X> Invalid Eeprom");
-							Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+							Checking_Internet_Response((uint8_t*)"OK");
 							break; 
 						}
 
@@ -1647,11 +1795,11 @@ int main(void)
 						}
 						else Broker_Publish_Topic((uint8_t*)"<X> No data"); 
 						
-						IT_Handle = Normal_CommandsHandle(IoT_Protocol_Buf, IoT_Byte); 
+						IT_Handle = Normal_CommandsHandle(SimA7670C_Rx_Buf, Internet_Byte); 
 						if(IT_Handle != 0) break;
 						else 
 						{
-							Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+							Checking_Internet_Response((uint8_t*)"OK");
 							
               //...Unit Milliseconds
 							Time_Send = Eeprom_Read_Data(Addr_C2C, Position_2); 
@@ -1677,9 +1825,9 @@ int main(void)
 				else 
 				{
           #ifdef CBSC
-          if(strstr((char*)IoT_Protocol_Buf, "SIM REMOVED")) HAL_NVIC_SystemReset();
+          if(strstr((char*)SimA7670C_Rx_Buf, "SIM REMOVED")) HAL_NVIC_SystemReset();
           #else 
-					if(strstr((char*)IoT_Protocol_Buf, "ERROR") || strstr((char*)IoT_Protocol_Buf, "SEND FAIL") || strstr((char*)IoT_Protocol_Buf, "CLOSED")) HAL_NVIC_SystemReset();
+					if(strstr((char*)SimA7670C_Rx_Buf, "ERROR") || strstr((char*)SimA7670C_Rx_Buf, "SEND FAIL") || strstr((char*)SimA7670C_Rx_Buf, "CLOSED")) HAL_NVIC_SystemReset();
           #endif 
         }
 
@@ -1731,6 +1879,65 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
+
+  /* USER CODE BEGIN ADC1_Init 0 */
+
+  /* USER CODE END ADC1_Init 0 */
+
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC1_Init 1 */
+
+  /* USER CODE END ADC1_Init 1 */
+
+  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc1.Init.LowPowerAutoWait = DISABLE;
+  hadc1.Init.LowPowerAutoPowerOff = DISABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc1.Init.SamplingTimeCommon1 = ADC_SAMPLETIME_160CYCLES_5;
+  hadc1.Init.SamplingTimeCommon2 = ADC_SAMPLETIME_160CYCLES_5;
+  hadc1.Init.OversamplingMode = DISABLE;
+  hadc1.Init.TriggerFrequencyMode = ADC_TRIGGER_FREQ_HIGH;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_1;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLINGTIME_COMMON_1;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
+
+  /* USER CODE END ADC1_Init 2 */
+
 }
 
 /**
@@ -2063,7 +2270,10 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, DC_LED_Pin|Battery_LED_Pin|Test_LED_Pin|SOS_LED_Pin
-                          |PhysRestart_Pin|IO2_Pin, GPIO_PIN_RESET);
+                          |IO2_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(PhysRestart_ESP32_GPIO_Port, PhysRestart_ESP32_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin : Relay_Pin */
   GPIO_InitStruct.Pin = Relay_Pin;
@@ -2086,9 +2296,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(PhysRestart_Sim7020_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : DC_LED_Pin Battery_LED_Pin Test_LED_Pin SOS_LED_Pin
-                           PhysRestart_Pin IO2_Pin */
+                           IO2_Pin */
   GPIO_InitStruct.Pin = DC_LED_Pin|Battery_LED_Pin|Test_LED_Pin|SOS_LED_Pin
-                          |PhysRestart_Pin|IO2_Pin;
+                          |IO2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -2105,6 +2315,16 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(Button_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PhysRestart_ESP32_Pin */
+  GPIO_InitStruct.Pin = PhysRestart_ESP32_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(PhysRestart_ESP32_GPIO_Port, &GPIO_InitStruct);
+
+  /**/
+  __HAL_SYSCFG_FASTMODEPLUS_ENABLE(SYSCFG_FASTMODEPLUS_PB7);
 
 }
 
@@ -2201,6 +2421,9 @@ ServerCmd_NormalModHandleTypeDef Normal_CommandsHandle(uint8_t *recv_buf, uint16
 
     //...cmd 'WIRELESS?' 
     else if(recv_buf[i] == 'W' && recv_buf[i + 1] == 'I' && recv_buf[i + 2] == 'R' && recv_buf[i + 3] == 'E' && recv_buf[i + 4] == 'L' && recv_buf[i + 5] == 'E' && recv_buf[i + 6] == 'S' && recv_buf[i + 7] == 'S' && recv_buf[i + 8] == '?') return SERVERCMD_NORMAL_WIRELESS; 
+
+    //...cmd 'VBAT?'
+    else if(recv_buf[i] == 'V' && recv_buf[i + 1] == 'B' && recv_buf[i + 2] == 'A' && recv_buf[i + 3] == 'T' && recv_buf[i + 4] == '?') return SERVERCMD_NORMAL_VOLTAGE_BAT; 
   }
 
   return NONE_CMD; 
@@ -2316,12 +2539,12 @@ WiFi_StatusTypeDef Stm32_Check_Esp32_Connect_WiFi(uint16_t timeout)
 	{
     WIRELESS_DISPLAY = Check_Connect_WiFi; 
 		Esp32_Check_Info_WiFi(huart3); 
-		uint8_t *_pStr = (uint8_t*)strstr((char*)IoT_Protocol_Buf, "+CWJAP"); 
+		uint8_t *_pStr = (uint8_t*)strstr((char*)WiFi_Rx_Buf, "+CWJAP"); 
     
 		if(_pStr != 0)
 		{
 			HAL_Delay(100); 
-			if(Esp32_Response(IoT_Protocol_Buf, (uint8_t*)"OK", 10000)) Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+			if(Esp32_Response(WiFi_Rx_Buf, (uint8_t*)"OK", 10000)) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
 			return WIFI_CONNECTED; 
 		}		
 		
@@ -2329,7 +2552,7 @@ WiFi_StatusTypeDef Stm32_Check_Esp32_Connect_WiFi(uint16_t timeout)
 		timeout--; 
 		if(timeout == 0) {
 			HAL_Delay(100); 
-			if(Esp32_Response(IoT_Protocol_Buf, (uint8_t*)"OK", 10000)) Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte);  
+			if(Esp32_Response(WiFi_Rx_Buf, (uint8_t*)"OK", 10000)) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte);  
 			return WIFI_DISCONNECTED;
 		}			
 	}
@@ -2342,7 +2565,7 @@ SimCard_StatusTypeDef Stm32_Check_Sim_Card_Connect_Network_Service(uint16_t time
     WIRELESS_DISPLAY = Check_Insert_Sim_Card; 
     Is_Insert_Sim_Card(huart2); 
 
-    if(strstr((char*)IoT_Protocol_Buf, "+CPIN:"))return SIM_INSERTING; 
+    if(strstr((char*)SimA7670C_Rx_Buf, "+CPIN:"))return SIM_INSERTING; 
 
     HAL_Delay(2000); 
     timeout--; 
@@ -2352,23 +2575,24 @@ SimCard_StatusTypeDef Stm32_Check_Sim_Card_Connect_Network_Service(uint16_t time
 
 void Esp32_WiFi_Init(void)
 {
-	Esp32_Restart(huart3);
-  // HAL_GPIO_WritePin(PhysRestart_Esp32_GPIO_Port, PhysRestart_Esp32_Pin, GPIO_PIN_RESET);
+  Esp32_Restart(huart3);
+
+  // HAL_GPIO_WritePin(PhysRestart_ESP32_GPIO_Port, PhysRestart_ESP32_Pin, GPIO_PIN_RESET);
   // HAL_Delay(1500); 
-  // HAL_GPIO_WritePin(PhysRestart_Esp32_GPIO_Port, PhysRestart_Esp32_Pin, GPIO_PIN_SET);	
-  // if(Esp32_Response(IoT_Protocol_Buf, (uint8_t*)"ready", 1000)) Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte);  
-  // else if(Esp32_Response(IoT_Protocol_Buf, (uint8_t*)"WIFI GOT IP", 1000)) Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
-  // else HAL_NVIC_SystemReset(); 
-  
+  // HAL_GPIO_WritePin(PhysRestart_ESP32_GPIO_Port, PhysRestart_ESP32_Pin, GPIO_PIN_SET);	
+  if(Esp32_Response(WiFi_Rx_Buf, (uint8_t*)"ready", 1000)) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte);  
+  else if(Esp32_Response(WiFi_Rx_Buf, (uint8_t*)"WIFI GOT IP", 1000)) Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte); 
+  else Auto_Switch(wirelessProtocol); 
+
   Esp32_Echo(huart3, DISABLE); 
-  Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+  Checking_Internet_Response((uint8_t*)"OK"); 
   
   Esp32_WiFiMode(huart3, STA_Mode); 
-  Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+  Checking_Internet_Response((uint8_t*)"OK"); 
   
   /*printf("AT+CWJAP=\"3G\",\"123456779\"\r\n"); 
   HAL_Delay(500); 
-  Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");*/ 
+  Checking_Internet_Response((uint8_t*)"OK");*/ 
   
   while(!Stm32_Check_Esp32_Connect_WiFi(5))
   {
@@ -2376,9 +2600,9 @@ void Esp32_WiFi_Init(void)
     HAL_Delay(100); 
     
     Esp32_Start_SmartConfig(huart3, TOUTCH_and_AIRKISS_App); 
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"smartconfig connected wifi"); 
+    Checking_Internet_Response((uint8_t*)"smartconfig connected wifi"); 
     Esp32_Stop_SmartConfig(huart3);  
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK");
+    Checking_Internet_Response((uint8_t*)"OK");
   }
   WIRELESS_DISPLAY = Connected_WiFi; 
   HAL_Delay(100); 
@@ -2387,14 +2611,14 @@ void Esp32_WiFi_Init(void)
 void SimA7670C_4GLTE_Init(void)
 {
   SimA7670C_Reset(huart2); 
-  //Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"SMS DONE"); 
-  HAL_Delay(30000); 
+  //Checking_Internet_Response((uint8_t*)"SMS DONE"); 
+  HAL_Delay(20000); 
 
   SimA7670C_Echo(huart2, ECHO_DISABLE);
-  Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+  Checking_Internet_Response((uint8_t*)"OK"); 
 
-  if(!Stm32_Check_Sim_Card_Connect_Network_Service(5)) Stm32_Restart(); 
-  else Stm32_Clear_Buf(IoT_Protocol_Buf, IoT_Byte); 
+  if(!Stm32_Check_Sim_Card_Connect_Network_Service(5)) Auto_Switch(wirelessProtocol);
+  else Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte); 
 
   WIRELESS_DISPLAY = Network_Service_Standby; 
   HAL_Delay(100); 
@@ -2403,29 +2627,30 @@ void SimA7670C_4GLTE_Init(void)
 void Stm32_Restart(void)
 {
   Broker_Publish_Topic((uint8_t*)">> Restarting..."); 
-  Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+  Checking_Internet_Response((uint8_t*)"OK"); 
   HAL_NVIC_SystemReset();
 }
 
 void Stm32_Clear_Buf(uint8_t *clr_buff, uint16_t size)
 {
-  if(clr_buff == &IoT_Protocol_Buf[0]) IoT_Protocol_Count = 0; 
-  if(clr_buff == &Inverter_Buf[0]) Inverter_Count = 0; 
+  if(clr_buff == &SimA7670C_Rx_Buf[0]) SimA7670C_Count_Data = 0; 
+  else if(clr_buff == &WiFi_Rx_Buf[0]) WiFi_Count_Data = 0; 
+  else if(clr_buff == &Inverter_Buf[0]) Inverter_Count = 0; 
 	
 	for(uint16_t i = 0; i < size; i++) clr_buff[i] = '\0'; 
 } 
 
-void Checking_Wireless_Response(uint8_t *recv_buff, uint8_t *content)
+void Checking_Internet_Response(uint8_t *content)
 {
   if(wirelessProtocol == Esp32_Modules)
   {
-    if(!Esp32_Response(recv_buff, content, 10000)) HAL_NVIC_SystemReset(); 
-	  else Stm32_Clear_Buf(recv_buff, IoT_Byte);
+    if(!Esp32_Response(WiFi_Rx_Buf, content, 10000)) Auto_Switch(wirelessProtocol);  
+	  else Stm32_Clear_Buf(WiFi_Rx_Buf, Internet_Byte);
   }
 	else if(wirelessProtocol == SimA7670C_Modules)
   {
-    if(!SimA7670C_Response(recv_buff, content, 10000)) HAL_NVIC_SystemReset(); 
-    else Stm32_Clear_Buf(recv_buff, IoT_Byte);
+    if(!SimA7670C_Response(SimA7670C_Rx_Buf, content, 10000)) Auto_Switch(wirelessProtocol); 
+    else Stm32_Clear_Buf(SimA7670C_Rx_Buf, Internet_Byte);
   }
 }
 
@@ -2499,58 +2724,58 @@ void Broker_Connect_Init(Server_OptionTypeDef server_name, Module_PeripheralsTyp
   {
     //...Makesure disconnect to Broker 
     Esp32_Mqtt_Disconnect_Broker(huart3); 
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"ERROR"); 
+    Checking_Internet_Response((uint8_t*)"ERROR"); 
 
     Esp32_Mqtt_UserConfig(huart3, broker.id, broker.user, broker.password); 
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+    Checking_Internet_Response((uint8_t*)"OK"); 
     HAL_Delay(100);
 
     Esp32_Mqtt_Connect_Broker(huart3, broker.host, broker.port); 
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+    Checking_Internet_Response((uint8_t*)"OK"); 
     HAL_Delay(500);
   }
   else if(modules == SimA7670C_Modules)
   {
     SimA7670C_PDP_Context_Config(huart2, 1, (uint8_t*)IP_PDPTYPE);  
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+    Checking_Internet_Response((uint8_t*)"OK"); 
     
     SimA7670C_PDP_Context_Set(huart2, 1, PDP_CONTEXT_ACTIVATE); 
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+    Checking_Internet_Response((uint8_t*)"OK"); 
 
     SimA7670C_MQTT_BrokerDisconnect(huart2); 
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"ERROR"); 
+    Checking_Internet_Response((uint8_t*)"ERROR"); 
     
     SimA7670C_MQTT_StopService(huart2); 
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"ERROR"); 
+    Checking_Internet_Response((uint8_t*)"ERROR"); 
     
     SimA7670C_MQTT_StartService(huart2); 
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"+CMQTTSTART:"); 
+    Checking_Internet_Response((uint8_t*)"+CMQTTSTART:"); 
 
     SimA7670C_MQTT_Client_Config(huart2, broker.id); 
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+    Checking_Internet_Response((uint8_t*)"OK"); 
 
     SimA7670C_MQTT_BrokerConnect(huart2, broker.host, broker.port, broker.user, broker.password); 
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"+CMQTTCONNECT:"); 
+    Checking_Internet_Response((uint8_t*)"+CMQTTCONNECT:"); 
   }
 
   Broker_Publish_Topic((uint8_t*)"<!> Successfully connected"); 
-  Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+  Checking_Internet_Response((uint8_t*)"OK"); 
 
   HAL_Delay(500); 
 
   Broker_Subscribe_Topic(); 
-  Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"OK"); 
+  Checking_Internet_Response((uint8_t*)"OK"); 
 }
 
 void Broker_Publish_Topic(uint8_t *msg)
 {
-  if(wirelessProtocol == Esp32_Modules) Esp32_Mqtt_Publish(huart3, IoT_Protocol_Buf, broker.topic.pub, msg);
+  if(wirelessProtocol == Esp32_Modules) Esp32_Mqtt_Publish(huart3, WiFi_Rx_Buf, broker.topic.pub, msg);
   else if(wirelessProtocol == SimA7670C_Modules) 
   {
     Is_Insert_Sim_Card(huart2); 
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"+CPIN:"); 
+    Checking_Internet_Response((uint8_t*)"+CPIN:"); 
 
-    SimA7670C_Mqtt_Publish(huart2, IoT_Protocol_Buf, broker.topic.pub, msg);
+    SimA7670C_Mqtt_Publish(huart2, SimA7670C_Rx_Buf, broker.topic.pub, msg);
   }
 }
 
@@ -2560,9 +2785,9 @@ void Broker_Subscribe_Topic(void)
   else if(wirelessProtocol == SimA7670C_Modules) 
   {
     Is_Insert_Sim_Card(huart2); 
-    Checking_Wireless_Response(IoT_Protocol_Buf, (uint8_t*)"+CPIN:"); 
+    Checking_Internet_Response((uint8_t*)"+CPIN:"); 
 
-    SimA7670C_Mqtt_Subscribe(huart2, IoT_Protocol_Buf, broker.topic.sub); 
+    SimA7670C_Mqtt_Subscribe(huart2, SimA7670C_Rx_Buf, broker.topic.sub); 
   }
 }
 
@@ -2574,8 +2799,69 @@ unsigned char CheckInput (void)
 
 void sendCBSC (void)
 {
-  if(CheckInput()) Broker_Publish_Topic((uint8_t*)"INPUT-1");
-  else if(CheckInput() == 0) Broker_Publish_Topic((uint8_t*)"INPUT-0");
+  HAL_ADC_Start(&hadc1); 
+  if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK)
+  {
+    ADC_Value = HAL_ADC_GetValue(&hadc1); 
+    Battery_Voltage = ADC_Value * ADC_VREF / ADC_12BITS; 
+    Battery_Percentage = map(Battery_Voltage, THRESHOLD_VOLTAGE, ADC_VREF, BATTERY_CAPACITY_LOW, BATTERY_CAPACITY_FULL); ; 
+  }
+  HAL_ADC_Stop(&hadc1);
+
+  if(CheckInput()) 
+  {
+    FloatToStr(Battery_Voltage, Battery_Voltage_Buf); 
+    sprintf((char*)Send_Package_Buf, "INPUT-1\tVoltage: %sV - Percent: %d%%", Battery_Voltage_Buf, (uint16_t)(Battery_Percentage)); 
+    
+    Broker_Publish_Topic(Send_Package_Buf);
+    Checking_Internet_Response((uint8_t*)"OK");
+    Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
+  }
+  else if(CheckInput() == 0) 
+  { 
+    FloatToStr(Battery_Voltage, Battery_Voltage_Buf); 
+    sprintf((char*)Send_Package_Buf, "INPUT-1\tVoltage: %sV - Percent: %d%%", Battery_Voltage_Buf, (uint16_t)(Battery_Percentage)); 
+
+    Broker_Publish_Topic(Send_Package_Buf);
+    Checking_Internet_Response((uint8_t*)"OK");
+    Stm32_Clear_Buf(Send_Package_Buf, Send_Byte); 
+  }
+}
+
+void Auto_Switch(Module_PeripheralsTypeDef modules)
+{
+  switch(modules)
+  {
+    case SimA7670C_Modules:
+      if(Eeprom_Read_Data(Addr_Switch_Internet, Position_1) == SimA7670C_Modules) 
+      {
+        Eeprom_ClearPage(Switch_Internet_Page); 
+        Eeprom_Write_Data(Addr_Switch_Internet, Position_1, LAN_Internet_Modules, 1000); 
+      }
+
+      HAL_NVIC_SystemReset(); 
+      break; 
+
+    case LAN_Internet_Modules:
+      if(Eeprom_Read_Data(Addr_Switch_Internet, Position_1) == LAN_Internet_Modules) 
+      {
+        Eeprom_ClearPage(Switch_Internet_Page); 
+        Eeprom_Write_Data(Addr_Switch_Internet, Position_1, Esp32_Modules, 1000); 
+      }
+
+      HAL_NVIC_SystemReset(); 
+      break; 
+
+    case Esp32_Modules:
+      if(Eeprom_Read_Data(Addr_Switch_Internet, Position_1) == Esp32_Modules) 
+      {
+        Eeprom_ClearPage(Switch_Internet_Page); 
+        Eeprom_Write_Data(Addr_Switch_Internet, Position_1, SimA7670C_Modules, 1000); 
+      }
+
+      HAL_NVIC_SystemReset(); 
+      break; 
+  }
 }
 /* USER CODE END 4 */
 

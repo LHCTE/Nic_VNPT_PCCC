@@ -68,6 +68,7 @@ typedef struct
 #ifdef __ESP32__
 ESP32_StatusTypeDef Esp32_Response(uint8_t *recv_buf, uint8_t *content, uint16_t timeout); 
 int8_t RSSI_WiFi(UART_HandleTypeDef huart, uint8_t *recv_buf); 
+void Esp32_Check_Version(UART_HandleTypeDef huart); 
 void Esp32_Restart(UART_HandleTypeDef huart); 
 void Esp32_Echo(UART_HandleTypeDef huart, FunctionalState ctrl); 
 void Esp32_WiFiMode(UART_HandleTypeDef huart, Mode_HandleTypeDef mode); 

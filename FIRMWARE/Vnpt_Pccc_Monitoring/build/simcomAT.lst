@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -25,7 +25,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
   22              		.thumb_func
   24              	SimA7670C_Response:
   25              	.LVL0:
-  26              	.LFB313:
+  26              	.LFB443:
   27              		.file 1 "Src/simcomAT.c"
    1:Src/simcomAT.c **** #include "simcomAT.h"
    2:Src/simcomAT.c **** #include <stdio.h>
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
   29:Src/simcomAT.c **** 		
   30:Src/simcomAT.c **** 		case DISABLE:
   31:Src/simcomAT.c **** 			HAL_UART_Transmit(&huart, (uint8_t*)"ATE0\r\n", strlen("ATE0\r\n"), 100); 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 2
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 2
 
 
   32:Src/simcomAT.c **** 			
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
   86:Src/simcomAT.c **** 	sprintf((char*)messages, "AT+CMQPUB=0,\"%s\",1,0,0,%d,\"%s\"\r\n",topic, strlen((char*)data2send),
   87:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, messages, strlen((char*)messages), 100); 
   88:Src/simcomAT.c **** 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 3
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 3
 
 
   89:Src/simcomAT.c **** 	//for (uint16_t i = 0; i < 500; i++) data2send[i] = '\0';
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
   68 001c A4B2     		uxth	r4, r4
   69              	.LVL6:
  103:Src/simcomAT.c **** 		if(timeout == 0) return SIMA7670C_ERROR; 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 4
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 4
 
 
   70              		.loc 1 103 3 is_stmt 1 view .LVU12
@@ -208,7 +208,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
   90              		.loc 1 105 1 view .LVU18
   91 0028 70BD     		pop	{r4, r5, r6, pc}
   92              		.cfi_endproc
-  93              	.LFE313:
+  93              	.LFE443:
   95              		.section	.rodata.Get_RSSI_Sim4GLTE.str1.4,"aMS",%progbits,1
   96              		.align	2
   97              	.LC0:
@@ -227,7 +227,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  107              		.thumb_func
  109              	Get_RSSI_Sim4GLTE:
  110              	.LVL12:
- 111              	.LFB314:
+ 111              	.LFB444:
  106:Src/simcomAT.c **** 
  107:Src/simcomAT.c **** int8_t Get_RSSI_Sim4GLTE(UART_HandleTypeDef huart, uint8_t *recv_buf)
  108:Src/simcomAT.c **** {
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  116              		.loc 1 108 1 is_stmt 0 view .LVU20
  117 0000 84B0     		sub	sp, sp, #16
  118              	.LCFI1:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 5
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 5
 
 
  119              		.cfi_def_cfa_offset 16
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  163              		.loc 1 118 14 is_stmt 0 view .LVU32
  164 002e 0024     		movs	r4, #0
  165              		.loc 1 118 2 view .LVU33
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 6
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 6
 
 
  166 0030 03E0     		b	.L6
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  204              	.LVL23:
  126:Src/simcomAT.c **** 
  127:Src/simcomAT.c **** 	return value; 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 7
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 7
 
 
  205              		.loc 1 127 2 is_stmt 1 view .LVU48
@@ -379,7 +379,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  219 005c 00000000 		.word	.LC0
  220 0060 0C000000 		.word	.LC2
  221              		.cfi_endproc
- 222              	.LFE314:
+ 222              	.LFE444:
  224              		.section	.rodata.Get_Service_Provider_Name_Sim4GLTE.str1.4,"aMS",%progbits,1
  225              		.align	2
  226              	.LC4:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  245      2070726F 
  246              		.section	.text.Get_Service_Provider_Name_Sim4GLTE,"ax",%progbits
  247              		.align	1
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 8
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 8
 
 
  248              		.global	Get_Service_Provider_Name_Sim4GLTE
@@ -427,7 +427,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  251              		.thumb_func
  253              	Get_Service_Provider_Name_Sim4GLTE:
  254              	.LVL26:
- 255              	.LFB315:
+ 255              	.LFB445:
  129:Src/simcomAT.c **** 
  130:Src/simcomAT.c **** void Get_Service_Provider_Name_Sim4GLTE(UART_HandleTypeDef huart, uint8_t *recv_buf, uint8_t *outpu
  131:Src/simcomAT.c **** {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  138:Src/simcomAT.c **** 	// +2 Remove string ",\"" 
  139:Src/simcomAT.c **** 	_pStr = (uint8_t*)strstr((char*)recv_buf, ",\"") + 2; 
  294              		.loc 1 139 2 view .LVU58
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 9
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 9
 
 
  295              		.loc 1 139 20 is_stmt 0 view .LVU59
@@ -496,51 +496,60 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  306 0036 FFF7FEFF 		bl	memcpy
  307              	.LVL32:
  141:Src/simcomAT.c **** 
- 142:Src/simcomAT.c **** 	if(_numberic[4] == '5') strcat((char*)output_buf, "Vietnamobile"); 
- 308              		.loc 1 142 2 is_stmt 1 view .LVU62
- 309              		.loc 1 142 14 is_stmt 0 view .LVU63
+ 142:Src/simcomAT.c **** 	//...45205 numberic 
+ 143:Src/simcomAT.c **** 	if(_numberic[4] == '5') strcat((char*)output_buf, "Vietnamobile"); 
+ 308              		.loc 1 143 2 is_stmt 1 view .LVU62
+ 309              		.loc 1 143 14 is_stmt 0 view .LVU63
  310 003a 6B46     		mov	r3, sp
  311 003c 1B79     		ldrb	r3, [r3, #4]
- 312              		.loc 1 142 4 view .LVU64
+ 312              		.loc 1 143 4 view .LVU64
  313 003e 352B     		cmp	r3, #53
  314 0040 0ED0     		beq	.L18
- 143:Src/simcomAT.c **** 	else if(_numberic[4] == '4') strcat((char*)output_buf, "Viettel"); 
- 315              		.loc 1 143 7 is_stmt 1 view .LVU65
- 316              		.loc 1 143 9 is_stmt 0 view .LVU66
+ 144:Src/simcomAT.c **** 
+ 145:Src/simcomAT.c **** 	//...45204 numberic 
+ 146:Src/simcomAT.c **** 	else if(_numberic[4] == '4') strcat((char*)output_buf, "Viettel"); 
+ 315              		.loc 1 146 7 is_stmt 1 view .LVU65
+ 316              		.loc 1 146 9 is_stmt 0 view .LVU66
  317 0042 342B     		cmp	r3, #52
  318 0044 17D0     		beq	.L19
- 144:Src/simcomAT.c **** 	else if(_numberic[4] == '2') strcat((char*)output_buf, "VinaPhone");
- 319              		.loc 1 144 7 is_stmt 1 view .LVU67
- 320              		.loc 1 144 9 is_stmt 0 view .LVU68
+ 147:Src/simcomAT.c **** 
+ 148:Src/simcomAT.c **** 	//...45202 numberic 
+ 149:Src/simcomAT.c **** 	else if(_numberic[4] == '2') strcat((char*)output_buf, "VinaPhone");
+ 319              		.loc 1 149 7 is_stmt 1 view .LVU67
+ 320              		.loc 1 149 9 is_stmt 0 view .LVU68
  321 0046 322B     		cmp	r3, #50
  322 0048 20D0     		beq	.L20
- 145:Src/simcomAT.c **** 	else if(_numberic[4] == '1') strcat((char*)output_buf, "MobiFone"); 
- 323              		.loc 1 145 7 is_stmt 1 view .LVU69
- 324              		.loc 1 145 9 is_stmt 0 view .LVU70
+ 150:Src/simcomAT.c **** 
+ 151:Src/simcomAT.c **** 	//...45201 numberic 
+ 152:Src/simcomAT.c **** 	else if(_numberic[4] == '1') strcat((char*)output_buf, "MobiFone"); 
+ 323              		.loc 1 152 7 is_stmt 1 view .LVU69
+ 324              		.loc 1 152 9 is_stmt 0 view .LVU70
  325 004a 312B     		cmp	r3, #49
  326 004c 29D0     		beq	.L21
- 146:Src/simcomAT.c **** 	else strcpy((char*)output_buf, "Not find service provider"); 
- 327              		.loc 1 146 7 is_stmt 1 view .LVU71
+ 153:Src/simcomAT.c **** 
+ 154:Src/simcomAT.c **** 	//...No service 
+ 155:Src/simcomAT.c **** 	else strcpy((char*)output_buf, "Not find service provider"); 
+ 327              		.loc 1 155 7 is_stmt 1 view .LVU71
  328 004e 1A22     		movs	r2, #26
  329 0050 1B49     		ldr	r1, .L22+8
  330 0052 2A98     		ldr	r0, [sp, #168]
  331 0054 FFF7FEFF 		bl	memcpy
  332              	.LVL33:
  333              	.L12:
- 147:Src/simcomAT.c **** }
- 334              		.loc 1 147 1 is_stmt 0 view .LVU72
+ 156:Src/simcomAT.c **** }
+ 334              		.loc 1 156 1 is_stmt 0 view .LVU72
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 10
+
+
  335 0058 03B0     		add	sp, sp, #12
  336              		@ sp needed
  337 005a 08BC     		pop	{r3}
  338 005c 04B0     		add	sp, sp, #16
  339 005e 1847     		bx	r3
  340              	.L18:
- 142:Src/simcomAT.c **** 	else if(_numberic[4] == '4') strcat((char*)output_buf, "Viettel"); 
- 341              		.loc 1 142 26 is_stmt 1 discriminator 1 view .LVU73
+ 143:Src/simcomAT.c **** 
+ 341              		.loc 1 143 26 is_stmt 1 discriminator 1 view .LVU73
  342 0060 2A98     		ldr	r0, [sp, #168]
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 10
-
-
  343 0062 FFF7FEFF 		bl	strlen
  344              	.LVL34:
  345 0066 2A9B     		ldr	r3, [sp, #168]
@@ -552,8 +561,8 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  351              	.LVL35:
  352 0074 F0E7     		b	.L12
  353              	.L19:
- 143:Src/simcomAT.c **** 	else if(_numberic[4] == '2') strcat((char*)output_buf, "VinaPhone");
- 354              		.loc 1 143 31 discriminator 1 view .LVU74
+ 146:Src/simcomAT.c **** 
+ 354              		.loc 1 146 31 discriminator 1 view .LVU74
  355 0076 2A98     		ldr	r0, [sp, #168]
  356 0078 FFF7FEFF 		bl	strlen
  357              	.LVL36:
@@ -566,8 +575,8 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  364              	.LVL37:
  365 008a E5E7     		b	.L12
  366              	.L20:
- 144:Src/simcomAT.c **** 	else if(_numberic[4] == '1') strcat((char*)output_buf, "MobiFone"); 
- 367              		.loc 1 144 31 discriminator 1 view .LVU75
+ 149:Src/simcomAT.c **** 
+ 367              		.loc 1 149 31 discriminator 1 view .LVU75
  368 008c 2A98     		ldr	r0, [sp, #168]
  369 008e FFF7FEFF 		bl	strlen
  370              	.LVL38:
@@ -580,8 +589,8 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  377              	.LVL39:
  378 00a0 DAE7     		b	.L12
  379              	.L21:
- 145:Src/simcomAT.c **** 	else strcpy((char*)output_buf, "Not find service provider"); 
- 380              		.loc 1 145 31 discriminator 1 view .LVU76
+ 152:Src/simcomAT.c **** 
+ 380              		.loc 1 152 31 discriminator 1 view .LVU76
  381 00a2 2A98     		ldr	r0, [sp, #168]
  382 00a4 FFF7FEFF 		bl	strlen
  383              	.LVL40:
@@ -589,6 +598,9 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  385 00aa 9C46     		mov	ip, r3
  386 00ac 6044     		add	r0, r0, ip
  387 00ae 0922     		movs	r2, #9
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 11
+
+
  388 00b0 0749     		ldr	r1, .L22+24
  389 00b2 FFF7FEFF 		bl	memcpy
  390              	.LVL41:
@@ -598,16 +610,13 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  394              	.L22:
  395 00b8 00000000 		.word	.LC4
  396 00bc 0C000000 		.word	.LC6
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 11
-
-
  397 00c0 40000000 		.word	.LC16
  398 00c4 10000000 		.word	.LC8
  399 00c8 20000000 		.word	.LC10
  400 00cc 28000000 		.word	.LC12
  401 00d0 34000000 		.word	.LC14
  402              		.cfi_endproc
- 403              	.LFE315:
+ 403              	.LFE445:
  405              		.section	.rodata.Is_Insert_Sim_Card.str1.4,"aMS",%progbits,1
  406              		.align	2
  407              	.LC18:
@@ -621,11 +630,11 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  413              		.code	16
  414              		.thumb_func
  416              	Is_Insert_Sim_Card:
- 417              	.LFB316:
- 148:Src/simcomAT.c **** 
- 149:Src/simcomAT.c **** void Is_Insert_Sim_Card(UART_HandleTypeDef huart) 
- 150:Src/simcomAT.c **** {
- 418              		.loc 1 150 1 view -0
+ 417              	.LFB446:
+ 157:Src/simcomAT.c **** 
+ 158:Src/simcomAT.c **** void Is_Insert_Sim_Card(UART_HandleTypeDef huart) 
+ 159:Src/simcomAT.c **** {
+ 418              		.loc 1 159 1 view -0
  419              		.cfi_startproc
  420              		@ args = 148, pretend = 16, frame = 0
  421              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -641,26 +650,26 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  431 0006 0391     		str	r1, [sp, #12]
  432 0008 0492     		str	r2, [sp, #16]
  433 000a 0593     		str	r3, [sp, #20]
- 151:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CPIN?\r\n", strlen("AT+CPIN?\r\n"), 100); 
- 434              		.loc 1 151 2 view .LVU78
+ 160:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CPIN?\r\n", strlen("AT+CPIN?\r\n"), 100); 
+ 434              		.loc 1 160 2 view .LVU78
  435 000c 6423     		movs	r3, #100
  436 000e 0A22     		movs	r2, #10
  437 0010 0549     		ldr	r1, .L25
  438 0012 02A8     		add	r0, sp, #8
  439 0014 FFF7FEFF 		bl	HAL_UART_Transmit
  440              	.LVL42:
- 152:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 441              		.loc 1 152 2 view .LVU79
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 12
+
+
+ 161:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 441              		.loc 1 161 2 view .LVU79
  442 0018 6420     		movs	r0, #100
  443 001a FFF7FEFF 		bl	HAL_Delay
  444              	.LVL43:
- 153:Src/simcomAT.c **** }
- 445              		.loc 1 153 1 is_stmt 0 view .LVU80
+ 162:Src/simcomAT.c **** }
+ 445              		.loc 1 162 1 is_stmt 0 view .LVU80
  446              		@ sp needed
  447 001e 10BC     		pop	{r4}
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 12
-
-
  448 0020 08BC     		pop	{r3}
  449 0022 04B0     		add	sp, sp, #16
  450 0024 1847     		bx	r3
@@ -669,7 +678,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  453              	.L25:
  454 0028 00000000 		.word	.LC18
  455              		.cfi_endproc
- 456              	.LFE316:
+ 456              	.LFE446:
  458              		.section	.rodata.SimA7670C_Reset.str1.4,"aMS",%progbits,1
  459              		.align	2
  460              	.LC20:
@@ -683,11 +692,11 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  466              		.code	16
  467              		.thumb_func
  469              	SimA7670C_Reset:
- 470              	.LFB317:
- 154:Src/simcomAT.c **** 
- 155:Src/simcomAT.c **** void SimA7670C_Reset(UART_HandleTypeDef huart)
- 156:Src/simcomAT.c **** {
- 471              		.loc 1 156 1 is_stmt 1 view -0
+ 470              	.LFB447:
+ 163:Src/simcomAT.c **** 
+ 164:Src/simcomAT.c **** void SimA7670C_Reset(UART_HandleTypeDef huart)
+ 165:Src/simcomAT.c **** {
+ 471              		.loc 1 165 1 is_stmt 1 view -0
  472              		.cfi_startproc
  473              		@ args = 148, pretend = 16, frame = 0
  474              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -703,27 +712,27 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  484 0006 0391     		str	r1, [sp, #12]
  485 0008 0492     		str	r2, [sp, #16]
  486 000a 0593     		str	r3, [sp, #20]
- 157:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CRESET\r\n", strlen("AT+CRESET\r\n"), 100); 
- 487              		.loc 1 157 2 view .LVU82
+ 166:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CRESET\r\n", strlen("AT+CRESET\r\n"), 100); 
+ 487              		.loc 1 166 2 view .LVU82
  488 000c 6423     		movs	r3, #100
  489 000e 0B22     		movs	r2, #11
  490 0010 0549     		ldr	r1, .L28
  491 0012 02A8     		add	r0, sp, #8
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 13
+
+
  492 0014 FFF7FEFF 		bl	HAL_UART_Transmit
  493              	.LVL44:
- 158:Src/simcomAT.c **** 	//HAL_Delay(1000); 
- 159:Src/simcomAT.c **** 	//HAL_UART_Transmit(&huart, (uint8_t*)"AT+CRESET\r\n", strlen("AT+CRESET\r\n"), 100); 
- 160:Src/simcomAT.c **** 
- 161:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 494              		.loc 1 161 2 view .LVU83
+ 167:Src/simcomAT.c **** 	//HAL_Delay(1000); 
+ 168:Src/simcomAT.c **** 	//HAL_UART_Transmit(&huart, (uint8_t*)"AT+CRESET\r\n", strlen("AT+CRESET\r\n"), 100); 
+ 169:Src/simcomAT.c **** 
+ 170:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 494              		.loc 1 170 2 view .LVU83
  495 0018 6420     		movs	r0, #100
  496 001a FFF7FEFF 		bl	HAL_Delay
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 13
-
-
  497              	.LVL45:
- 162:Src/simcomAT.c **** }
- 498              		.loc 1 162 1 is_stmt 0 view .LVU84
+ 171:Src/simcomAT.c **** }
+ 498              		.loc 1 171 1 is_stmt 0 view .LVU84
  499              		@ sp needed
  500 001e 10BC     		pop	{r4}
  501 0020 08BC     		pop	{r3}
@@ -734,7 +743,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  506              	.L28:
  507 0028 00000000 		.word	.LC20
  508              		.cfi_endproc
- 509              	.LFE317:
+ 509              	.LFE447:
  511              		.section	.rodata.SimA7670C_Echo.str1.4,"aMS",%progbits,1
  512              		.align	2
  513              	.LC22:
@@ -752,15 +761,15 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  523              		.thumb_func
  525              	SimA7670C_Echo:
  526              	.LVL46:
- 527              	.LFB318:
- 163:Src/simcomAT.c **** 
- 164:Src/simcomAT.c **** void SimA7670C_Echo(UART_HandleTypeDef huart, StateTypeDef ctrl)
- 165:Src/simcomAT.c **** {
- 528              		.loc 1 165 1 is_stmt 1 view -0
+ 527              	.LFB448:
+ 172:Src/simcomAT.c **** 
+ 173:Src/simcomAT.c **** void SimA7670C_Echo(UART_HandleTypeDef huart, StateTypeDef ctrl)
+ 174:Src/simcomAT.c **** {
+ 528              		.loc 1 174 1 is_stmt 1 view -0
  529              		.cfi_startproc
  530              		@ args = 152, pretend = 16, frame = 0
  531              		@ frame_needed = 0, uses_anonymous_args = 0
- 532              		.loc 1 165 1 is_stmt 0 view .LVU86
+ 532              		.loc 1 174 1 is_stmt 0 view .LVU86
  533 0000 84B0     		sub	sp, sp, #16
  534              	.LCFI11:
  535              		.cfi_def_cfa_offset 16
@@ -769,78 +778,78 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  538              		.cfi_def_cfa_offset 24
  539              		.cfi_offset 4, -24
  540              		.cfi_offset 14, -20
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 14
+
+
  541 0004 0290     		str	r0, [sp, #8]
  542 0006 0391     		str	r1, [sp, #12]
  543 0008 0492     		str	r2, [sp, #16]
  544 000a 0593     		str	r3, [sp, #20]
  545 000c 27AB     		add	r3, sp, #156
  546 000e 1B78     		ldrb	r3, [r3]
- 166:Src/simcomAT.c **** 	switch(ctrl)
- 547              		.loc 1 166 2 is_stmt 1 view .LVU87
+ 175:Src/simcomAT.c **** 	switch(ctrl)
+ 547              		.loc 1 175 2 is_stmt 1 view .LVU87
  548 0010 002B     		cmp	r3, #0
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 14
-
-
  549 0012 0ED0     		beq	.L31
  550 0014 012B     		cmp	r3, #1
  551 0016 05D1     		bne	.L32
- 167:Src/simcomAT.c **** 	{
- 168:Src/simcomAT.c **** 		case ECHO_ENABLE:
- 169:Src/simcomAT.c **** 			HAL_UART_Transmit(&huart, (uint8_t*)"ATE1\r\n", strlen("ATE1\r\n"), 100); 
- 552              		.loc 1 169 4 view .LVU88
+ 176:Src/simcomAT.c **** 	{
+ 177:Src/simcomAT.c **** 		case ECHO_ENABLE:
+ 178:Src/simcomAT.c **** 			HAL_UART_Transmit(&huart, (uint8_t*)"ATE1\r\n", strlen("ATE1\r\n"), 100); 
+ 552              		.loc 1 178 4 view .LVU88
  553 0018 6333     		adds	r3, r3, #99
  554 001a 0622     		movs	r2, #6
  555 001c 0849     		ldr	r1, .L33
  556 001e 02A8     		add	r0, sp, #8
  557 0020 FFF7FEFF 		bl	HAL_UART_Transmit
  558              	.LVL47:
- 170:Src/simcomAT.c **** 			break; 
- 559              		.loc 1 170 4 view .LVU89
+ 179:Src/simcomAT.c **** 			break; 
+ 559              		.loc 1 179 4 view .LVU89
  560              	.L32:
- 171:Src/simcomAT.c **** 		
- 172:Src/simcomAT.c **** 		case ECHO_DISABLE:
- 173:Src/simcomAT.c **** 			HAL_UART_Transmit(&huart, (uint8_t*)"ATE0\r\n", strlen("ATE0\r\n"), 100); 
- 174:Src/simcomAT.c **** 			break; 
- 175:Src/simcomAT.c **** 	}
- 176:Src/simcomAT.c **** 
- 177:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 561              		.loc 1 177 2 view .LVU90
+ 180:Src/simcomAT.c **** 		
+ 181:Src/simcomAT.c **** 		case ECHO_DISABLE:
+ 182:Src/simcomAT.c **** 			HAL_UART_Transmit(&huart, (uint8_t*)"ATE0\r\n", strlen("ATE0\r\n"), 100); 
+ 183:Src/simcomAT.c **** 			break; 
+ 184:Src/simcomAT.c **** 	}
+ 185:Src/simcomAT.c **** 
+ 186:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 561              		.loc 1 186 2 view .LVU90
  562 0024 6420     		movs	r0, #100
  563 0026 FFF7FEFF 		bl	HAL_Delay
  564              	.LVL48:
- 178:Src/simcomAT.c **** }
- 565              		.loc 1 178 1 is_stmt 0 view .LVU91
+ 187:Src/simcomAT.c **** }
+ 565              		.loc 1 187 1 is_stmt 0 view .LVU91
  566              		@ sp needed
  567 002a 10BC     		pop	{r4}
  568 002c 08BC     		pop	{r3}
  569 002e 04B0     		add	sp, sp, #16
  570 0030 1847     		bx	r3
  571              	.L31:
- 173:Src/simcomAT.c **** 			break; 
- 572              		.loc 1 173 4 is_stmt 1 view .LVU92
+ 182:Src/simcomAT.c **** 			break; 
+ 572              		.loc 1 182 4 is_stmt 1 view .LVU92
  573 0032 6423     		movs	r3, #100
  574 0034 0622     		movs	r2, #6
  575 0036 0349     		ldr	r1, .L33+4
  576 0038 02A8     		add	r0, sp, #8
  577 003a FFF7FEFF 		bl	HAL_UART_Transmit
  578              	.LVL49:
- 174:Src/simcomAT.c **** 	}
- 579              		.loc 1 174 4 view .LVU93
+ 183:Src/simcomAT.c **** 	}
+ 579              		.loc 1 183 4 view .LVU93
  580 003e F1E7     		b	.L32
  581              	.L34:
  582              		.align	2
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 15
+
+
  583              	.L33:
  584 0040 00000000 		.word	.LC22
  585 0044 08000000 		.word	.LC24
  586              		.cfi_endproc
- 587              	.LFE318:
+ 587              	.LFE448:
  589              		.section	.rodata.SimA7670C_PDP_Context_Config.str1.4,"aMS",%progbits,1
  590              		.align	2
  591              	.LC26:
  592 0000 41542B43 		.ascii	"AT+CGDCONT=%d,\"%s\",\"APN\"\015\012\000"
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 15
-
-
  592      4744434F 
  592      4E543D25 
  592      642C2225 
@@ -853,15 +862,15 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  598              		.thumb_func
  600              	SimA7670C_PDP_Context_Config:
  601              	.LVL50:
- 602              	.LFB319:
- 179:Src/simcomAT.c **** 
- 180:Src/simcomAT.c **** void SimA7670C_PDP_Context_Config(UART_HandleTypeDef huart, uint8_t identifier, uint8_t *pdp_type)
- 181:Src/simcomAT.c **** {
- 603              		.loc 1 181 1 view -0
+ 602              	.LFB449:
+ 188:Src/simcomAT.c **** 
+ 189:Src/simcomAT.c **** void SimA7670C_PDP_Context_Config(UART_HandleTypeDef huart, uint8_t identifier, uint8_t *pdp_type)
+ 190:Src/simcomAT.c **** {
+ 603              		.loc 1 190 1 view -0
  604              		.cfi_startproc
  605              		@ args = 156, pretend = 16, frame = 40
  606              		@ frame_needed = 0, uses_anonymous_args = 0
- 607              		.loc 1 181 1 is_stmt 0 view .LVU95
+ 607              		.loc 1 190 1 is_stmt 0 view .LVU95
  608 0000 84B0     		sub	sp, sp, #16
  609              	.LCFI13:
  610              		.cfi_def_cfa_offset 16
@@ -878,39 +887,39 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  621 000c 0F93     		str	r3, [sp, #60]
  622 000e 31AB     		add	r3, sp, #196
  623 0010 1A78     		ldrb	r2, [r3]
- 182:Src/simcomAT.c **** 	uint8_t _cmd[40]; 
- 624              		.loc 1 182 2 is_stmt 1 view .LVU96
- 183:Src/simcomAT.c **** 	sprintf((char*)_cmd, "AT+CGDCONT=%d,\"%s\",\"APN\"\r\n", identifier, pdp_type); 
- 625              		.loc 1 183 2 view .LVU97
+ 191:Src/simcomAT.c **** 	uint8_t _cmd[40]; 
+ 624              		.loc 1 191 2 is_stmt 1 view .LVU96
+ 192:Src/simcomAT.c **** 	sprintf((char*)_cmd, "AT+CGDCONT=%d,\"%s\",\"APN\"\r\n", identifier, pdp_type); 
+ 625              		.loc 1 192 2 view .LVU97
  626 0012 329B     		ldr	r3, [sp, #200]
  627 0014 0949     		ldr	r1, .L36
  628 0016 6846     		mov	r0, sp
  629 0018 FFF7FEFF 		bl	sprintf
  630              	.LVL51:
- 184:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, _cmd, strlen((char*)_cmd), 100); 
- 631              		.loc 1 184 2 view .LVU98
- 632              		.loc 1 184 34 is_stmt 0 view .LVU99
+ 193:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, _cmd, strlen((char*)_cmd), 100); 
+ 631              		.loc 1 193 2 view .LVU98
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 16
+
+
+ 632              		.loc 1 193 34 is_stmt 0 view .LVU99
  633 001c 6846     		mov	r0, sp
  634 001e FFF7FEFF 		bl	strlen
  635              	.LVL52:
- 636              		.loc 1 184 2 view .LVU100
+ 636              		.loc 1 193 2 view .LVU100
  637 0022 82B2     		uxth	r2, r0
  638 0024 6423     		movs	r3, #100
  639 0026 6946     		mov	r1, sp
  640 0028 0CA8     		add	r0, sp, #48
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 16
-
-
  641 002a FFF7FEFF 		bl	HAL_UART_Transmit
  642              	.LVL53:
- 185:Src/simcomAT.c **** 
- 186:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 643              		.loc 1 186 2 is_stmt 1 view .LVU101
+ 194:Src/simcomAT.c **** 
+ 195:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 643              		.loc 1 195 2 is_stmt 1 view .LVU101
  644 002e 6420     		movs	r0, #100
  645 0030 FFF7FEFF 		bl	HAL_Delay
  646              	.LVL54:
- 187:Src/simcomAT.c **** }
- 647              		.loc 1 187 1 is_stmt 0 view .LVU102
+ 196:Src/simcomAT.c **** }
+ 647              		.loc 1 196 1 is_stmt 0 view .LVU102
  648 0034 0BB0     		add	sp, sp, #44
  649              		@ sp needed
  650 0036 08BC     		pop	{r3}
@@ -921,7 +930,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  655              	.L36:
  656 003c 00000000 		.word	.LC26
  657              		.cfi_endproc
- 658              	.LFE319:
+ 658              	.LFE449:
  660              		.section	.rodata.SimA7670C_PDP_Context_Set.str1.4,"aMS",%progbits,1
  661              		.align	2
  662              	.LC28:
@@ -938,17 +947,20 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  669              		.thumb_func
  671              	SimA7670C_PDP_Context_Set:
  672              	.LVL55:
- 673              	.LFB320:
- 188:Src/simcomAT.c **** 
- 189:Src/simcomAT.c **** void SimA7670C_PDP_Context_Set(UART_HandleTypeDef huart, uint8_t identifier, PDPConextFunc_TypeDef 
- 190:Src/simcomAT.c **** {
- 674              		.loc 1 190 1 is_stmt 1 view -0
+ 673              	.LFB450:
+ 197:Src/simcomAT.c **** 
+ 198:Src/simcomAT.c **** void SimA7670C_PDP_Context_Set(UART_HandleTypeDef huart, uint8_t identifier, PDPConextFunc_TypeDef 
+ 199:Src/simcomAT.c **** {
+ 674              		.loc 1 199 1 is_stmt 1 view -0
  675              		.cfi_startproc
  676              		@ args = 156, pretend = 16, frame = 24
  677              		@ frame_needed = 0, uses_anonymous_args = 0
- 678              		.loc 1 190 1 is_stmt 0 view .LVU104
+ 678              		.loc 1 199 1 is_stmt 0 view .LVU104
  679 0000 84B0     		sub	sp, sp, #16
  680              	.LCFI16:
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 17
+
+
  681              		.cfi_def_cfa_offset 16
  682 0002 00B5     		push	{lr}
  683              	.LCFI17:
@@ -958,9 +970,6 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  687              	.LCFI18:
  688              		.cfi_def_cfa_offset 48
  689 0006 0890     		str	r0, [sp, #32]
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 17
-
-
  690 0008 0991     		str	r1, [sp, #36]
  691 000a 0A92     		str	r2, [sp, #40]
  692 000c 0B93     		str	r3, [sp, #44]
@@ -968,35 +977,35 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  694 0010 1B78     		ldrb	r3, [r3]
  695 0012 2EAA     		add	r2, sp, #184
  696 0014 1278     		ldrb	r2, [r2]
- 191:Src/simcomAT.c **** 	uint8_t _cmd[20]; 
- 697              		.loc 1 191 2 is_stmt 1 view .LVU105
- 192:Src/simcomAT.c **** 	sprintf((char*)_cmd, "AT+CGACT=%d,%d\r\n", status, identifier); 
- 698              		.loc 1 192 2 view .LVU106
+ 200:Src/simcomAT.c **** 	uint8_t _cmd[20]; 
+ 697              		.loc 1 200 2 is_stmt 1 view .LVU105
+ 201:Src/simcomAT.c **** 	sprintf((char*)_cmd, "AT+CGACT=%d,%d\r\n", status, identifier); 
+ 698              		.loc 1 201 2 view .LVU106
  699 0016 0A49     		ldr	r1, .L39
  700 0018 01A8     		add	r0, sp, #4
  701 001a FFF7FEFF 		bl	sprintf
  702              	.LVL56:
- 193:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, _cmd, strlen((char*)_cmd), 100); 
- 703              		.loc 1 193 2 view .LVU107
- 704              		.loc 1 193 34 is_stmt 0 view .LVU108
+ 202:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, _cmd, strlen((char*)_cmd), 100); 
+ 703              		.loc 1 202 2 view .LVU107
+ 704              		.loc 1 202 34 is_stmt 0 view .LVU108
  705 001e 01A8     		add	r0, sp, #4
  706 0020 FFF7FEFF 		bl	strlen
  707              	.LVL57:
- 708              		.loc 1 193 2 view .LVU109
+ 708              		.loc 1 202 2 view .LVU109
  709 0024 82B2     		uxth	r2, r0
  710 0026 6423     		movs	r3, #100
  711 0028 01A9     		add	r1, sp, #4
  712 002a 08A8     		add	r0, sp, #32
  713 002c FFF7FEFF 		bl	HAL_UART_Transmit
  714              	.LVL58:
- 194:Src/simcomAT.c **** 
- 195:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 715              		.loc 1 195 2 is_stmt 1 view .LVU110
+ 203:Src/simcomAT.c **** 
+ 204:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 715              		.loc 1 204 2 is_stmt 1 view .LVU110
  716 0030 6420     		movs	r0, #100
  717 0032 FFF7FEFF 		bl	HAL_Delay
  718              	.LVL59:
- 196:Src/simcomAT.c **** }
- 719              		.loc 1 196 1 is_stmt 0 view .LVU111
+ 205:Src/simcomAT.c **** }
+ 719              		.loc 1 205 1 is_stmt 0 view .LVU111
  720 0036 07B0     		add	sp, sp, #28
  721              		@ sp needed
  722 0038 08BC     		pop	{r3}
@@ -1007,8 +1016,11 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  727              	.L39:
  728 0040 00000000 		.word	.LC28
  729              		.cfi_endproc
- 730              	.LFE320:
+ 730              	.LFE450:
  732              		.section	.rodata.SimA7670C_MQTT_StartService.str1.4,"aMS",%progbits,1
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 18
+
+
  733              		.align	2
  734              	.LC30:
  735 0000 41542B43 		.ascii	"AT+CMQTTSTART\015\012\000"
@@ -1018,18 +1030,15 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  736              		.section	.text.SimA7670C_MQTT_StartService,"ax",%progbits
  737              		.align	1
  738              		.global	SimA7670C_MQTT_StartService
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 18
-
-
  739              		.syntax unified
  740              		.code	16
  741              		.thumb_func
  743              	SimA7670C_MQTT_StartService:
- 744              	.LFB321:
- 197:Src/simcomAT.c **** 
- 198:Src/simcomAT.c **** void SimA7670C_MQTT_StartService(UART_HandleTypeDef huart)
- 199:Src/simcomAT.c **** {
- 745              		.loc 1 199 1 is_stmt 1 view -0
+ 744              	.LFB451:
+ 206:Src/simcomAT.c **** 
+ 207:Src/simcomAT.c **** void SimA7670C_MQTT_StartService(UART_HandleTypeDef huart)
+ 208:Src/simcomAT.c **** {
+ 745              		.loc 1 208 1 is_stmt 1 view -0
  746              		.cfi_startproc
  747              		@ args = 148, pretend = 16, frame = 0
  748              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1045,21 +1054,21 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  758 0006 0391     		str	r1, [sp, #12]
  759 0008 0492     		str	r2, [sp, #16]
  760 000a 0593     		str	r3, [sp, #20]
- 200:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CMQTTSTART\r\n", strlen("AT+CMQTTSTART\r\n"), 100); 
- 761              		.loc 1 200 2 view .LVU113
+ 209:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CMQTTSTART\r\n", strlen("AT+CMQTTSTART\r\n"), 100); 
+ 761              		.loc 1 209 2 view .LVU113
  762 000c 6423     		movs	r3, #100
  763 000e 0F22     		movs	r2, #15
  764 0010 0549     		ldr	r1, .L42
  765 0012 02A8     		add	r0, sp, #8
  766 0014 FFF7FEFF 		bl	HAL_UART_Transmit
  767              	.LVL60:
- 201:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 768              		.loc 1 201 2 view .LVU114
+ 210:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 768              		.loc 1 210 2 view .LVU114
  769 0018 6420     		movs	r0, #100
  770 001a FFF7FEFF 		bl	HAL_Delay
  771              	.LVL61:
- 202:Src/simcomAT.c **** }
- 772              		.loc 1 202 1 is_stmt 0 view .LVU115
+ 211:Src/simcomAT.c **** }
+ 772              		.loc 1 211 1 is_stmt 0 view .LVU115
  773              		@ sp needed
  774 001e 10BC     		pop	{r4}
  775 0020 08BC     		pop	{r3}
@@ -1069,8 +1078,11 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  779 0026 C046     		.align	2
  780              	.L42:
  781 0028 00000000 		.word	.LC30
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 19
+
+
  782              		.cfi_endproc
- 783              	.LFE321:
+ 783              	.LFE451:
  785              		.section	.rodata.SimA7670C_MQTT_StopService.str1.4,"aMS",%progbits,1
  786              		.align	2
  787              	.LC32:
@@ -1078,9 +1090,6 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  788      4D515454 
  788      53544F50 
  788      0D0A00
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 19
-
-
  789              		.section	.text.SimA7670C_MQTT_StopService,"ax",%progbits
  790              		.align	1
  791              		.global	SimA7670C_MQTT_StopService
@@ -1088,11 +1097,11 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  793              		.code	16
  794              		.thumb_func
  796              	SimA7670C_MQTT_StopService:
- 797              	.LFB322:
- 203:Src/simcomAT.c **** 
- 204:Src/simcomAT.c **** void SimA7670C_MQTT_StopService(UART_HandleTypeDef huart)
- 205:Src/simcomAT.c **** {
- 798              		.loc 1 205 1 is_stmt 1 view -0
+ 797              	.LFB452:
+ 212:Src/simcomAT.c **** 
+ 213:Src/simcomAT.c **** void SimA7670C_MQTT_StopService(UART_HandleTypeDef huart)
+ 214:Src/simcomAT.c **** {
+ 798              		.loc 1 214 1 is_stmt 1 view -0
  799              		.cfi_startproc
  800              		@ args = 148, pretend = 16, frame = 0
  801              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1108,39 +1117,39 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  811 0006 0391     		str	r1, [sp, #12]
  812 0008 0492     		str	r2, [sp, #16]
  813 000a 0593     		str	r3, [sp, #20]
- 206:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CMQTTSTOP\r\n", strlen("AT+CMQTTSTOP\r\n"), 100); 
- 814              		.loc 1 206 2 view .LVU117
+ 215:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CMQTTSTOP\r\n", strlen("AT+CMQTTSTOP\r\n"), 100); 
+ 814              		.loc 1 215 2 view .LVU117
  815 000c 6423     		movs	r3, #100
  816 000e 0E22     		movs	r2, #14
  817 0010 0549     		ldr	r1, .L45
  818 0012 02A8     		add	r0, sp, #8
  819 0014 FFF7FEFF 		bl	HAL_UART_Transmit
  820              	.LVL62:
- 207:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 821              		.loc 1 207 2 view .LVU118
+ 216:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 821              		.loc 1 216 2 view .LVU118
  822 0018 6420     		movs	r0, #100
  823 001a FFF7FEFF 		bl	HAL_Delay
  824              	.LVL63:
- 208:Src/simcomAT.c **** }
- 825              		.loc 1 208 1 is_stmt 0 view .LVU119
+ 217:Src/simcomAT.c **** }
+ 825              		.loc 1 217 1 is_stmt 0 view .LVU119
  826              		@ sp needed
  827 001e 10BC     		pop	{r4}
  828 0020 08BC     		pop	{r3}
  829 0022 04B0     		add	sp, sp, #16
  830 0024 1847     		bx	r3
  831              	.L46:
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 20
+
+
  832 0026 C046     		.align	2
  833              	.L45:
  834 0028 00000000 		.word	.LC32
  835              		.cfi_endproc
- 836              	.LFE322:
+ 836              	.LFE452:
  838              		.section	.rodata.SimA7670C_MQTT_Client_Config.str1.4,"aMS",%progbits,1
  839              		.align	2
  840              	.LC34:
  841 0000 41542B43 		.ascii	"AT+CMQTTACCQ=0,\"%s\",0\015\012\000"
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 20
-
-
  841      4D515454 
  841      41434351 
  841      3D302C22 
@@ -1153,15 +1162,15 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  847              		.thumb_func
  849              	SimA7670C_MQTT_Client_Config:
  850              	.LVL64:
- 851              	.LFB323:
- 209:Src/simcomAT.c **** 
- 210:Src/simcomAT.c **** void SimA7670C_MQTT_Client_Config(UART_HandleTypeDef huart, uint8_t *client_id)
- 211:Src/simcomAT.c **** {
- 852              		.loc 1 211 1 is_stmt 1 view -0
+ 851              	.LFB453:
+ 218:Src/simcomAT.c **** 
+ 219:Src/simcomAT.c **** void SimA7670C_MQTT_Client_Config(UART_HandleTypeDef huart, uint8_t *client_id)
+ 220:Src/simcomAT.c **** {
+ 852              		.loc 1 220 1 is_stmt 1 view -0
  853              		.cfi_startproc
  854              		@ args = 152, pretend = 16, frame = 56
  855              		@ frame_needed = 0, uses_anonymous_args = 0
- 856              		.loc 1 211 1 is_stmt 0 view .LVU121
+ 856              		.loc 1 220 1 is_stmt 0 view .LVU121
  857 0000 84B0     		sub	sp, sp, #16
  858              	.LCFI23:
  859              		.cfi_def_cfa_offset 16
@@ -1176,39 +1185,39 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  868 0008 1191     		str	r1, [sp, #68]
  869 000a 1292     		str	r2, [sp, #72]
  870 000c 1393     		str	r3, [sp, #76]
- 212:Src/simcomAT.c **** 	uint8_t _cmd[50]; 
- 871              		.loc 1 212 2 is_stmt 1 view .LVU122
- 213:Src/simcomAT.c **** 	sprintf((char*)_cmd, "AT+CMQTTACCQ=0,\"%s\",0\r\n", client_id); 
- 872              		.loc 1 213 2 view .LVU123
+ 221:Src/simcomAT.c **** 	uint8_t _cmd[50]; 
+ 871              		.loc 1 221 2 is_stmt 1 view .LVU122
+ 222:Src/simcomAT.c **** 	sprintf((char*)_cmd, "AT+CMQTTACCQ=0,\"%s\",0\r\n", client_id); 
+ 872              		.loc 1 222 2 view .LVU123
  873 000e 359A     		ldr	r2, [sp, #212]
  874 0010 0949     		ldr	r1, .L48
  875 0012 01A8     		add	r0, sp, #4
  876 0014 FFF7FEFF 		bl	sprintf
  877              	.LVL65:
- 214:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, _cmd, strlen((char*)_cmd), 100); 
- 878              		.loc 1 214 2 view .LVU124
- 879              		.loc 1 214 34 is_stmt 0 view .LVU125
+ 223:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, _cmd, strlen((char*)_cmd), 100); 
+ 878              		.loc 1 223 2 view .LVU124
+ 879              		.loc 1 223 34 is_stmt 0 view .LVU125
  880 0018 01A8     		add	r0, sp, #4
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 21
+
+
  881 001a FFF7FEFF 		bl	strlen
  882              	.LVL66:
- 883              		.loc 1 214 2 view .LVU126
+ 883              		.loc 1 223 2 view .LVU126
  884 001e 82B2     		uxth	r2, r0
  885 0020 6423     		movs	r3, #100
  886 0022 01A9     		add	r1, sp, #4
  887 0024 10A8     		add	r0, sp, #64
  888 0026 FFF7FEFF 		bl	HAL_UART_Transmit
  889              	.LVL67:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 21
-
-
- 215:Src/simcomAT.c **** 
- 216:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 890              		.loc 1 216 2 is_stmt 1 view .LVU127
+ 224:Src/simcomAT.c **** 
+ 225:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 890              		.loc 1 225 2 is_stmt 1 view .LVU127
  891 002a 6420     		movs	r0, #100
  892 002c FFF7FEFF 		bl	HAL_Delay
  893              	.LVL68:
- 217:Src/simcomAT.c **** }
- 894              		.loc 1 217 1 is_stmt 0 view .LVU128
+ 226:Src/simcomAT.c **** }
+ 894              		.loc 1 226 1 is_stmt 0 view .LVU128
  895 0030 0FB0     		add	sp, sp, #60
  896              		@ sp needed
  897 0032 08BC     		pop	{r3}
@@ -1219,7 +1228,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  902              	.L48:
  903 0038 00000000 		.word	.LC34
  904              		.cfi_endproc
- 905              	.LFE323:
+ 905              	.LFE453:
  907              		.section	.rodata.SimA7670C_MQTT_BrokerConnect.str1.4,"aMS",%progbits,1
  908              		.align	2
  909              	.LC36:
@@ -1237,18 +1246,21 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  917              		.thumb_func
  919              	SimA7670C_MQTT_BrokerConnect:
  920              	.LVL69:
- 921              	.LFB324:
- 218:Src/simcomAT.c **** 
- 219:Src/simcomAT.c **** void SimA7670C_MQTT_BrokerConnect(UART_HandleTypeDef huart, uint8_t *host, uint16_t port, uint8_t *
- 220:Src/simcomAT.c **** {
- 922              		.loc 1 220 1 is_stmt 1 view -0
+ 921              	.LFB454:
+ 227:Src/simcomAT.c **** 
+ 228:Src/simcomAT.c **** void SimA7670C_MQTT_BrokerConnect(UART_HandleTypeDef huart, uint8_t *host, uint16_t port, uint8_t *
+ 229:Src/simcomAT.c **** {
+ 922              		.loc 1 229 1 is_stmt 1 view -0
  923              		.cfi_startproc
  924              		@ args = 164, pretend = 16, frame = 304
  925              		@ frame_needed = 0, uses_anonymous_args = 0
- 926              		.loc 1 220 1 is_stmt 0 view .LVU130
+ 926              		.loc 1 229 1 is_stmt 0 view .LVU130
  927 0000 84B0     		sub	sp, sp, #16
  928              	.LCFI26:
  929              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 22
+
+
  930 0002 00B5     		push	{lr}
  931              	.LCFI27:
  932              		.cfi_def_cfa_offset 20
@@ -1258,17 +1270,14 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  936              		.cfi_def_cfa_offset 336
  937 0006 5090     		str	r0, [sp, #320]
  938 0008 5191     		str	r1, [sp, #324]
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 22
-
-
  939 000a 5292     		str	r2, [sp, #328]
  940 000c 5393     		str	r3, [sp, #332]
  941 000e 76AB     		add	r3, sp, #472
  942 0010 1B88     		ldrh	r3, [r3]
- 221:Src/simcomAT.c **** 	uint8_t messages[300]; 
- 943              		.loc 1 221 2 is_stmt 1 view .LVU131
- 222:Src/simcomAT.c **** 	sprintf((char*)messages, "AT+CMQTTCONNECT=0,\"tcp://%s:%d\",60,0,\"%s\",\"%s\"\r\n", host, port, u
- 944              		.loc 1 222 2 view .LVU132
+ 230:Src/simcomAT.c **** 	uint8_t messages[300]; 
+ 943              		.loc 1 230 2 is_stmt 1 view .LVU131
+ 231:Src/simcomAT.c **** 	sprintf((char*)messages, "AT+CMQTTCONNECT=0,\"tcp://%s:%d\",60,0,\"%s\",\"%s\"\r\n", host, port, u
+ 944              		.loc 1 231 2 view .LVU132
  945 0012 789A     		ldr	r2, [sp, #480]
  946 0014 0192     		str	r2, [sp, #4]
  947 0016 779A     		ldr	r2, [sp, #476]
@@ -1278,27 +1287,27 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  951 001e 03A8     		add	r0, sp, #12
  952 0020 FFF7FEFF 		bl	sprintf
  953              	.LVL70:
- 223:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, messages, strlen((char*)messages), 100); 
- 954              		.loc 1 223 2 view .LVU133
- 955              		.loc 1 223 38 is_stmt 0 view .LVU134
+ 232:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, messages, strlen((char*)messages), 100); 
+ 954              		.loc 1 232 2 view .LVU133
+ 955              		.loc 1 232 38 is_stmt 0 view .LVU134
  956 0024 03A8     		add	r0, sp, #12
  957 0026 FFF7FEFF 		bl	strlen
  958              	.LVL71:
- 959              		.loc 1 223 2 view .LVU135
+ 959              		.loc 1 232 2 view .LVU135
  960 002a 82B2     		uxth	r2, r0
  961 002c 6423     		movs	r3, #100
  962 002e 03A9     		add	r1, sp, #12
  963 0030 50A8     		add	r0, sp, #320
  964 0032 FFF7FEFF 		bl	HAL_UART_Transmit
  965              	.LVL72:
- 224:Src/simcomAT.c **** 
- 225:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 966              		.loc 1 225 2 is_stmt 1 view .LVU136
+ 233:Src/simcomAT.c **** 
+ 234:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 966              		.loc 1 234 2 is_stmt 1 view .LVU136
  967 0036 6420     		movs	r0, #100
  968 0038 FFF7FEFF 		bl	HAL_Delay
  969              	.LVL73:
- 226:Src/simcomAT.c **** }
- 970              		.loc 1 226 1 is_stmt 0 view .LVU137
+ 235:Src/simcomAT.c **** }
+ 970              		.loc 1 235 1 is_stmt 0 view .LVU137
  971 003c 4FB0     		add	sp, sp, #316
  972              		@ sp needed
  973 003e 08BC     		pop	{r3}
@@ -1309,7 +1318,10 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  978              	.L51:
  979 0044 00000000 		.word	.LC36
  980              		.cfi_endproc
- 981              	.LFE324:
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 23
+
+
+ 981              	.LFE454:
  983              		.section	.rodata.SimA7670C_MQTT_BrokerDisconnect.str1.4,"aMS",%progbits,1
  984              		.align	2
  985              	.LC38:
@@ -1318,9 +1330,6 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  986      44495343 
  986      3D302C31 
  986      32300D0A 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 23
-
-
  987 0015 000000   		.align	2
  988              	.LC40:
  989 0018 41542B43 		.ascii	"AT+CMQTTREL=0\015\012\000"
@@ -1334,11 +1343,11 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  994              		.code	16
  995              		.thumb_func
  997              	SimA7670C_MQTT_BrokerDisconnect:
- 998              	.LFB325:
- 227:Src/simcomAT.c **** 
- 228:Src/simcomAT.c **** void SimA7670C_MQTT_BrokerDisconnect(UART_HandleTypeDef huart)
- 229:Src/simcomAT.c **** {
- 999              		.loc 1 229 1 is_stmt 1 view -0
+ 998              	.LFB455:
+ 236:Src/simcomAT.c **** 
+ 237:Src/simcomAT.c **** void SimA7670C_MQTT_BrokerDisconnect(UART_HandleTypeDef huart)
+ 238:Src/simcomAT.c **** {
+ 999              		.loc 1 238 1 is_stmt 1 view -0
  1000              		.cfi_startproc
  1001              		@ args = 148, pretend = 16, frame = 0
  1002              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1354,38 +1363,38 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  1012 0006 0391     		str	r1, [sp, #12]
  1013 0008 0492     		str	r2, [sp, #16]
  1014 000a 0593     		str	r3, [sp, #20]
- 230:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CMQTTDISC=0,120\r\n", strlen("AT+CMQTTDISC=0,120\r\n"), 10
- 1015              		.loc 1 230 2 view .LVU139
+ 239:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CMQTTDISC=0,120\r\n", strlen("AT+CMQTTDISC=0,120\r\n"), 10
+ 1015              		.loc 1 239 2 view .LVU139
  1016 000c 6423     		movs	r3, #100
  1017 000e 1422     		movs	r2, #20
  1018 0010 0949     		ldr	r1, .L54
  1019 0012 02A8     		add	r0, sp, #8
  1020 0014 FFF7FEFF 		bl	HAL_UART_Transmit
  1021              	.LVL74:
- 231:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 1022              		.loc 1 231 2 view .LVU140
+ 240:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 1022              		.loc 1 240 2 view .LVU140
  1023 0018 6420     		movs	r0, #100
  1024 001a FFF7FEFF 		bl	HAL_Delay
  1025              	.LVL75:
- 232:Src/simcomAT.c **** 
- 233:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CMQTTREL=0\r\n", strlen("AT+CMQTTREL=0\r\n"), 100); 
- 1026              		.loc 1 233 2 view .LVU141
+ 241:Src/simcomAT.c **** 
+ 242:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CMQTTREL=0\r\n", strlen("AT+CMQTTREL=0\r\n"), 100); 
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 24
+
+
+ 1026              		.loc 1 242 2 view .LVU141
  1027 001e 6423     		movs	r3, #100
  1028 0020 0F22     		movs	r2, #15
  1029 0022 0649     		ldr	r1, .L54+4
  1030 0024 02A8     		add	r0, sp, #8
  1031 0026 FFF7FEFF 		bl	HAL_UART_Transmit
  1032              	.LVL76:
- 234:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 1033              		.loc 1 234 2 view .LVU142
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 24
-
-
+ 243:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 1033              		.loc 1 243 2 view .LVU142
  1034 002a 6420     		movs	r0, #100
  1035 002c FFF7FEFF 		bl	HAL_Delay
  1036              	.LVL77:
- 235:Src/simcomAT.c **** }
- 1037              		.loc 1 235 1 is_stmt 0 view .LVU143
+ 244:Src/simcomAT.c **** }
+ 1037              		.loc 1 244 1 is_stmt 0 view .LVU143
  1038              		@ sp needed
  1039 0030 10BC     		pop	{r4}
  1040 0032 08BC     		pop	{r3}
@@ -1397,7 +1406,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  1046 0038 00000000 		.word	.LC38
  1047 003c 18000000 		.word	.LC40
  1048              		.cfi_endproc
- 1049              	.LFE325:
+ 1049              	.LFE455:
  1051              		.section	.rodata.SimA7670C_Mqtt_Subscribe.str1.4,"aMS",%progbits,1
  1052              		.align	2
  1053              	.LC42:
@@ -1428,19 +1437,19 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  1069              		.thumb_func
  1071              	SimA7670C_Mqtt_Subscribe:
  1072              	.LVL78:
- 1073              	.LFB326:
- 236:Src/simcomAT.c **** 
- 237:Src/simcomAT.c **** void SimA7670C_Mqtt_Subscribe(UART_HandleTypeDef huart, uint8_t *recv_buf, uint8_t *topic)
- 238:Src/simcomAT.c **** {
- 1074              		.loc 1 238 1 is_stmt 1 view -0
+ 1073              	.LFB456:
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 25
+
+
+ 245:Src/simcomAT.c **** 
+ 246:Src/simcomAT.c **** void SimA7670C_Mqtt_Subscribe(UART_HandleTypeDef huart, uint8_t *recv_buf, uint8_t *topic)
+ 247:Src/simcomAT.c **** {
+ 1074              		.loc 1 247 1 is_stmt 1 view -0
  1075              		.cfi_startproc
  1076              		@ args = 156, pretend = 16, frame = 200
  1077              		@ frame_needed = 0, uses_anonymous_args = 0
- 1078              		.loc 1 238 1 is_stmt 0 view .LVU145
+ 1078              		.loc 1 247 1 is_stmt 0 view .LVU145
  1079 0000 84B0     		sub	sp, sp, #16
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 25
-
-
  1080              	.LCFI31:
  1081              		.cfi_def_cfa_offset 16
  1082 0002 70B5     		push	{r4, r5, r6, lr}
@@ -1459,14 +1468,14 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  1095 000c 3993     		str	r3, [sp, #228]
  1096 000e 5B9E     		ldr	r6, [sp, #364]
  1097 0010 5C9D     		ldr	r5, [sp, #368]
- 239:Src/simcomAT.c **** 	uint8_t messages[200];
- 1098              		.loc 1 239 2 is_stmt 1 view .LVU146
- 240:Src/simcomAT.c **** 	uint16_t timeout = 2000; 
- 1099              		.loc 1 240 2 view .LVU147
+ 248:Src/simcomAT.c **** 	uint8_t messages[200];
+ 1098              		.loc 1 248 2 is_stmt 1 view .LVU146
+ 249:Src/simcomAT.c **** 	uint16_t timeout = 2000; 
+ 1099              		.loc 1 249 2 view .LVU147
  1100              	.LVL79:
- 241:Src/simcomAT.c **** 
- 242:Src/simcomAT.c **** 	sprintf((char*)messages, "AT+CMQTTSUBTOPIC=0,%d,1\r\n", strlen((char*)topic)); 
- 1101              		.loc 1 242 2 view .LVU148
+ 250:Src/simcomAT.c **** 
+ 251:Src/simcomAT.c **** 	sprintf((char*)messages, "AT+CMQTTSUBTOPIC=0,%d,1\r\n", strlen((char*)topic)); 
+ 1101              		.loc 1 251 2 view .LVU148
  1102 0012 2800     		movs	r0, r5
  1103 0014 FFF7FEFF 		bl	strlen
  1104              	.LVL80:
@@ -1475,229 +1484,229 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  1107 001c 6846     		mov	r0, sp
  1108 001e FFF7FEFF 		bl	sprintf
  1109              	.LVL81:
- 243:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, messages, strlen((char*)messages), 100); 
- 1110              		.loc 1 243 2 view .LVU149
- 1111              		.loc 1 243 38 is_stmt 0 view .LVU150
+ 252:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, messages, strlen((char*)messages), 100); 
+ 1110              		.loc 1 252 2 view .LVU149
+ 1111              		.loc 1 252 38 is_stmt 0 view .LVU150
  1112 0022 6846     		mov	r0, sp
  1113 0024 FFF7FEFF 		bl	strlen
  1114              	.LVL82:
- 1115              		.loc 1 243 2 view .LVU151
+ 1115              		.loc 1 252 2 view .LVU151
  1116 0028 82B2     		uxth	r2, r0
  1117 002a 6423     		movs	r3, #100
  1118 002c 6946     		mov	r1, sp
  1119 002e 36A8     		add	r0, sp, #216
  1120 0030 FFF7FEFF 		bl	HAL_UART_Transmit
  1121              	.LVL83:
- 244:Src/simcomAT.c **** 	HAL_Delay(2); 
- 1122              		.loc 1 244 2 is_stmt 1 view .LVU152
+ 253:Src/simcomAT.c **** 	HAL_Delay(2); 
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 26
+
+
+ 1122              		.loc 1 253 2 is_stmt 1 view .LVU152
  1123 0034 0220     		movs	r0, #2
  1124 0036 FFF7FEFF 		bl	HAL_Delay
  1125              	.LVL84:
- 240:Src/simcomAT.c **** 
- 1126              		.loc 1 240 11 is_stmt 0 view .LVU153
+ 249:Src/simcomAT.c **** 
+ 1126              		.loc 1 249 11 is_stmt 0 view .LVU153
  1127 003a FA24     		movs	r4, #250
  1128 003c E400     		lsls	r4, r4, #3
  1129              	.LVL85:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 26
-
-
  1130              	.L57:
- 245:Src/simcomAT.c **** 	while(1)
- 1131              		.loc 1 245 2 is_stmt 1 view .LVU154
- 246:Src/simcomAT.c ****     {
- 247:Src/simcomAT.c ****         if(strstr((char*)recv_buf, ">")) 
- 1132              		.loc 1 247 9 view .LVU155
- 1133              		.loc 1 247 12 is_stmt 0 view .LVU156
+ 254:Src/simcomAT.c **** 	while(1)
+ 1131              		.loc 1 254 2 is_stmt 1 view .LVU154
+ 255:Src/simcomAT.c ****     {
+ 256:Src/simcomAT.c ****         if(strstr((char*)recv_buf, ">")) 
+ 1132              		.loc 1 256 9 view .LVU155
+ 1133              		.loc 1 256 12 is_stmt 0 view .LVU156
  1134 003e 3E21     		movs	r1, #62
  1135 0040 3000     		movs	r0, r6
  1136 0042 FFF7FEFF 		bl	strchr
  1137              	.LVL86:
- 1138              		.loc 1 247 11 view .LVU157
+ 1138              		.loc 1 256 11 view .LVU157
  1139 0046 0028     		cmp	r0, #0
  1140 0048 09D1     		bne	.L68
- 248:Src/simcomAT.c ****         {
- 249:Src/simcomAT.c ****         	HAL_UART_Transmit(&huart, (uint8_t*)topic, strlen((char*)topic), 100); 
- 250:Src/simcomAT.c ****         	break; 
- 251:Src/simcomAT.c ****         }
- 252:Src/simcomAT.c ****         
- 253:Src/simcomAT.c ****         HAL_Delay(1); 
- 1141              		.loc 1 253 9 is_stmt 1 view .LVU158
+ 257:Src/simcomAT.c ****         {
+ 258:Src/simcomAT.c ****         	HAL_UART_Transmit(&huart, (uint8_t*)topic, strlen((char*)topic), 100); 
+ 259:Src/simcomAT.c ****         	break; 
+ 260:Src/simcomAT.c ****         }
+ 261:Src/simcomAT.c ****         
+ 262:Src/simcomAT.c ****         HAL_Delay(1); 
+ 1141              		.loc 1 262 9 is_stmt 1 view .LVU158
  1142 004a 0120     		movs	r0, #1
  1143 004c FFF7FEFF 		bl	HAL_Delay
  1144              	.LVL87:
- 254:Src/simcomAT.c ****         timeout--; 
- 1145              		.loc 1 254 9 view .LVU159
- 1146              		.loc 1 254 16 is_stmt 0 view .LVU160
+ 263:Src/simcomAT.c ****         timeout--; 
+ 1145              		.loc 1 263 9 view .LVU159
+ 1146              		.loc 1 263 16 is_stmt 0 view .LVU160
  1147 0050 013C     		subs	r4, r4, #1
  1148              	.LVL88:
- 1149              		.loc 1 254 16 view .LVU161
+ 1149              		.loc 1 263 16 view .LVU161
  1150 0052 A4B2     		uxth	r4, r4
  1151              	.LVL89:
- 255:Src/simcomAT.c ****         if(timeout == 0) HAL_NVIC_SystemReset();
- 1152              		.loc 1 255 9 is_stmt 1 view .LVU162
- 1153              		.loc 1 255 11 is_stmt 0 view .LVU163
+ 264:Src/simcomAT.c ****         if(timeout == 0) HAL_NVIC_SystemReset();
+ 1152              		.loc 1 264 9 is_stmt 1 view .LVU162
+ 1153              		.loc 1 264 11 is_stmt 0 view .LVU163
  1154 0054 002C     		cmp	r4, #0
  1155 0056 F2D1     		bne	.L57
- 1156              		.loc 1 255 26 is_stmt 1 discriminator 1 view .LVU164
+ 1156              		.loc 1 264 26 is_stmt 1 discriminator 1 view .LVU164
  1157 0058 FFF7FEFF 		bl	HAL_NVIC_SystemReset
  1158              	.LVL90:
  1159 005c EFE7     		b	.L57
  1160              	.L68:
- 249:Src/simcomAT.c ****         	break; 
- 1161              		.loc 1 249 10 view .LVU165
- 249:Src/simcomAT.c ****         	break; 
- 1162              		.loc 1 249 53 is_stmt 0 view .LVU166
+ 258:Src/simcomAT.c ****         	break; 
+ 1161              		.loc 1 258 10 view .LVU165
+ 258:Src/simcomAT.c ****         	break; 
+ 1162              		.loc 1 258 53 is_stmt 0 view .LVU166
  1163 005e 2800     		movs	r0, r5
  1164 0060 FFF7FEFF 		bl	strlen
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 27
+
+
  1165              	.LVL91:
- 249:Src/simcomAT.c ****         	break; 
- 1166              		.loc 1 249 10 view .LVU167
+ 258:Src/simcomAT.c ****         	break; 
+ 1166              		.loc 1 258 10 view .LVU167
  1167 0064 82B2     		uxth	r2, r0
  1168 0066 6423     		movs	r3, #100
  1169 0068 2900     		movs	r1, r5
  1170 006a 36A8     		add	r0, sp, #216
  1171 006c FFF7FEFF 		bl	HAL_UART_Transmit
  1172              	.LVL92:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 27
-
-
- 250:Src/simcomAT.c ****         }
- 1173              		.loc 1 250 10 is_stmt 1 view .LVU168
- 256:Src/simcomAT.c ****     }
- 257:Src/simcomAT.c **** 
- 258:Src/simcomAT.c **** 	// Remove and use continue
- 259:Src/simcomAT.c **** 	if(!SimA7670C_Response(recv_buf, (uint8_t*)"OK", 10000)) HAL_NVIC_SystemReset(); 
- 1174              		.loc 1 259 2 view .LVU169
- 1175              		.loc 1 259 6 is_stmt 0 view .LVU170
+ 259:Src/simcomAT.c ****         }
+ 1173              		.loc 1 259 10 is_stmt 1 view .LVU168
+ 265:Src/simcomAT.c ****     }
+ 266:Src/simcomAT.c **** 
+ 267:Src/simcomAT.c **** 	// Remove and use continue
+ 268:Src/simcomAT.c **** 	if(!SimA7670C_Response(recv_buf, (uint8_t*)"OK", 10000)) HAL_NVIC_SystemReset(); 
+ 1174              		.loc 1 268 2 view .LVU169
+ 1175              		.loc 1 268 6 is_stmt 0 view .LVU170
  1176 0070 1D4A     		ldr	r2, .L70+4
  1177 0072 1E49     		ldr	r1, .L70+8
  1178 0074 3000     		movs	r0, r6
  1179 0076 FFF7FEFF 		bl	SimA7670C_Response
  1180              	.LVL93:
- 1181              		.loc 1 259 4 view .LVU171
+ 1181              		.loc 1 268 4 view .LVU171
  1182 007a 0028     		cmp	r0, #0
  1183 007c 01D0     		beq	.L59
  1184              	.LBB4:
- 260:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 200; pos++) messages[pos] = '\0'; 	
- 1185              		.loc 1 260 23 view .LVU172
+ 269:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 200; pos++) messages[pos] = '\0'; 	
+ 1185              		.loc 1 269 23 view .LVU172
  1186 007e 0023     		movs	r3, #0
  1187 0080 07E0     		b	.L60
  1188              	.L59:
  1189              	.LBE4:
- 259:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 200; pos++) messages[pos] = '\0'; 	
- 1190              		.loc 1 259 59 is_stmt 1 discriminator 1 view .LVU173
+ 268:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 200; pos++) messages[pos] = '\0'; 	
+ 1190              		.loc 1 268 59 is_stmt 1 discriminator 1 view .LVU173
  1191 0082 FFF7FEFF 		bl	HAL_NVIC_SystemReset
  1192              	.LVL94:
  1193 0086 06E0     		b	.L62
  1194              	.LVL95:
  1195              	.L63:
  1196              	.LBB5:
- 1197              		.loc 1 260 50 discriminator 3 view .LVU174
- 1198              		.loc 1 260 64 is_stmt 0 discriminator 3 view .LVU175
+ 1197              		.loc 1 269 50 discriminator 3 view .LVU174
+ 1198              		.loc 1 269 64 is_stmt 0 discriminator 3 view .LVU175
  1199 0088 0022     		movs	r2, #0
  1200 008a 6946     		mov	r1, sp
  1201 008c CA54     		strb	r2, [r1, r3]
- 1202              		.loc 1 260 43 is_stmt 1 discriminator 3 view .LVU176
- 1203              		.loc 1 260 46 is_stmt 0 discriminator 3 view .LVU177
+ 1202              		.loc 1 269 43 is_stmt 1 discriminator 3 view .LVU176
+ 1203              		.loc 1 269 46 is_stmt 0 discriminator 3 view .LVU177
  1204 008e 0133     		adds	r3, r3, #1
  1205              	.LVL96:
- 1206              		.loc 1 260 46 discriminator 3 view .LVU178
+ 1206              		.loc 1 269 46 discriminator 3 view .LVU178
  1207 0090 9BB2     		uxth	r3, r3
  1208              	.LVL97:
  1209              	.L60:
- 1210              		.loc 1 260 32 is_stmt 1 discriminator 1 view .LVU179
- 1211              		.loc 1 260 10 is_stmt 0 discriminator 1 view .LVU180
+ 1210              		.loc 1 269 32 is_stmt 1 discriminator 1 view .LVU179
+ 1211              		.loc 1 269 10 is_stmt 0 discriminator 1 view .LVU180
  1212 0092 C72B     		cmp	r3, #199
  1213 0094 F8D9     		bls	.L63
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 28
+
+
  1214              	.LVL98:
  1215              	.L62:
- 1216              		.loc 1 260 10 discriminator 1 view .LVU181
+ 1216              		.loc 1 269 10 discriminator 1 view .LVU181
  1217              	.LBE5:
- 261:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 1218              		.loc 1 261 2 is_stmt 1 view .LVU182
+ 270:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 1218              		.loc 1 270 2 is_stmt 1 view .LVU182
  1219 0096 6420     		movs	r0, #100
  1220 0098 FFF7FEFF 		bl	HAL_Delay
  1221              	.LVL99:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 28
-
-
- 262:Src/simcomAT.c **** 
- 263:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CMQTTSUB=0\r\n", strlen("AT+CMQTTSUB=0\r\n"), 100); 
- 1222              		.loc 1 263 2 view .LVU183
+ 271:Src/simcomAT.c **** 
+ 272:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CMQTTSUB=0\r\n", strlen("AT+CMQTTSUB=0\r\n"), 100); 
+ 1222              		.loc 1 272 2 view .LVU183
  1223 009c 6423     		movs	r3, #100
  1224 009e 0F22     		movs	r2, #15
  1225 00a0 1349     		ldr	r1, .L70+12
  1226 00a2 36A8     		add	r0, sp, #216
  1227 00a4 FFF7FEFF 		bl	HAL_UART_Transmit
  1228              	.LVL100:
- 264:Src/simcomAT.c **** 	HAL_Delay(2); 
- 1229              		.loc 1 264 2 view .LVU184
+ 273:Src/simcomAT.c **** 	HAL_Delay(2); 
+ 1229              		.loc 1 273 2 view .LVU184
  1230 00a8 0220     		movs	r0, #2
  1231 00aa FFF7FEFF 		bl	HAL_Delay
  1232              	.LVL101:
- 265:Src/simcomAT.c **** 
- 266:Src/simcomAT.c **** 	// Remove and use continue
- 267:Src/simcomAT.c **** 	if(!SimA7670C_Response(recv_buf, (uint8_t*)"+CMQTTSUB:", 10000)) HAL_NVIC_SystemReset(); 
- 1233              		.loc 1 267 2 view .LVU185
- 1234              		.loc 1 267 6 is_stmt 0 view .LVU186
+ 274:Src/simcomAT.c **** 
+ 275:Src/simcomAT.c **** 	// Remove and use continue
+ 276:Src/simcomAT.c **** 	if(!SimA7670C_Response(recv_buf, (uint8_t*)"+CMQTTSUB:", 10000)) HAL_NVIC_SystemReset(); 
+ 1233              		.loc 1 276 2 view .LVU185
+ 1234              		.loc 1 276 6 is_stmt 0 view .LVU186
  1235 00ae 0E4A     		ldr	r2, .L70+4
  1236 00b0 1049     		ldr	r1, .L70+16
  1237 00b2 3000     		movs	r0, r6
  1238 00b4 FFF7FEFF 		bl	SimA7670C_Response
  1239              	.LVL102:
- 1240              		.loc 1 267 4 view .LVU187
+ 1240              		.loc 1 276 4 view .LVU187
  1241 00b8 0028     		cmp	r0, #0
  1242 00ba 01D0     		beq	.L69
  1243              	.LBB6:
- 268:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 200; pos++) messages[pos] = '\0'; 
- 1244              		.loc 1 268 23 view .LVU188
+ 277:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 200; pos++) messages[pos] = '\0'; 
+ 1244              		.loc 1 277 23 view .LVU188
  1245 00bc 0023     		movs	r3, #0
  1246 00be 07E0     		b	.L64
  1247              	.L69:
  1248              	.LBE6:
- 267:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 200; pos++) messages[pos] = '\0'; 
- 1249              		.loc 1 267 67 is_stmt 1 discriminator 1 view .LVU189
+ 276:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 200; pos++) messages[pos] = '\0'; 
+ 1249              		.loc 1 276 67 is_stmt 1 discriminator 1 view .LVU189
  1250 00c0 FFF7FEFF 		bl	HAL_NVIC_SystemReset
  1251              	.LVL103:
  1252 00c4 06E0     		b	.L65
  1253              	.LVL104:
  1254              	.L66:
  1255              	.LBB7:
- 1256              		.loc 1 268 50 discriminator 3 view .LVU190
- 1257              		.loc 1 268 64 is_stmt 0 discriminator 3 view .LVU191
+ 1256              		.loc 1 277 50 discriminator 3 view .LVU190
+ 1257              		.loc 1 277 64 is_stmt 0 discriminator 3 view .LVU191
  1258 00c6 0022     		movs	r2, #0
  1259 00c8 6946     		mov	r1, sp
  1260 00ca CA54     		strb	r2, [r1, r3]
- 1261              		.loc 1 268 43 is_stmt 1 discriminator 3 view .LVU192
- 1262              		.loc 1 268 46 is_stmt 0 discriminator 3 view .LVU193
+ 1261              		.loc 1 277 43 is_stmt 1 discriminator 3 view .LVU192
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 29
+
+
+ 1262              		.loc 1 277 46 is_stmt 0 discriminator 3 view .LVU193
  1263 00cc 0133     		adds	r3, r3, #1
  1264              	.LVL105:
- 1265              		.loc 1 268 46 discriminator 3 view .LVU194
+ 1265              		.loc 1 277 46 discriminator 3 view .LVU194
  1266 00ce 9BB2     		uxth	r3, r3
  1267              	.LVL106:
  1268              	.L64:
- 1269              		.loc 1 268 32 is_stmt 1 discriminator 1 view .LVU195
- 1270              		.loc 1 268 10 is_stmt 0 discriminator 1 view .LVU196
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 29
-
-
+ 1269              		.loc 1 277 32 is_stmt 1 discriminator 1 view .LVU195
+ 1270              		.loc 1 277 10 is_stmt 0 discriminator 1 view .LVU196
  1271 00d0 C72B     		cmp	r3, #199
  1272 00d2 F8D9     		bls	.L66
  1273              	.LVL107:
  1274              	.L65:
- 1275              		.loc 1 268 10 discriminator 1 view .LVU197
+ 1275              		.loc 1 277 10 discriminator 1 view .LVU197
  1276              	.LBE7:
- 269:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 1277              		.loc 1 269 2 is_stmt 1 view .LVU198
+ 278:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 1277              		.loc 1 278 2 is_stmt 1 view .LVU198
  1278 00d4 6420     		movs	r0, #100
  1279 00d6 FFF7FEFF 		bl	HAL_Delay
  1280              	.LVL108:
- 270:Src/simcomAT.c **** }
- 1281              		.loc 1 270 1 is_stmt 0 view .LVU199
+ 279:Src/simcomAT.c **** }
+ 1281              		.loc 1 279 1 is_stmt 0 view .LVU199
  1282 00da 32B0     		add	sp, sp, #200
  1283              		@ sp needed
  1284              	.LVL109:
- 1285              		.loc 1 270 1 view .LVU200
+ 1285              		.loc 1 279 1 view .LVU200
  1286 00dc 70BC     		pop	{r4, r5, r6}
  1287 00de 08BC     		pop	{r3}
  1288 00e0 04B0     		add	sp, sp, #16
@@ -1711,7 +1720,7 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  1296 00f0 20000000 		.word	.LC46
  1297 00f4 30000000 		.word	.LC48
  1298              		.cfi_endproc
- 1299              	.LFE326:
+ 1299              	.LFE456:
  1301              		.section	.rodata.SimA7670C_Mqtt_Publish.str1.4,"aMS",%progbits,1
  1302              		.align	2
  1303              	.LC50:
@@ -1729,6 +1738,9 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  1307      302C2564 
  1308 002f 00       		.align	2
  1309              	.LC55:
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 30
+
+
  1310 0030 41542B43 		.ascii	"AT+CMQTTPUB=0,1,60\015\012\000"
  1310      4D515454 
  1310      5055423D 
@@ -1738,9 +1750,6 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  1312              	.LC57:
  1313 0048 2B434D51 		.ascii	"+CMQTTPUB:\000"
  1313      54545055 
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 30
-
-
  1313      423A00
  1314              		.section	.text.SimA7670C_Mqtt_Publish,"ax",%progbits
  1315              		.align	1
@@ -1750,15 +1759,15 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  1319              		.thumb_func
  1321              	SimA7670C_Mqtt_Publish:
  1322              	.LVL110:
- 1323              	.LFB327:
- 271:Src/simcomAT.c **** 
- 272:Src/simcomAT.c **** void SimA7670C_Mqtt_Publish(UART_HandleTypeDef huart, uint8_t *recv_buf, uint8_t *topic, uint8_t *m
- 273:Src/simcomAT.c **** {
- 1324              		.loc 1 273 1 is_stmt 1 view -0
+ 1323              	.LFB457:
+ 280:Src/simcomAT.c **** 
+ 281:Src/simcomAT.c **** void SimA7670C_Mqtt_Publish(UART_HandleTypeDef huart, uint8_t *recv_buf, uint8_t *topic, uint8_t *m
+ 282:Src/simcomAT.c **** {
+ 1324              		.loc 1 282 1 is_stmt 1 view -0
  1325              		.cfi_startproc
  1326              		@ args = 160, pretend = 16, frame = 800
  1327              		@ frame_needed = 0, uses_anonymous_args = 0
- 1328              		.loc 1 273 1 is_stmt 0 view .LVU202
+ 1328              		.loc 1 282 1 is_stmt 0 view .LVU202
  1329 0000 84B0     		sub	sp, sp, #16
  1330              	.LCFI34:
  1331              		.cfi_def_cfa_offset 16
@@ -1781,39 +1790,39 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  1348 0010 F39D     		ldr	r5, [sp, #972]
  1349 0012 F49F     		ldr	r7, [sp, #976]
  1350 0014 F59C     		ldr	r4, [sp, #980]
- 274:Src/simcomAT.c **** 	uint8_t messages[800];
- 1351              		.loc 1 274 2 is_stmt 1 view .LVU203
- 275:Src/simcomAT.c **** 	uint16_t timeout = 2000; 
- 1352              		.loc 1 275 2 view .LVU204
+ 283:Src/simcomAT.c **** 	uint8_t messages[800];
+ 1351              		.loc 1 283 2 is_stmt 1 view .LVU203
+ 284:Src/simcomAT.c **** 	uint16_t timeout = 2000; 
+ 1352              		.loc 1 284 2 view .LVU204
  1353              	.LVL111:
- 276:Src/simcomAT.c **** 
- 277:Src/simcomAT.c **** 	/*sprintf((char*)messages, "AT+CMQTTSUB=0,%d,1\r\n", strlen((char*)topic)); 
- 278:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, messages, strlen((char*)messages), 100); 
- 279:Src/simcomAT.c **** 	HAL_Delay(2); 
- 280:Src/simcomAT.c **** 	while(1)
- 281:Src/simcomAT.c ****     {
- 282:Src/simcomAT.c ****         if(strstr((char*)recv_buf, ">")) 
- 283:Src/simcomAT.c ****         {
- 284:Src/simcomAT.c ****         	HAL_UART_Transmit(&huart, topic, strlen((char*)topic), 100); 
- 285:Src/simcomAT.c ****         	break; 
- 286:Src/simcomAT.c ****         }
- 287:Src/simcomAT.c ****         
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 31
+ 285:Src/simcomAT.c **** 
+ 286:Src/simcomAT.c **** 	/*sprintf((char*)messages, "AT+CMQTTSUB=0,%d,1\r\n", strlen((char*)topic)); 
+ 287:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, messages, strlen((char*)messages), 100); 
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 31
 
 
- 288:Src/simcomAT.c ****         HAL_Delay(1); 
- 289:Src/simcomAT.c ****         timeout--; 
- 290:Src/simcomAT.c ****         if(timeout == 0) HAL_NVIC_SystemReset();
- 291:Src/simcomAT.c ****     }
- 292:Src/simcomAT.c **** 
- 293:Src/simcomAT.c **** 	// Remove and use continue
- 294:Src/simcomAT.c **** 	if(!SimA7670C_Response(recv_buf, (uint8_t*)"+CMQTTSUB", 10000)) HAL_NVIC_SystemReset(); 
- 295:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
- 296:Src/simcomAT.c **** 	timeout = 2000; 
- 297:Src/simcomAT.c **** 	HAL_Delay(_ms_); */ 
- 298:Src/simcomAT.c **** 
- 299:Src/simcomAT.c **** 	sprintf((char*)messages, "AT+CMQTTTOPIC=0,%d\r\n", strlen((char*)topic)); 
- 1354              		.loc 1 299 2 view .LVU205
+ 288:Src/simcomAT.c **** 	HAL_Delay(2); 
+ 289:Src/simcomAT.c **** 	while(1)
+ 290:Src/simcomAT.c ****     {
+ 291:Src/simcomAT.c ****         if(strstr((char*)recv_buf, ">")) 
+ 292:Src/simcomAT.c ****         {
+ 293:Src/simcomAT.c ****         	HAL_UART_Transmit(&huart, topic, strlen((char*)topic), 100); 
+ 294:Src/simcomAT.c ****         	break; 
+ 295:Src/simcomAT.c ****         }
+ 296:Src/simcomAT.c ****         
+ 297:Src/simcomAT.c ****         HAL_Delay(1); 
+ 298:Src/simcomAT.c ****         timeout--; 
+ 299:Src/simcomAT.c ****         if(timeout == 0) HAL_NVIC_SystemReset();
+ 300:Src/simcomAT.c ****     }
+ 301:Src/simcomAT.c **** 
+ 302:Src/simcomAT.c **** 	// Remove and use continue
+ 303:Src/simcomAT.c **** 	if(!SimA7670C_Response(recv_buf, (uint8_t*)"+CMQTTSUB", 10000)) HAL_NVIC_SystemReset(); 
+ 304:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
+ 305:Src/simcomAT.c **** 	timeout = 2000; 
+ 306:Src/simcomAT.c **** 	HAL_Delay(_ms_); */ 
+ 307:Src/simcomAT.c **** 
+ 308:Src/simcomAT.c **** 	sprintf((char*)messages, "AT+CMQTTTOPIC=0,%d\r\n", strlen((char*)topic)); 
+ 1354              		.loc 1 308 2 view .LVU205
  1355 0016 3800     		movs	r0, r7
  1356 0018 FFF7FEFF 		bl	strlen
  1357              	.LVL112:
@@ -1822,393 +1831,396 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  1360 0020 6846     		mov	r0, sp
  1361 0022 FFF7FEFF 		bl	sprintf
  1362              	.LVL113:
- 300:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, messages, strlen((char*)messages), 100); 
- 1363              		.loc 1 300 2 view .LVU206
- 1364              		.loc 1 300 38 is_stmt 0 view .LVU207
+ 309:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, messages, strlen((char*)messages), 100); 
+ 1363              		.loc 1 309 2 view .LVU206
+ 1364              		.loc 1 309 38 is_stmt 0 view .LVU207
  1365 0026 6846     		mov	r0, sp
  1366 0028 FFF7FEFF 		bl	strlen
  1367              	.LVL114:
- 1368              		.loc 1 300 2 view .LVU208
+ 1368              		.loc 1 309 2 view .LVU208
  1369 002c 82B2     		uxth	r2, r0
  1370 002e 6423     		movs	r3, #100
  1371 0030 6946     		mov	r1, sp
  1372 0032 CEA8     		add	r0, sp, #824
  1373 0034 FFF7FEFF 		bl	HAL_UART_Transmit
  1374              	.LVL115:
- 301:Src/simcomAT.c **** 	HAL_Delay(2); 
- 1375              		.loc 1 301 2 is_stmt 1 view .LVU209
+ 310:Src/simcomAT.c **** 	HAL_Delay(2); 
+ 1375              		.loc 1 310 2 is_stmt 1 view .LVU209
  1376 0038 0220     		movs	r0, #2
  1377 003a FFF7FEFF 		bl	HAL_Delay
  1378              	.LVL116:
- 275:Src/simcomAT.c **** 
- 1379              		.loc 1 275 11 is_stmt 0 view .LVU210
+ 284:Src/simcomAT.c **** 
+ 1379              		.loc 1 284 11 is_stmt 0 view .LVU210
  1380 003e FA26     		movs	r6, #250
  1381 0040 F600     		lsls	r6, r6, #3
  1382              	.LVL117:
  1383              	.L73:
- 302:Src/simcomAT.c **** 	while(1)
- 1384              		.loc 1 302 2 is_stmt 1 view .LVU211
- 303:Src/simcomAT.c ****     {
- 304:Src/simcomAT.c ****         if(strstr((char*)recv_buf, ">")) 
- 1385              		.loc 1 304 9 view .LVU212
- 1386              		.loc 1 304 12 is_stmt 0 view .LVU213
+ 311:Src/simcomAT.c **** 	while(1)
+ 1384              		.loc 1 311 2 is_stmt 1 view .LVU211
+ 312:Src/simcomAT.c ****     {
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 32
+
+
+ 313:Src/simcomAT.c ****         if(strstr((char*)recv_buf, ">")) 
+ 1385              		.loc 1 313 9 view .LVU212
+ 1386              		.loc 1 313 12 is_stmt 0 view .LVU213
  1387 0042 3E21     		movs	r1, #62
  1388 0044 2800     		movs	r0, r5
  1389 0046 FFF7FEFF 		bl	strchr
  1390              	.LVL118:
- 1391              		.loc 1 304 11 view .LVU214
+ 1391              		.loc 1 313 11 view .LVU214
  1392 004a 0028     		cmp	r0, #0
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 32
-
-
  1393 004c 09D1     		bne	.L91
- 305:Src/simcomAT.c ****         {
- 306:Src/simcomAT.c ****         	HAL_UART_Transmit(&huart, topic, strlen((char*)topic), 100); 
- 307:Src/simcomAT.c ****         	break; 
- 308:Src/simcomAT.c ****         }
- 309:Src/simcomAT.c ****         
- 310:Src/simcomAT.c ****         HAL_Delay(1); 
- 1394              		.loc 1 310 9 is_stmt 1 view .LVU215
+ 314:Src/simcomAT.c ****         {
+ 315:Src/simcomAT.c ****         	HAL_UART_Transmit(&huart, topic, strlen((char*)topic), 100); 
+ 316:Src/simcomAT.c ****         	break; 
+ 317:Src/simcomAT.c ****         }
+ 318:Src/simcomAT.c ****         
+ 319:Src/simcomAT.c ****         HAL_Delay(1); 
+ 1394              		.loc 1 319 9 is_stmt 1 view .LVU215
  1395 004e 0120     		movs	r0, #1
  1396 0050 FFF7FEFF 		bl	HAL_Delay
  1397              	.LVL119:
- 311:Src/simcomAT.c ****         timeout--; 
- 1398              		.loc 1 311 9 view .LVU216
- 1399              		.loc 1 311 16 is_stmt 0 view .LVU217
+ 320:Src/simcomAT.c ****         timeout--; 
+ 1398              		.loc 1 320 9 view .LVU216
+ 1399              		.loc 1 320 16 is_stmt 0 view .LVU217
  1400 0054 013E     		subs	r6, r6, #1
  1401              	.LVL120:
- 1402              		.loc 1 311 16 view .LVU218
+ 1402              		.loc 1 320 16 view .LVU218
  1403 0056 B6B2     		uxth	r6, r6
  1404              	.LVL121:
- 312:Src/simcomAT.c ****         if(timeout == 0) HAL_NVIC_SystemReset();
- 1405              		.loc 1 312 9 is_stmt 1 view .LVU219
- 1406              		.loc 1 312 11 is_stmt 0 view .LVU220
+ 321:Src/simcomAT.c ****         if(timeout == 0) HAL_NVIC_SystemReset();
+ 1405              		.loc 1 321 9 is_stmt 1 view .LVU219
+ 1406              		.loc 1 321 11 is_stmt 0 view .LVU220
  1407 0058 002E     		cmp	r6, #0
  1408 005a F2D1     		bne	.L73
- 1409              		.loc 1 312 26 is_stmt 1 discriminator 1 view .LVU221
+ 1409              		.loc 1 321 26 is_stmt 1 discriminator 1 view .LVU221
  1410 005c FFF7FEFF 		bl	HAL_NVIC_SystemReset
  1411              	.LVL122:
  1412 0060 EFE7     		b	.L73
  1413              	.L91:
- 306:Src/simcomAT.c ****         	break; 
- 1414              		.loc 1 306 10 view .LVU222
- 306:Src/simcomAT.c ****         	break; 
- 1415              		.loc 1 306 43 is_stmt 0 view .LVU223
+ 315:Src/simcomAT.c ****         	break; 
+ 1414              		.loc 1 315 10 view .LVU222
+ 315:Src/simcomAT.c ****         	break; 
+ 1415              		.loc 1 315 43 is_stmt 0 view .LVU223
  1416 0062 3800     		movs	r0, r7
  1417 0064 FFF7FEFF 		bl	strlen
  1418              	.LVL123:
- 306:Src/simcomAT.c ****         	break; 
- 1419              		.loc 1 306 10 view .LVU224
+ 315:Src/simcomAT.c ****         	break; 
+ 1419              		.loc 1 315 10 view .LVU224
  1420 0068 82B2     		uxth	r2, r0
  1421 006a 6423     		movs	r3, #100
  1422 006c 3900     		movs	r1, r7
  1423 006e CEA8     		add	r0, sp, #824
  1424 0070 FFF7FEFF 		bl	HAL_UART_Transmit
  1425              	.LVL124:
- 307:Src/simcomAT.c ****         }
- 1426              		.loc 1 307 10 is_stmt 1 view .LVU225
- 313:Src/simcomAT.c **** 	}
- 314:Src/simcomAT.c **** 
- 315:Src/simcomAT.c **** 	// Remove and use continue
- 316:Src/simcomAT.c **** 	if(!SimA7670C_Response(recv_buf, (uint8_t*)"OK", 10000)) HAL_NVIC_SystemReset(); 
- 1427              		.loc 1 316 2 view .LVU226
- 1428              		.loc 1 316 6 is_stmt 0 view .LVU227
+ 316:Src/simcomAT.c ****         }
+ 1426              		.loc 1 316 10 is_stmt 1 view .LVU225
+ 322:Src/simcomAT.c **** 	}
+ 323:Src/simcomAT.c **** 
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 33
+
+
+ 324:Src/simcomAT.c **** 	// Remove and use continue
+ 325:Src/simcomAT.c **** 	if(!SimA7670C_Response(recv_buf, (uint8_t*)"OK", 10000)) HAL_NVIC_SystemReset(); 
+ 1427              		.loc 1 325 2 view .LVU226
+ 1428              		.loc 1 325 6 is_stmt 0 view .LVU227
  1429 0074 454A     		ldr	r2, .L94+8
  1430 0076 4649     		ldr	r1, .L94+12
  1431 0078 2800     		movs	r0, r5
  1432 007a FFF7FEFF 		bl	SimA7670C_Response
  1433              	.LVL125:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 33
-
-
- 1434              		.loc 1 316 4 view .LVU228
+ 1434              		.loc 1 325 4 view .LVU228
  1435 007e 0028     		cmp	r0, #0
  1436 0080 01D0     		beq	.L75
  1437              	.LBB8:
- 317:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
- 1438              		.loc 1 317 23 view .LVU229
+ 326:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
+ 1438              		.loc 1 326 23 view .LVU229
  1439 0082 0023     		movs	r3, #0
  1440 0084 07E0     		b	.L76
  1441              	.L75:
  1442              	.LBE8:
- 316:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
- 1443              		.loc 1 316 59 is_stmt 1 discriminator 1 view .LVU230
+ 325:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
+ 1443              		.loc 1 325 59 is_stmt 1 discriminator 1 view .LVU230
  1444 0086 FFF7FEFF 		bl	HAL_NVIC_SystemReset
  1445              	.LVL126:
  1446 008a 08E0     		b	.L78
  1447              	.LVL127:
  1448              	.L79:
  1449              	.LBB9:
- 1450              		.loc 1 317 50 discriminator 3 view .LVU231
- 1451              		.loc 1 317 64 is_stmt 0 discriminator 3 view .LVU232
+ 1450              		.loc 1 326 50 discriminator 3 view .LVU231
+ 1451              		.loc 1 326 64 is_stmt 0 discriminator 3 view .LVU232
  1452 008c 0022     		movs	r2, #0
  1453 008e 6946     		mov	r1, sp
  1454 0090 CA54     		strb	r2, [r1, r3]
- 1455              		.loc 1 317 43 is_stmt 1 discriminator 3 view .LVU233
- 1456              		.loc 1 317 46 is_stmt 0 discriminator 3 view .LVU234
+ 1455              		.loc 1 326 43 is_stmt 1 discriminator 3 view .LVU233
+ 1456              		.loc 1 326 46 is_stmt 0 discriminator 3 view .LVU234
  1457 0092 0133     		adds	r3, r3, #1
  1458              	.LVL128:
- 1459              		.loc 1 317 46 discriminator 3 view .LVU235
+ 1459              		.loc 1 326 46 discriminator 3 view .LVU235
  1460 0094 9BB2     		uxth	r3, r3
  1461              	.LVL129:
  1462              	.L76:
- 1463              		.loc 1 317 32 is_stmt 1 discriminator 1 view .LVU236
- 1464              		.loc 1 317 10 is_stmt 0 discriminator 1 view .LVU237
+ 1463              		.loc 1 326 32 is_stmt 1 discriminator 1 view .LVU236
+ 1464              		.loc 1 326 10 is_stmt 0 discriminator 1 view .LVU237
  1465 0096 C822     		movs	r2, #200
  1466 0098 9200     		lsls	r2, r2, #2
  1467 009a 9342     		cmp	r3, r2
  1468 009c F6D3     		bcc	.L79
  1469              	.LVL130:
  1470              	.L78:
- 1471              		.loc 1 317 10 discriminator 1 view .LVU238
+ 1471              		.loc 1 326 10 discriminator 1 view .LVU238
  1472              	.LBE9:
- 318:Src/simcomAT.c **** 	timeout = 2000;
- 1473              		.loc 1 318 2 is_stmt 1 view .LVU239
- 319:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 1474              		.loc 1 319 2 view .LVU240
+ 327:Src/simcomAT.c **** 	timeout = 2000;
+ 1473              		.loc 1 327 2 is_stmt 1 view .LVU239
+ 328:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 1474              		.loc 1 328 2 view .LVU240
  1475 009e 6420     		movs	r0, #100
  1476 00a0 FFF7FEFF 		bl	HAL_Delay
  1477              	.LVL131:
- 320:Src/simcomAT.c **** 
- 321:Src/simcomAT.c **** 	sprintf((char*)messages, "AT+CMQTTPAYLOAD=0,%d\r\n", strlen((char*)msg)); 
- 1478              		.loc 1 321 2 view .LVU241
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 34
+
+
+ 329:Src/simcomAT.c **** 
+ 330:Src/simcomAT.c **** 	sprintf((char*)messages, "AT+CMQTTPAYLOAD=0,%d\r\n", strlen((char*)msg)); 
+ 1478              		.loc 1 330 2 view .LVU241
  1479 00a4 2000     		movs	r0, r4
  1480 00a6 FFF7FEFF 		bl	strlen
  1481              	.LVL132:
  1482 00aa 0200     		movs	r2, r0
  1483 00ac 3949     		ldr	r1, .L94+16
  1484 00ae 6846     		mov	r0, sp
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 34
-
-
  1485 00b0 FFF7FEFF 		bl	sprintf
  1486              	.LVL133:
- 322:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, messages, strlen((char*)messages), 100); 
- 1487              		.loc 1 322 2 view .LVU242
- 1488              		.loc 1 322 38 is_stmt 0 view .LVU243
+ 331:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, messages, strlen((char*)messages), 100); 
+ 1487              		.loc 1 331 2 view .LVU242
+ 1488              		.loc 1 331 38 is_stmt 0 view .LVU243
  1489 00b4 6846     		mov	r0, sp
  1490 00b6 FFF7FEFF 		bl	strlen
  1491              	.LVL134:
- 1492              		.loc 1 322 2 view .LVU244
+ 1492              		.loc 1 331 2 view .LVU244
  1493 00ba 82B2     		uxth	r2, r0
  1494 00bc 6423     		movs	r3, #100
  1495 00be 6946     		mov	r1, sp
  1496 00c0 CEA8     		add	r0, sp, #824
  1497 00c2 FFF7FEFF 		bl	HAL_UART_Transmit
  1498              	.LVL135:
- 323:Src/simcomAT.c **** 	HAL_Delay(2); 
- 1499              		.loc 1 323 2 is_stmt 1 view .LVU245
+ 332:Src/simcomAT.c **** 	HAL_Delay(2); 
+ 1499              		.loc 1 332 2 is_stmt 1 view .LVU245
  1500 00c6 0220     		movs	r0, #2
  1501 00c8 FFF7FEFF 		bl	HAL_Delay
  1502              	.LVL136:
- 318:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 1503              		.loc 1 318 10 is_stmt 0 view .LVU246
+ 327:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 1503              		.loc 1 327 10 is_stmt 0 view .LVU246
  1504 00cc FA26     		movs	r6, #250
  1505 00ce F600     		lsls	r6, r6, #3
  1506              	.LVL137:
  1507              	.L80:
- 324:Src/simcomAT.c **** 	while(1)
- 1508              		.loc 1 324 2 is_stmt 1 view .LVU247
- 325:Src/simcomAT.c ****     {
- 326:Src/simcomAT.c ****         if(strstr((char*)recv_buf, ">")) 
- 1509              		.loc 1 326 9 view .LVU248
- 1510              		.loc 1 326 12 is_stmt 0 view .LVU249
+ 333:Src/simcomAT.c **** 	while(1)
+ 1508              		.loc 1 333 2 is_stmt 1 view .LVU247
+ 334:Src/simcomAT.c ****     {
+ 335:Src/simcomAT.c ****         if(strstr((char*)recv_buf, ">")) 
+ 1509              		.loc 1 335 9 view .LVU248
+ 1510              		.loc 1 335 12 is_stmt 0 view .LVU249
  1511 00d0 3E21     		movs	r1, #62
  1512 00d2 2800     		movs	r0, r5
  1513 00d4 FFF7FEFF 		bl	strchr
  1514              	.LVL138:
- 1515              		.loc 1 326 11 view .LVU250
+ 1515              		.loc 1 335 11 view .LVU250
  1516 00d8 0028     		cmp	r0, #0
  1517 00da 09D1     		bne	.L92
- 327:Src/simcomAT.c ****         {
- 328:Src/simcomAT.c ****         	HAL_UART_Transmit(&huart, msg, strlen((char*)msg), 100); 
- 329:Src/simcomAT.c ****         	break; 
- 330:Src/simcomAT.c ****         }
- 331:Src/simcomAT.c ****         
- 332:Src/simcomAT.c ****         HAL_Delay(1); 
- 1518              		.loc 1 332 9 is_stmt 1 view .LVU251
+ 336:Src/simcomAT.c ****         {
+ 337:Src/simcomAT.c ****         	HAL_UART_Transmit(&huart, msg, strlen((char*)msg), 100); 
+ 338:Src/simcomAT.c ****         	break; 
+ 339:Src/simcomAT.c ****         }
+ 340:Src/simcomAT.c ****         
+ 341:Src/simcomAT.c ****         HAL_Delay(1); 
+ 1518              		.loc 1 341 9 is_stmt 1 view .LVU251
  1519 00dc 0120     		movs	r0, #1
  1520 00de FFF7FEFF 		bl	HAL_Delay
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 35
+
+
  1521              	.LVL139:
- 333:Src/simcomAT.c ****         timeout--; 
- 1522              		.loc 1 333 9 view .LVU252
- 1523              		.loc 1 333 16 is_stmt 0 view .LVU253
+ 342:Src/simcomAT.c ****         timeout--; 
+ 1522              		.loc 1 342 9 view .LVU252
+ 1523              		.loc 1 342 16 is_stmt 0 view .LVU253
  1524 00e2 013E     		subs	r6, r6, #1
  1525              	.LVL140:
- 1526              		.loc 1 333 16 view .LVU254
+ 1526              		.loc 1 342 16 view .LVU254
  1527 00e4 B6B2     		uxth	r6, r6
  1528              	.LVL141:
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 35
-
-
- 334:Src/simcomAT.c ****         if(timeout == 0) HAL_NVIC_SystemReset();
- 1529              		.loc 1 334 9 is_stmt 1 view .LVU255
- 1530              		.loc 1 334 11 is_stmt 0 view .LVU256
+ 343:Src/simcomAT.c ****         if(timeout == 0) HAL_NVIC_SystemReset();
+ 1529              		.loc 1 343 9 is_stmt 1 view .LVU255
+ 1530              		.loc 1 343 11 is_stmt 0 view .LVU256
  1531 00e6 002E     		cmp	r6, #0
  1532 00e8 F2D1     		bne	.L80
- 1533              		.loc 1 334 26 is_stmt 1 discriminator 1 view .LVU257
+ 1533              		.loc 1 343 26 is_stmt 1 discriminator 1 view .LVU257
  1534 00ea FFF7FEFF 		bl	HAL_NVIC_SystemReset
  1535              	.LVL142:
  1536 00ee EFE7     		b	.L80
  1537              	.L92:
- 328:Src/simcomAT.c ****         	break; 
- 1538              		.loc 1 328 10 view .LVU258
- 328:Src/simcomAT.c ****         	break; 
- 1539              		.loc 1 328 41 is_stmt 0 view .LVU259
+ 337:Src/simcomAT.c ****         	break; 
+ 1538              		.loc 1 337 10 view .LVU258
+ 337:Src/simcomAT.c ****         	break; 
+ 1539              		.loc 1 337 41 is_stmt 0 view .LVU259
  1540 00f0 2000     		movs	r0, r4
  1541 00f2 FFF7FEFF 		bl	strlen
  1542              	.LVL143:
- 328:Src/simcomAT.c ****         	break; 
- 1543              		.loc 1 328 10 view .LVU260
+ 337:Src/simcomAT.c ****         	break; 
+ 1543              		.loc 1 337 10 view .LVU260
  1544 00f6 82B2     		uxth	r2, r0
  1545 00f8 6423     		movs	r3, #100
  1546 00fa 2100     		movs	r1, r4
  1547 00fc CEA8     		add	r0, sp, #824
  1548 00fe FFF7FEFF 		bl	HAL_UART_Transmit
  1549              	.LVL144:
- 329:Src/simcomAT.c ****         }
- 1550              		.loc 1 329 10 is_stmt 1 view .LVU261
- 335:Src/simcomAT.c **** 	}
- 336:Src/simcomAT.c **** 	if(!SimA7670C_Response(recv_buf, (uint8_t*)"OK", 10000)) HAL_NVIC_SystemReset(); 
- 1551              		.loc 1 336 2 view .LVU262
- 1552              		.loc 1 336 6 is_stmt 0 view .LVU263
+ 338:Src/simcomAT.c ****         }
+ 1550              		.loc 1 338 10 is_stmt 1 view .LVU261
+ 344:Src/simcomAT.c **** 	}
+ 345:Src/simcomAT.c **** 	if(!SimA7670C_Response(recv_buf, (uint8_t*)"OK", 10000)) HAL_NVIC_SystemReset(); 
+ 1551              		.loc 1 345 2 view .LVU262
+ 1552              		.loc 1 345 6 is_stmt 0 view .LVU263
  1553 0102 224A     		ldr	r2, .L94+8
  1554 0104 2249     		ldr	r1, .L94+12
  1555 0106 2800     		movs	r0, r5
  1556 0108 FFF7FEFF 		bl	SimA7670C_Response
  1557              	.LVL145:
- 1558              		.loc 1 336 4 view .LVU264
+ 1558              		.loc 1 345 4 view .LVU264
  1559 010c 0028     		cmp	r0, #0
  1560 010e 01D0     		beq	.L82
  1561              	.LBB10:
- 337:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
- 1562              		.loc 1 337 23 view .LVU265
+ 346:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
+ 1562              		.loc 1 346 23 view .LVU265
  1563 0110 0023     		movs	r3, #0
  1564 0112 07E0     		b	.L83
  1565              	.L82:
  1566              	.LBE10:
- 336:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
- 1567              		.loc 1 336 59 is_stmt 1 discriminator 1 view .LVU266
+ 345:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
+ 1567              		.loc 1 345 59 is_stmt 1 discriminator 1 view .LVU266
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 36
+
+
  1568 0114 FFF7FEFF 		bl	HAL_NVIC_SystemReset
  1569              	.LVL146:
  1570 0118 08E0     		b	.L85
  1571              	.LVL147:
  1572              	.L86:
  1573              	.LBB11:
- 1574              		.loc 1 337 50 discriminator 3 view .LVU267
- 1575              		.loc 1 337 64 is_stmt 0 discriminator 3 view .LVU268
+ 1574              		.loc 1 346 50 discriminator 3 view .LVU267
+ 1575              		.loc 1 346 64 is_stmt 0 discriminator 3 view .LVU268
  1576 011a 0022     		movs	r2, #0
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 36
-
-
  1577 011c 6946     		mov	r1, sp
  1578 011e CA54     		strb	r2, [r1, r3]
- 1579              		.loc 1 337 43 is_stmt 1 discriminator 3 view .LVU269
- 1580              		.loc 1 337 46 is_stmt 0 discriminator 3 view .LVU270
+ 1579              		.loc 1 346 43 is_stmt 1 discriminator 3 view .LVU269
+ 1580              		.loc 1 346 46 is_stmt 0 discriminator 3 view .LVU270
  1581 0120 0133     		adds	r3, r3, #1
  1582              	.LVL148:
- 1583              		.loc 1 337 46 discriminator 3 view .LVU271
+ 1583              		.loc 1 346 46 discriminator 3 view .LVU271
  1584 0122 9BB2     		uxth	r3, r3
  1585              	.LVL149:
  1586              	.L83:
- 1587              		.loc 1 337 32 is_stmt 1 discriminator 1 view .LVU272
- 1588              		.loc 1 337 10 is_stmt 0 discriminator 1 view .LVU273
+ 1587              		.loc 1 346 32 is_stmt 1 discriminator 1 view .LVU272
+ 1588              		.loc 1 346 10 is_stmt 0 discriminator 1 view .LVU273
  1589 0124 C822     		movs	r2, #200
  1590 0126 9200     		lsls	r2, r2, #2
  1591 0128 9342     		cmp	r3, r2
  1592 012a F6D3     		bcc	.L86
  1593              	.LVL150:
  1594              	.L85:
- 1595              		.loc 1 337 10 discriminator 1 view .LVU274
+ 1595              		.loc 1 346 10 discriminator 1 view .LVU274
  1596              	.LBE11:
- 338:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 1597              		.loc 1 338 2 is_stmt 1 view .LVU275
+ 347:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 1597              		.loc 1 347 2 is_stmt 1 view .LVU275
  1598 012c 6420     		movs	r0, #100
  1599 012e FFF7FEFF 		bl	HAL_Delay
  1600              	.LVL151:
- 339:Src/simcomAT.c **** 
- 340:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CMQTTPUB=0,1,60\r\n", strlen("AT+CMQTTPUB=0,1,60\r\n"), 10
- 1601              		.loc 1 340 2 view .LVU276
+ 348:Src/simcomAT.c **** 
+ 349:Src/simcomAT.c **** 	HAL_UART_Transmit(&huart, (uint8_t*)"AT+CMQTTPUB=0,1,60\r\n", strlen("AT+CMQTTPUB=0,1,60\r\n"), 10
+ 1601              		.loc 1 349 2 view .LVU276
  1602 0132 6423     		movs	r3, #100
  1603 0134 1422     		movs	r2, #20
  1604 0136 1849     		ldr	r1, .L94+20
  1605 0138 CEA8     		add	r0, sp, #824
  1606 013a FFF7FEFF 		bl	HAL_UART_Transmit
  1607              	.LVL152:
- 341:Src/simcomAT.c **** 	HAL_Delay(2); 
- 1608              		.loc 1 341 2 view .LVU277
+ 350:Src/simcomAT.c **** 	HAL_Delay(2); 
+ 1608              		.loc 1 350 2 view .LVU277
  1609 013e 0220     		movs	r0, #2
  1610 0140 FFF7FEFF 		bl	HAL_Delay
  1611              	.LVL153:
- 342:Src/simcomAT.c **** 
- 343:Src/simcomAT.c **** 	// Remove and use continue
- 344:Src/simcomAT.c **** 	if(!SimA7670C_Response(recv_buf, (uint8_t*)"+CMQTTPUB:", 10000)) HAL_NVIC_SystemReset(); 
- 1612              		.loc 1 344 2 view .LVU278
- 1613              		.loc 1 344 6 is_stmt 0 view .LVU279
+ 351:Src/simcomAT.c **** 
+ 352:Src/simcomAT.c **** 	// Remove and use continue
+ 353:Src/simcomAT.c **** 	if(!SimA7670C_Response(recv_buf, (uint8_t*)"+CMQTTPUB:", 10000)) HAL_NVIC_SystemReset(); 
+ 1612              		.loc 1 353 2 view .LVU278
+ 1613              		.loc 1 353 6 is_stmt 0 view .LVU279
  1614 0144 114A     		ldr	r2, .L94+8
  1615 0146 1549     		ldr	r1, .L94+24
  1616 0148 2800     		movs	r0, r5
  1617 014a FFF7FEFF 		bl	SimA7670C_Response
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 37
+
+
  1618              	.LVL154:
- 1619              		.loc 1 344 4 view .LVU280
+ 1619              		.loc 1 353 4 view .LVU280
  1620 014e 0028     		cmp	r0, #0
  1621 0150 01D0     		beq	.L93
  1622              	.LBB12:
- 345:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
- 1623              		.loc 1 345 23 view .LVU281
+ 354:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
+ 1623              		.loc 1 354 23 view .LVU281
  1624 0152 0023     		movs	r3, #0
  1625 0154 07E0     		b	.L87
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 37
-
-
  1626              	.L93:
  1627              	.LBE12:
- 344:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
- 1628              		.loc 1 344 67 is_stmt 1 discriminator 1 view .LVU282
+ 353:Src/simcomAT.c ****     else for(uint16_t pos = 0; pos < 800; pos++) messages[pos] = '\0'; 
+ 1628              		.loc 1 353 67 is_stmt 1 discriminator 1 view .LVU282
  1629 0156 FFF7FEFF 		bl	HAL_NVIC_SystemReset
  1630              	.LVL155:
  1631 015a 08E0     		b	.L88
  1632              	.LVL156:
  1633              	.L89:
  1634              	.LBB13:
- 1635              		.loc 1 345 50 discriminator 3 view .LVU283
- 1636              		.loc 1 345 64 is_stmt 0 discriminator 3 view .LVU284
+ 1635              		.loc 1 354 50 discriminator 3 view .LVU283
+ 1636              		.loc 1 354 64 is_stmt 0 discriminator 3 view .LVU284
  1637 015c 0022     		movs	r2, #0
  1638 015e 6946     		mov	r1, sp
  1639 0160 CA54     		strb	r2, [r1, r3]
- 1640              		.loc 1 345 43 is_stmt 1 discriminator 3 view .LVU285
- 1641              		.loc 1 345 46 is_stmt 0 discriminator 3 view .LVU286
+ 1640              		.loc 1 354 43 is_stmt 1 discriminator 3 view .LVU285
+ 1641              		.loc 1 354 46 is_stmt 0 discriminator 3 view .LVU286
  1642 0162 0133     		adds	r3, r3, #1
  1643              	.LVL157:
- 1644              		.loc 1 345 46 discriminator 3 view .LVU287
+ 1644              		.loc 1 354 46 discriminator 3 view .LVU287
  1645 0164 9BB2     		uxth	r3, r3
  1646              	.LVL158:
  1647              	.L87:
- 1648              		.loc 1 345 32 is_stmt 1 discriminator 1 view .LVU288
- 1649              		.loc 1 345 10 is_stmt 0 discriminator 1 view .LVU289
+ 1648              		.loc 1 354 32 is_stmt 1 discriminator 1 view .LVU288
+ 1649              		.loc 1 354 10 is_stmt 0 discriminator 1 view .LVU289
  1650 0166 C822     		movs	r2, #200
  1651 0168 9200     		lsls	r2, r2, #2
  1652 016a 9342     		cmp	r3, r2
  1653 016c F6D3     		bcc	.L89
  1654              	.LVL159:
  1655              	.L88:
- 1656              		.loc 1 345 10 discriminator 1 view .LVU290
+ 1656              		.loc 1 354 10 discriminator 1 view .LVU290
  1657              	.LBE13:
- 346:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
- 1658              		.loc 1 346 2 is_stmt 1 view .LVU291
+ 355:Src/simcomAT.c **** 	HAL_Delay(_ms_); 
+ 1658              		.loc 1 355 2 is_stmt 1 view .LVU291
  1659 016e 6420     		movs	r0, #100
  1660 0170 FFF7FEFF 		bl	HAL_Delay
  1661              	.LVL160:
- 347:Src/simcomAT.c **** } 
- 1662              		.loc 1 347 1 is_stmt 0 view .LVU292
+ 356:Src/simcomAT.c **** } 
+ 1662              		.loc 1 356 1 is_stmt 0 view .LVU292
  1663 0174 C923     		movs	r3, #201
  1664 0176 9B00     		lsls	r3, r3, #2
  1665 0178 9D44     		add	sp, sp, r3
  1666              		@ sp needed
  1667              	.LVL161:
- 1668              		.loc 1 347 1 view .LVU293
+ 1668              		.loc 1 356 1 view .LVU293
  1669 017a F0BC     		pop	{r4, r5, r6, r7}
  1670 017c 08BC     		pop	{r3}
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 38
+
+
  1671 017e 04B0     		add	sp, sp, #16
  1672 0180 1847     		bx	r3
  1673              	.L95:
@@ -2218,14 +2230,11 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  1677 0188 00000000 		.word	.LC50
  1678 018c 10270000 		.word	10000
  1679 0190 1C000000 		.word	.LC44
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 38
-
-
  1680 0194 18000000 		.word	.LC53
  1681 0198 30000000 		.word	.LC55
  1682 019c 48000000 		.word	.LC57
  1683              		.cfi_endproc
- 1684              	.LFE327:
+ 1684              	.LFE457:
  1686              		.text
  1687              	.Letext0:
  1688              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
@@ -2242,72 +2251,72 @@ ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 1
  1699              		.file 13 "Drivers/STM32G0xx_HAL_Driver/Inc/stm32g0xx_hal_cortex.h"
  1700              		.file 14 "<built-in>"
  1701              		.file 15 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 39
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 39
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 simcomAT.c
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:18     .text.SimA7670C_Response:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:24     .text.SimA7670C_Response:00000000 SimA7670C_Response
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:96     .rodata.Get_RSSI_Sim4GLTE.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:103    .text.Get_RSSI_Sim4GLTE:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:109    .text.Get_RSSI_Sim4GLTE:00000000 Get_RSSI_Sim4GLTE
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:219    .text.Get_RSSI_Sim4GLTE:0000005c $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:225    .rodata.Get_Service_Provider_Name_Sim4GLTE.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:247    .text.Get_Service_Provider_Name_Sim4GLTE:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:253    .text.Get_Service_Provider_Name_Sim4GLTE:00000000 Get_Service_Provider_Name_Sim4GLTE
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:395    .text.Get_Service_Provider_Name_Sim4GLTE:000000b8 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:406    .rodata.Is_Insert_Sim_Card.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:410    .text.Is_Insert_Sim_Card:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:416    .text.Is_Insert_Sim_Card:00000000 Is_Insert_Sim_Card
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:454    .text.Is_Insert_Sim_Card:00000028 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:459    .rodata.SimA7670C_Reset.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:463    .text.SimA7670C_Reset:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:469    .text.SimA7670C_Reset:00000000 SimA7670C_Reset
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:507    .text.SimA7670C_Reset:00000028 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:512    .rodata.SimA7670C_Echo.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:519    .text.SimA7670C_Echo:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:525    .text.SimA7670C_Echo:00000000 SimA7670C_Echo
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:584    .text.SimA7670C_Echo:00000040 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:590    .rodata.SimA7670C_PDP_Context_Config.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:594    .text.SimA7670C_PDP_Context_Config:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:600    .text.SimA7670C_PDP_Context_Config:00000000 SimA7670C_PDP_Context_Config
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:656    .text.SimA7670C_PDP_Context_Config:0000003c $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:661    .rodata.SimA7670C_PDP_Context_Set.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:665    .text.SimA7670C_PDP_Context_Set:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:671    .text.SimA7670C_PDP_Context_Set:00000000 SimA7670C_PDP_Context_Set
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:728    .text.SimA7670C_PDP_Context_Set:00000040 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:733    .rodata.SimA7670C_MQTT_StartService.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:737    .text.SimA7670C_MQTT_StartService:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:743    .text.SimA7670C_MQTT_StartService:00000000 SimA7670C_MQTT_StartService
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:781    .text.SimA7670C_MQTT_StartService:00000028 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:786    .rodata.SimA7670C_MQTT_StopService.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:790    .text.SimA7670C_MQTT_StopService:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:796    .text.SimA7670C_MQTT_StopService:00000000 SimA7670C_MQTT_StopService
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:834    .text.SimA7670C_MQTT_StopService:00000028 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:839    .rodata.SimA7670C_MQTT_Client_Config.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:843    .text.SimA7670C_MQTT_Client_Config:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:849    .text.SimA7670C_MQTT_Client_Config:00000000 SimA7670C_MQTT_Client_Config
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:903    .text.SimA7670C_MQTT_Client_Config:00000038 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:908    .rodata.SimA7670C_MQTT_BrokerConnect.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:913    .text.SimA7670C_MQTT_BrokerConnect:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:919    .text.SimA7670C_MQTT_BrokerConnect:00000000 SimA7670C_MQTT_BrokerConnect
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:979    .text.SimA7670C_MQTT_BrokerConnect:00000044 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:984    .rodata.SimA7670C_MQTT_BrokerDisconnect.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:991    .text.SimA7670C_MQTT_BrokerDisconnect:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:997    .text.SimA7670C_MQTT_BrokerDisconnect:00000000 SimA7670C_MQTT_BrokerDisconnect
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:1046   .text.SimA7670C_MQTT_BrokerDisconnect:00000038 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:1052   .rodata.SimA7670C_Mqtt_Subscribe.str1.4:00000000 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:1065   .text.SimA7670C_Mqtt_Subscribe:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:1071   .text.SimA7670C_Mqtt_Subscribe:00000000 SimA7670C_Mqtt_Subscribe
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:1293   .text.SimA7670C_Mqtt_Subscribe:000000e4 $d
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:1302   .rodata.SimA7670C_Mqtt_Publish.str1.4:00000000 $d
-ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s 			page 40
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:18     .text.SimA7670C_Response:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:24     .text.SimA7670C_Response:00000000 SimA7670C_Response
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:96     .rodata.Get_RSSI_Sim4GLTE.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:103    .text.Get_RSSI_Sim4GLTE:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:109    .text.Get_RSSI_Sim4GLTE:00000000 Get_RSSI_Sim4GLTE
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:219    .text.Get_RSSI_Sim4GLTE:0000005c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:225    .rodata.Get_Service_Provider_Name_Sim4GLTE.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:247    .text.Get_Service_Provider_Name_Sim4GLTE:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:253    .text.Get_Service_Provider_Name_Sim4GLTE:00000000 Get_Service_Provider_Name_Sim4GLTE
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:395    .text.Get_Service_Provider_Name_Sim4GLTE:000000b8 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:406    .rodata.Is_Insert_Sim_Card.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:410    .text.Is_Insert_Sim_Card:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:416    .text.Is_Insert_Sim_Card:00000000 Is_Insert_Sim_Card
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:454    .text.Is_Insert_Sim_Card:00000028 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:459    .rodata.SimA7670C_Reset.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:463    .text.SimA7670C_Reset:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:469    .text.SimA7670C_Reset:00000000 SimA7670C_Reset
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:507    .text.SimA7670C_Reset:00000028 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:512    .rodata.SimA7670C_Echo.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:519    .text.SimA7670C_Echo:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:525    .text.SimA7670C_Echo:00000000 SimA7670C_Echo
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:584    .text.SimA7670C_Echo:00000040 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:590    .rodata.SimA7670C_PDP_Context_Config.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:594    .text.SimA7670C_PDP_Context_Config:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:600    .text.SimA7670C_PDP_Context_Config:00000000 SimA7670C_PDP_Context_Config
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:656    .text.SimA7670C_PDP_Context_Config:0000003c $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:661    .rodata.SimA7670C_PDP_Context_Set.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:665    .text.SimA7670C_PDP_Context_Set:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:671    .text.SimA7670C_PDP_Context_Set:00000000 SimA7670C_PDP_Context_Set
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:728    .text.SimA7670C_PDP_Context_Set:00000040 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:733    .rodata.SimA7670C_MQTT_StartService.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:737    .text.SimA7670C_MQTT_StartService:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:743    .text.SimA7670C_MQTT_StartService:00000000 SimA7670C_MQTT_StartService
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:781    .text.SimA7670C_MQTT_StartService:00000028 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:786    .rodata.SimA7670C_MQTT_StopService.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:790    .text.SimA7670C_MQTT_StopService:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:796    .text.SimA7670C_MQTT_StopService:00000000 SimA7670C_MQTT_StopService
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:834    .text.SimA7670C_MQTT_StopService:00000028 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:839    .rodata.SimA7670C_MQTT_Client_Config.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:843    .text.SimA7670C_MQTT_Client_Config:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:849    .text.SimA7670C_MQTT_Client_Config:00000000 SimA7670C_MQTT_Client_Config
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:903    .text.SimA7670C_MQTT_Client_Config:00000038 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:908    .rodata.SimA7670C_MQTT_BrokerConnect.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:913    .text.SimA7670C_MQTT_BrokerConnect:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:919    .text.SimA7670C_MQTT_BrokerConnect:00000000 SimA7670C_MQTT_BrokerConnect
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:979    .text.SimA7670C_MQTT_BrokerConnect:00000044 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:984    .rodata.SimA7670C_MQTT_BrokerDisconnect.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:991    .text.SimA7670C_MQTT_BrokerDisconnect:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:997    .text.SimA7670C_MQTT_BrokerDisconnect:00000000 SimA7670C_MQTT_BrokerDisconnect
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:1046   .text.SimA7670C_MQTT_BrokerDisconnect:00000038 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:1052   .rodata.SimA7670C_Mqtt_Subscribe.str1.4:00000000 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:1065   .text.SimA7670C_Mqtt_Subscribe:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:1071   .text.SimA7670C_Mqtt_Subscribe:00000000 SimA7670C_Mqtt_Subscribe
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:1293   .text.SimA7670C_Mqtt_Subscribe:000000e4 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:1302   .rodata.SimA7670C_Mqtt_Publish.str1.4:00000000 $d
+ARM GAS  C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s 			page 40
 
 
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:1315   .text.SimA7670C_Mqtt_Publish:00000000 $t
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:1321   .text.SimA7670C_Mqtt_Publish:00000000 SimA7670C_Mqtt_Publish
-C:\Users\EMBEDD~1\AppData\Local\Temp\ccggt9dV.s:1676   .text.SimA7670C_Mqtt_Publish:00000184 $d
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:1315   .text.SimA7670C_Mqtt_Publish:00000000 $t
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:1321   .text.SimA7670C_Mqtt_Publish:00000000 SimA7670C_Mqtt_Publish
+C:\Users\EMBEDD~1\AppData\Local\Temp\ccrZK1vD.s:1676   .text.SimA7670C_Mqtt_Publish:00000184 $d
 
 UNDEFINED SYMBOLS
 strstr
